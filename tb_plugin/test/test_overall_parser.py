@@ -1,5 +1,11 @@
 import unittest
-from tensorboard_plugin_torch_profiler.profiler.overall_parser import merge_ranges
+import math
+
+from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
+    merge_ranges, subtract_ranges_lists, intersection_ranges_lists, get_ranges_sum,
+    OverallParser
+)
+from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 
 def check_ranges_equal(ranges1, ranges2):
     if len(ranges1) != len(ranges2):
@@ -11,14 +17,52 @@ def check_ranges_equal(ranges1, ranges2):
 
 class TestOverallParser(unittest.TestCase):
 
-
     def test_merge_ranges(self):
         src_ranges = [(1.1, 2.2), (1.5, 2.3), (3.3, 3.9), (3.5, 3.6), (3.7, 3.8), (4.1, 4.2)]
         expected_ranges = [(1.1, 2.3), (3.3, 3.9), (4.1, 4.2)]
-        merged_ranges = merge_ranges(src_ranges, True)
-        is_equal = check_ranges_equal(merged_ranges, expected_ranges)
+        dst_ranges = merge_ranges(src_ranges, True)
+        is_equal = check_ranges_equal(dst_ranges, expected_ranges)
         self.assertTrue(is_equal)
-    #def test_parse_events(self):
+
+    def test_subtract_ranges_lists(self):
+        ranges1 = [(1.1, 2.2), (3.3, 4.4), (5.5, 6.6)]
+        ranges2 = [(0, 0.1), (1.0, 1.4), (1.5, 1.6), (1.9, 3.4), (4.3, 4.6)]
+        expected_ranges = [(1.4, 1.5), (1.6, 1.9), (3.4, 4.3), (5.5, 6.6)]
+        dst_ranges = subtract_ranges_lists(ranges1, ranges2)
+        is_equal = check_ranges_equal(dst_ranges, expected_ranges)
+        self.assertTrue(is_equal)
+
+    def test_intersection_ranges_lists(self):
+        ranges1 = [(1.1, 2.2), (3.3, 4.4), (5.5, 6.6)]
+        ranges2 = [(0, 0.1), (1.0, 1.4), (1.5, 1.6), (1.9, 3.4), (4.3, 4.6)]
+        expected_ranges = [(1.1, 1.4), (1.5, 1.6), (1.9, 2.2), (3.3, 3.4), (4.3, 4.4)]
+        dst_ranges = intersection_ranges_lists(ranges1, ranges2)
+        is_equal = check_ranges_equal(dst_ranges, expected_ranges)
+        self.assertTrue(is_equal)
+
+    def test_get_ranges_sum(self):
+        ranges = [(1.1, 2.2), (3.3, 4.4), (5.5, 6.6)]
+        expected_sum = 3.3
+        dst_sum = get_ranges_sum(ranges)
+        self.assertTrue(math.isclose(dst_sum, expected_sum))
+
+    def test_parse_events(self):
+        def check_step(step):
+            sum_cost = (step.kernel_cost
+                        + step.memcpy_cost\
+                        + step.memset_cost\
+                        + step.runtime_cost\
+                        + step.dataloader_cost\
+                        + step.cpuop_cost\
+                        + step.other_cost)
+            self.assertTrue(math.isclose(sum_cost, step.step_total_cost))
+
+        data = RunProfileData.parse(".", "worker0")
+        overall_parser = OverallParser()
+        overall_parser.parse_events(data.events)
+        for step in overall_parser.steps_costs:
+            check_step(step)
+        check_step(overall_parser.avg_costs)
 
 
 if __name__ == '__main__':
