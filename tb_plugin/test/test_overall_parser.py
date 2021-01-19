@@ -7,13 +7,15 @@ from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
 )
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 
+
 def check_ranges_equal(ranges1, ranges2):
     if len(ranges1) != len(ranges2):
         return False
     for i in range(len(ranges1)):
-        if (ranges1[i][0] != ranges2[i][0] or ranges1[i][1] != ranges2[i][1]):
+        if ranges1[i][0] != ranges2[i][0] or ranges1[i][1] != ranges2[i][1]:
             return False
     return True
+
 
 class TestOverallParser(unittest.TestCase):
 
