@@ -7,7 +7,7 @@ from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 KERNEL_STAT = "./data/data_kernel_stat.pkl"
 
 
-def save_agg(kernel_stat, file_path):
+def save_object(kernel_stat, file_path):
     with open(file_path, "wb") as file:
         pickle.dump(kernel_stat, file)
 
@@ -16,7 +16,7 @@ def save_golden_files():
     data = RunProfileData.parse("./data", "worker0")
     kernel_parser = KernelParser()
     kernel_parser.parse_events(data.events)
-    save_agg(kernel_parser.kernel_stat, KERNEL_STAT)
+    save_object(kernel_parser.kernel_stat, KERNEL_STAT)
 
 
 class TestKernelParser(unittest.TestCase):

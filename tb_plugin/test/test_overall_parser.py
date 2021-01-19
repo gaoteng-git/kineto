@@ -1,11 +1,29 @@
 import unittest
 import math
+import pickle
 
 from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
     merge_ranges, subtract_ranges_lists, intersection_ranges_lists, get_ranges_sum,
     OverallParser
 )
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
+
+
+STEPS_COSTS = "./data/data_steps_costs.pkl"
+AVG_COSTS = "./data/data_avg_costs.pkl"
+
+
+def save_object(obj, file_path):
+    with open(file_path, "wb") as file:
+        pickle.dump(obj, file)
+
+
+def save_golden_files():
+    data = RunProfileData.parse("./data", "worker0")
+    overall_parser = OverallParser()
+    overall_parser.parse_events(data.events)
+    save_object(overall_parser.steps_costs, STEPS_COSTS)
+    save_object(overall_parser.avg_costs, AVG_COSTS)
 
 
 def check_ranges_equal(ranges1, ranges2):
@@ -66,6 +84,29 @@ class TestOverallParser(unittest.TestCase):
             check_step(step)
         check_step(overall_parser.avg_costs)
 
+        def load_object(file_path):
+            with open(file_path, "rb") as file:
+                obj = pickle.load(file)
+            return obj
+        steps_costs = load_object(STEPS_COSTS)
+        avg_costs = load_object(AVG_COSTS)
+
+        def check_step_equal(step1, step2):
+            self.assertTrue(math.isclose(step1.step_total_cost, step2.step_total_cost))
+            self.assertTrue(math.isclose(step1.kernel_cost, step2.kernel_cost))
+            self.assertTrue(math.isclose(step1.memcpy_cost, step2.memcpy_cost))
+            self.assertTrue(math.isclose(step1.memset_cost, step2.memset_cost))
+            self.assertTrue(math.isclose(step1.runtime_cost, step2.runtime_cost))
+            self.assertTrue(math.isclose(step1.dataloader_cost, step2.dataloader_cost))
+            self.assertTrue(math.isclose(step1.cpuop_cost, step2.cpuop_cost))
+            self.assertTrue(math.isclose(step1.other_cost, step2.other_cost))
+
+        self.assertEqual(len(overall_parser.steps_costs), len(steps_costs))
+        for i in range(len(steps_costs)):
+            check_step_equal(overall_parser.steps_costs[i], steps_costs[i])
+        check_step_equal(overall_parser.avg_costs, avg_costs)
+
 
 if __name__ == '__main__':
+    save_golden_files()
     unittest.main()

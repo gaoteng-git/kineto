@@ -9,7 +9,7 @@ OP_LIST_BY_INPUT = "./data/data_op_list_groupby_name_input.pkl"
 KERNEL_LIST_BY_OP = "./data/data_kernel_list_groupby_name_op.pkl"
 
 
-def save_agg(agg_list, file_path):
+def save_object(agg_list, file_path):
     with open(file_path, "wb") as file:
         pickle.dump(agg_list, file)
 
@@ -18,9 +18,9 @@ def save_golden_files():
     data = RunProfileData.parse("./data", "worker0")
     module_parser = ModuleParser()
     module_parser.parse_events(data.events)
-    save_agg(module_parser.op_list_groupby_name, OP_LIST)
-    save_agg(module_parser.op_list_groupby_name_input, OP_LIST_BY_INPUT)
-    save_agg(module_parser.kernel_list_groupby_name_op, KERNEL_LIST_BY_OP)
+    save_object(module_parser.op_list_groupby_name, OP_LIST)
+    save_object(module_parser.op_list_groupby_name_input, OP_LIST_BY_INPUT)
+    save_object(module_parser.kernel_list_groupby_name_op, KERNEL_LIST_BY_OP)
 
 
 class TestModuleParser(unittest.TestCase):
