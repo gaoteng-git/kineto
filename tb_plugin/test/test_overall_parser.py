@@ -59,7 +59,7 @@ class TestOverallParser(unittest.TestCase):
                         + step.other_cost)
             self.assertTrue(math.isclose(sum_cost, step.step_total_cost))
 
-        data = RunProfileData.parse(".", "worker0")
+        data = RunProfileData.parse("./data", "worker0")
         overall_parser = OverallParser()
         overall_parser.parse_events(data.events)
         for step in overall_parser.steps_costs:
