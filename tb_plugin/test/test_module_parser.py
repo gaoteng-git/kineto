@@ -13,8 +13,8 @@ KERNEL_LIST_BY_OP = "./data/data_kernel_list_groupby_name_op.json"
 class TestModuleParser(unittest.TestCase):
     def test_parse_events(self):
         def load_agg(file_path):
-            with open(file_path, "rb") as file:
-                agg_list = jsonpickle.decode(file)
+            with open(file_path, "r") as file:
+                agg_list = jsonpickle.decode(file.read())
             return agg_list
 
         op_list_groupby_name = load_agg(OP_LIST)
