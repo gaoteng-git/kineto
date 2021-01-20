@@ -1,5 +1,5 @@
 import math
-import pickle
+import jsonpickle
 import unittest
 
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
@@ -8,8 +8,8 @@ from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
     OverallParser
 )
 
-STEPS_COSTS = "./data/data_steps_costs.pkl"
-AVG_COSTS = "./data/data_avg_costs.pkl"
+STEPS_COSTS = "./data/data_steps_costs.json"
+AVG_COSTS = "./data/data_avg_costs.json"
 
 
 def check_ranges_equal(ranges1, ranges2):
@@ -72,7 +72,7 @@ class TestOverallParser(unittest.TestCase):
 
         def load_object(file_path):
             with open(file_path, "rb") as file:
-                obj = pickle.load(file)
+                obj = jsonpickle.decode(file)
             return obj
 
         steps_costs = load_object(STEPS_COSTS)

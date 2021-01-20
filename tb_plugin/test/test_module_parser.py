@@ -1,20 +1,20 @@
 import math
-import pickle
+import jsonpickle
 import unittest
 
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 from tensorboard_plugin_torch_profiler.profiler.module_parser import ModuleParser
 
-OP_LIST = "./data/data_op_list_groupby_name.pkl"
-OP_LIST_BY_INPUT = "./data/data_op_list_groupby_name_input.pkl"
-KERNEL_LIST_BY_OP = "./data/data_kernel_list_groupby_name_op.pkl"
+OP_LIST = "./data/data_op_list_groupby_name.json"
+OP_LIST_BY_INPUT = "./data/data_op_list_groupby_name_input.json"
+KERNEL_LIST_BY_OP = "./data/data_kernel_list_groupby_name_op.json"
 
 
 class TestModuleParser(unittest.TestCase):
     def test_parse_events(self):
         def load_agg(file_path):
             with open(file_path, "rb") as file:
-                agg_list = pickle.load(file)
+                agg_list = jsonpickle.decode(file)
             return agg_list
 
         op_list_groupby_name = load_agg(OP_LIST)
