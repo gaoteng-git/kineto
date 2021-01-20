@@ -1,17 +1,17 @@
 import unittest
-import pickle
+import jsonpickle
 
 from tensorboard_plugin_torch_profiler.profiler.module_parser import (ModuleParser, OperatorAgg, KernelAggByNameOp)
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 
-OP_LIST = "./data/data_op_list_groupby_name.pkl"
-OP_LIST_BY_INPUT = "./data/data_op_list_groupby_name_input.pkl"
-KERNEL_LIST_BY_OP = "./data/data_kernel_list_groupby_name_op.pkl"
+OP_LIST = "./data/data_op_list_groupby_name.json"
+OP_LIST_BY_INPUT = "./data/data_op_list_groupby_name_input.json"
+KERNEL_LIST_BY_OP = "./data/data_kernel_list_groupby_name_op.json"
 
 
 def save_object(agg_list, file_path):
-    with open(file_path, "wb") as file:
-        pickle.dump(agg_list, file)
+    with open(file_path, "w") as file:
+        file.write(jsonpickle.encode(agg_list))
 
 
 def save_golden_files():
@@ -26,8 +26,8 @@ def save_golden_files():
 class TestModuleParser(unittest.TestCase):
     def test_parse_events(self):
         def load_agg(file_path):
-            with open(file_path, "rb") as file:
-                agg_list = pickle.load(file)
+            with open(file_path, "r") as file:
+                agg_list = jsonpickle.decode(file.read())
             return agg_list
         op_list_groupby_name = load_agg(OP_LIST)
         op_list_groupby_name_input = load_agg(OP_LIST_BY_INPUT)

@@ -1,0 +1,1 @@
+{"py/object": "tensorboard_plugin_torch_profiler.profiler.overall_parser.OverallParser.Costs", "step_total_cost": 154745.0, "kernel_cost": 106673.33333333333, "memcpy_cost": 2122.3333333333335, "memset_cost": 73.16666666666667, "runtime_cost": 2897.6666666666665, "dataloader_cost": 31422.833333333332, "cpuop_cost": 10453.833333333334, "other_cost": 1101.8333333333333}

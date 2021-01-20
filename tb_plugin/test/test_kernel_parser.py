@@ -1,15 +1,16 @@
 import unittest
-import pickle
+import jsonpickle
+import jsonpickle.ext.pandas as jsonpickle_pd
 
 from tensorboard_plugin_torch_profiler.profiler.kernel_parser import (KernelParser)
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 
-KERNEL_STAT = "./data/data_kernel_stat.pkl"
+KERNEL_STAT = "./data/data_kernel_stat.json"
 
 
 def save_object(kernel_stat, file_path):
-    with open(file_path, "wb") as file:
-        pickle.dump(kernel_stat, file)
+    with open(file_path, "w") as file:
+        file.write(jsonpickle.encode(kernel_stat))
 
 
 def save_golden_files():
@@ -22,8 +23,8 @@ def save_golden_files():
 class TestKernelParser(unittest.TestCase):
     def test_parse_events(self):
         def load_kernels(file_path):
-            with open(file_path, "rb") as file:
-                kernels = pickle.load(file)
+            with open(file_path, "r") as file:
+                kernels = jsonpickle.decode(file.read())
             return kernels
         kernel_stat = load_kernels(KERNEL_STAT)
 
@@ -34,5 +35,6 @@ class TestKernelParser(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    jsonpickle_pd.register_handlers()
     save_golden_files()
     unittest.main()

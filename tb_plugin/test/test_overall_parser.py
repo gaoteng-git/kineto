@@ -1,6 +1,6 @@
 import unittest
 import math
-import pickle
+import jsonpickle
 
 from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
     merge_ranges, subtract_ranges_lists, intersection_ranges_lists, get_ranges_sum,
@@ -9,13 +9,13 @@ from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
 
 
-STEPS_COSTS = "./data/data_steps_costs.pkl"
-AVG_COSTS = "./data/data_avg_costs.pkl"
+STEPS_COSTS = "./data/data_steps_costs.json"
+AVG_COSTS = "./data/data_avg_costs.json"
 
 
 def save_object(obj, file_path):
-    with open(file_path, "wb") as file:
-        pickle.dump(obj, file)
+    with open(file_path, "w") as file:
+        file.write(jsonpickle.encode(obj))
 
 
 def save_golden_files():
@@ -85,8 +85,8 @@ class TestOverallParser(unittest.TestCase):
         check_step(overall_parser.avg_costs)
 
         def load_object(file_path):
-            with open(file_path, "rb") as file:
-                obj = pickle.load(file)
+            with open(file_path, "r") as file:
+                obj = jsonpickle.decode(file.read())
             return obj
         steps_costs = load_object(STEPS_COSTS)
         avg_costs = load_object(AVG_COSTS)
