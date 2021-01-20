@@ -1,4 +1,5 @@
 import jsonpickle
+import jsonpickle.ext.pandas as jsonpickle_pd
 import unittest
 
 from tensorboard_plugin_torch_profiler.profiler.data import RunProfileData
@@ -10,8 +11,8 @@ KERNEL_STAT = "./data/data_kernel_stat.json"
 class TestKernelParser(unittest.TestCase):
     def test_parse_events(self):
         def load_kernels(file_path):
-            with open(file_path, "rb") as file:
-                kernels = jsonpickle.decode(file)
+            with open(file_path, "r") as file:
+                kernels = jsonpickle.decode(file.read())
             return kernels
 
         kernel_stat = load_kernels(KERNEL_STAT)
@@ -23,4 +24,5 @@ class TestKernelParser(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    jsonpickle_pd.register_handlers()
     unittest.main()

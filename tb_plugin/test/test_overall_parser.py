@@ -71,8 +71,8 @@ class TestOverallParser(unittest.TestCase):
         check_step(overall_parser.avg_costs)
 
         def load_object(file_path):
-            with open(file_path, "rb") as file:
-                obj = jsonpickle.decode(file)
+            with open(file_path, "r") as file:
+                obj = jsonpickle.decode(file.read())
             return obj
 
         steps_costs = load_object(STEPS_COSTS)
