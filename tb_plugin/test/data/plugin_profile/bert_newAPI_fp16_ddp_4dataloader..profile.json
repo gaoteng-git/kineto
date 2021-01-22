@@ -13519,673 +13519,1704 @@
                       [
                         "ncclAllReduceRingLLKernel_sum_f32(ncclColl)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2790413.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/reduce": [
+                                    {
+                                      "py/type": "numpy.dtype"
+                                    },
+                                    {
+                                      "py/tuple": [
+                                        "f8",
+                                        false,
+                                        true
+                                      ]
+                                    },
+                                    {
+                                      "py/tuple": [
+                                        3,
+                                        "<",
+                                        null,
+                                        null,
+                                        null,
+                                        -1,
+                                        -1,
+                                        0
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "py/b64": "AAAAgAZKRUE="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 14384.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAYzEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 12333.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAIAWyEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10957.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAIBmxUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 9742.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAHw0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 9574.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACzwkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x64_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 6124.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADst0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5897.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAJt0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5765.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACFtkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5450.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABKtUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::GammaBetaBackwardCUDAKernel<float>(long, long, float const*, float const*, float const*, float const*, float*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5039.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACvs0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4996.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACEs0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, float, float, 9, false>(float*, float const*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4905.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAps0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4903.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAns0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4831.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADfskA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4628.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAUskA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x256_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4336.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADwsEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4288.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADAsEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x256_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4193.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABhsEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::fused_dropout_kernel_vec<float, float, unsigned int, 1, 4>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<unsigned char, unsigned int>, unsigned int, float, std::pair<unsigned long, unsigned long>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4053.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACqr0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::masked_scale_kernel<float, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(float, unsigned char)#1}, at::detail::Array<char*, 3> >(int, at::native::(anonymous namespace)::masked_scale_kernel<float, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(float, unsigned char)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3825.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADirUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_forward<float, float, float, 9, false>(float*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3500.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABYq0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3493.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABKq0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::GeluBackwardCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, at::detail::Array<char*, 3> >(int, at::native::(anonymous namespace)::GeluBackwardCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3399.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACOqkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3265.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACCqUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2961.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAip0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2872.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABwpkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::MulFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2820.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAIpkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::NormTwoOps<float>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::NormTwoOps<float>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2558.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAD8o0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::GeluCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::(anonymous namespace)::GeluCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2352.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABgokA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "ncclAllReduceRingLLKernel_sum_i32(ncclColl)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2239.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAB+oUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 1, 1, 0>, at::native::_amp_foreach_non_finite_check_and_unscale_cuda_(c10::ArrayRef<at::Tensor>, at::Tensor&, at::Tensor const&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 1, 1, 0>, at::native::_amp_foreach_non_finite_check_and_unscale_cuda_(c10::ArrayRef<at::Tensor>, at::Tensor&, at::Tensor const&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1})",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2234.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAB0oUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::addcdiv_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcdiv_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2225.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABioUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, at::detail::Array<char*, 1> >(int, at::native::FillFunctor<float>, at::detail::Array<char*, 1>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1913.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADknUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::ComputeInternalGradientsCUDAKernel<float>(long, float const*, float const*, float const*, at::AccumulateType<float, true>::type*, at::AccumulateType<float, true>::type*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1828.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACQnEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::LayerNormBackwardCUDAKenrel<float>(long, float const*, float const*, float const*, float const*, at::AccumulateType<float, true>::type const*, at::AccumulateType<float, true>::type const*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1784.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADgm0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1697.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACEmkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1555.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABMmEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::RowwiseMomentsCUDAKernel<float>(long, float, float const*, float*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1304.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABglEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1177.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABkkkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1127.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACckUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::LayerNormForwardCUDAKernel<float>(long, float const*, float const*, float const*, float const*, float const*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1118.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAB4kUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::masked_scale_kernel<c10::Half, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(c10::Half, unsigned char)#1}, at::detail::Array<char*, 3> >(int, at::native::(anonymous namespace)::masked_scale_kernel<c10::Half, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(c10::Half, unsigned char)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 927.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAD4jEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::fused_dropout_kernel_vec<c10::Half, float, unsigned int, 1, 4>(at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<unsigned char, unsigned int>, unsigned int, float, std::pair<unsigned long, unsigned long>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 800.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAiUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 720.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAhkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::ComputeGradientFusedParamsCUDAKernel<float>(long, long, float const*, float const*, at::AccumulateType<float, true>::type const*, at::AccumulateType<float, true>::type const*, at::AccumulateType<float, true>::type*, at::AccumulateType<float, true>::type*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 211.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABgakA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 183.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADgZkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::BlockSortAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, long, ThrustLTOp<long, false>, thrust::detail::integral_constant<bool, true>, thrust::detail::integral_constant<bool, false> >, bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false> >(bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 136.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAYUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::indexSelectLargeIndex<float, long, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<long, unsigned int>, int, int, unsigned int, unsigned int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 134.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADAYEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::CatArrayBatchedCopy<float, unsigned int, 1, 128, 1>(float*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<float, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 116.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAXUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::compute_grad_weight<float, long>(long*, float*, long*, long, long, long*, long, at::AccumulateType<float, true>::type*, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 107.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADAWkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::sum_and_scatter<float, long>(long*, float*, long, long*, long, at::AccumulateType<float, true>::type const*, long const*, long, long, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 72.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAUkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 64.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAUEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 48.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAASEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::MergeAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, long, ThrustLTOp<long, false>, thrust::detail::integral_constant<bool, true> >, bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>, long*, long>(bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>, long*, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 42.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAARUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_fp16_32x128_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 40.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAREA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::embedding_backward_feature_kernel<float, float, long>(long*, float const*, float*, int, long, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 39.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAQ0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_fp16_128x32_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 34.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAQUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_sgemm_fp16_128x64_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 34.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAQUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__scan::ScanAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, long, thrust::detail::integral_constant<bool, false> >, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, thrust::cuda_cub::cub::ScanTileState<long, true>, thrust::cuda_cub::__scan::AddInitToExclusiveScan<long, thrust::plus<long> > >(thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, thrust::cuda_cub::cub::ScanTileState<long, true>, thrust::cuda_cub::__scan::AddInitToExclusiveScan<long, thrust::plus<long> >)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 33.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAQEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__unique_by_key::UniqueByKeyAgent<thrust::device_ptr<long>, thrust::counting_iterator<int, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::equal_to<long>, int, int*>, thrust::device_ptr<long>, thrust::counting_iterator<int, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::equal_to<long>, int*, int, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long>(thrust::device_ptr<long>, thrust::counting_iterator<int, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::equal_to<long>, int*, int, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 29.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAPUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::PartitionAgent<thrust::device_ptr<long>, long, ThrustLTOp<long, false> >, bool, thrust::device_ptr<long>, long*, long, unsigned long, long*, ThrustLTOp<long, false>, long, int>(bool, thrust::device_ptr<long>, long*, long, unsigned long, long*, ThrustLTOp<long, false>, long, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 26.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAOkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::krn_partial_segment_offset<long>(long*, long const*, long const*, long const*, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 25.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAOUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, float, bool, unsigned int, 1, 2>(OffsetInfo<float, unsigned int, 1>, OffsetInfo<bool, unsigned int, 2>, unsigned int, TensorMaskedFillOp<float, bool>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 21.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAANUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__parallel_for::ParallelForAgent<thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long>, thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long>(thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_forward<c10::Half, float, float, 9, true>(float*, c10::Half const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__unique_by_key::InitAgent<thrust::cuda_cub::cub::ScanTileState<int, true>, int*, int>, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long, int*>(thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long, int*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 17.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::krn_partials_per_segment<long>(long*, long const*, long, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 17.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 16.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__scan::InitAgent<thrust::cuda_cub::cub::ScanTileState<long, true>, int>, thrust::cuda_cub::cub::ScanTileState<long, true>, int>(thrust::cuda_cub::cub::ScanTileState<long, true>, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 14.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAALEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, c10::Half, float, 9, true>(c10::Half*, float const*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 14.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAALEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void splitKreduce_kernel<float, __half, float>(cublasSplitKParams<float>, float const*, __half const*, __half*, float const*, float const*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 12.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAKEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cunn_ClassNLLCriterion_updateOutput_kernel<float, float>(float*, float*, float*, long*, float*, int, int, int, int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAJEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAJEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cunn_ClassNLLCriterion_updateGradInput_kernel<float>(float*, float*, long*, float*, float*, int, int, int, int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 8.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAIEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::clamp_kernel_cuda(at::TensorIterator&, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(long)#1}, at::detail::Array<char*, 2> >(int, at::native::clamp_kernel_cuda(at::TensorIterator&, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(long)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 6.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAGEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::CatArrayBatchedCopy<c10::Half, unsigned int, 3, 128, 1>(c10::Half*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<c10::Half, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::CompareEqFunctor<long> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::CompareEqFunctor<long> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2> >(int, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAAEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::CompareLTFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::CompareLTFunctor<float> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAAEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "at::native::amp_update_scale_cuda_kernel(int*, float*, float*, float*, double, double, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAAEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     ]
@@ -28356,673 +29387,1681 @@
                       [
                         "ncclAllReduceRingLLKernel_sum_f32(ncclColl)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2785551.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAgIdARUE="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 36024.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACX4UA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 29399.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAMC13EA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18921.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAEB60kA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18731.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAMBK0kA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 16839.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAMBx0EA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 12784.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAD4yEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x64_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 12000.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABwx0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 11016.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACExUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10400.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABQxEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 9128.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADUwUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::GammaBetaBackwardCUDAKernel<float>(long, long, float const*, float const*, float const*, float const*, float*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 8481.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAICQwEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 7264.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABgvEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 7184.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAQvEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x256_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 7074.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACiu0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 6179.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAjuEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, float, float, 9, false>(float*, float const*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5639.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAHtkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5537.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAChtUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5535.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACftUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5244.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAB8tEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4928.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABAs0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4857.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAD5skA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::masked_scale_kernel<float, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(float, unsigned char)#1}, at::detail::Array<char*, 3> >(int, at::native::(anonymous namespace)::masked_scale_kernel<float, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(float, unsigned char)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4484.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACEsUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::GeluBackwardCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, at::detail::Array<char*, 3> >(int, at::native::(anonymous namespace)::GeluBackwardCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4335.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADvsEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x256_ldg8_f2f_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4329.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADpsEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::fused_dropout_kernel_vec<float, float, unsigned int, 1, 4>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<unsigned char, unsigned int>, unsigned int, float, std::pair<unsigned long, unsigned long>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4057.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACyr0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_forward<float, float, float, 9, false>(float*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3491.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABGq0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::ComputeInternalGradientsCUDAKernel<float>(long, float const*, float const*, float const*, at::AccumulateType<float, true>::type*, at::AccumulateType<float, true>::type*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3307.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADWqUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3268.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACIqUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::LayerNormBackwardCUDAKenrel<float>(long, float const*, float const*, float const*, float const*, at::AccumulateType<float, true>::type const*, at::AccumulateType<float, true>::type const*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3214.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAcqUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::MulFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2815.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAD+pUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::NormTwoOps<float>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::NormTwoOps<float>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2530.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADEo0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::GeluCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::(anonymous namespace)::GeluCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2352.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABgokA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 1, 1, 0>, at::native::_amp_foreach_non_finite_check_and_unscale_cuda_(c10::ArrayRef<at::Tensor>, at::Tensor&, at::Tensor const&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 1, 1, 0>, at::native::_amp_foreach_non_finite_check_and_unscale_cuda_(c10::ArrayRef<at::Tensor>, at::Tensor&, at::Tensor const&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1})",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2239.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAB+oUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2218.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABUoUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::addcdiv_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcdiv_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2218.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABUoUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::masked_scale_kernel<c10::Half, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(c10::Half, unsigned char)#1}, at::detail::Array<char*, 3> >(int, at::native::(anonymous namespace)::masked_scale_kernel<c10::Half, float>(at::Tensor&, at::Tensor, at::Tensor, float)::{lambda(c10::Half, unsigned char)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2211.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABGoUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, at::detail::Array<char*, 1> >(int, at::native::FillFunctor<float>, at::detail::Array<char*, 1>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1974.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADYnkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::ComputeGradientFusedParamsCUDAKernel<float>(long, long, float const*, float const*, at::AccumulateType<float, true>::type const*, at::AccumulateType<float, true>::type const*, at::AccumulateType<float, true>::type*, at::AccumulateType<float, true>::type*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1737.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAkm0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1734.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAYm0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1559.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABcmEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::RowwiseMomentsCUDAKernel<float>(long, float, float const*, float*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1307.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABslEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1175.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABckkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1129.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACkkUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::LayerNormForwardCUDAKernel<float>(long, float const*, float const*, float const*, float const*, float const*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1126.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACYkUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::fused_dropout_kernel_vec<c10::Half, float, unsigned int, 1, 4>(at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<unsigned char, unsigned int>, unsigned int, float, std::pair<unsigned long, unsigned long>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 795.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADYiEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "ncclAllReduceRingLLKernel_sum_i32(ncclColl)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 730.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADQhkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::compute_grad_weight<float, long>(long*, float*, long*, long, long, long*, long, at::AccumulateType<float, true>::type*, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 162.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABAZEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::BlockSortAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, long, ThrustLTOp<long, false>, thrust::detail::integral_constant<bool, true>, thrust::detail::integral_constant<bool, false> >, bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false> >(bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 161.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAgZEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::indexSelectLargeIndex<float, long, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<long, unsigned int>, int, int, unsigned int, unsigned int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 131.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABgYEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 126.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAX0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::CatArrayBatchedCopy<float, unsigned int, 1, 128, 1>(float*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<float, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 115.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAADAXEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::sum_and_scatter<float, long>(long*, float*, long, long*, long, at::AccumulateType<float, true>::type const*, long const*, long, long, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 81.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAABAVEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__scan::InitAgent<thrust::cuda_cub::cub::ScanTileState<long, true>, int>, thrust::cuda_cub::cub::ScanTileState<long, true>, int>(thrust::cuda_cub::cub::ScanTileState<long, true>, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 70.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAUUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 66.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAUEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::krn_partial_segment_offset<long>(long*, long const*, long const*, long const*, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 59.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACATUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__unique_by_key::UniqueByKeyAgent<thrust::device_ptr<long>, thrust::counting_iterator<int, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::equal_to<long>, int, int*>, thrust::device_ptr<long>, thrust::counting_iterator<int, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::equal_to<long>, int*, int, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long>(thrust::device_ptr<long>, thrust::counting_iterator<int, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::equal_to<long>, int*, int, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 57.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACATEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__scan::ScanAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, long, thrust::detail::integral_constant<bool, false> >, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, thrust::cuda_cub::cub::ScanTileState<long, true>, thrust::cuda_cub::__scan::AddInitToExclusiveScan<long, thrust::plus<long> > >(thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, thrust::cuda_cub::cub::ScanTileState<long, true>, thrust::cuda_cub::__scan::AddInitToExclusiveScan<long, thrust::plus<long> >)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 54.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAS0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::MergeAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, long, ThrustLTOp<long, false>, thrust::detail::integral_constant<bool, true> >, bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>, long*, long>(bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>, long*, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 51.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACASUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__unique_by_key::InitAgent<thrust::cuda_cub::cub::ScanTileState<int, true>, int*, int>, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long, int*>(thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long, int*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 46.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAR0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::krn_partials_per_segment<long>(long*, long const*, long, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 45.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACARkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::embedding_backward_feature_kernel<float, float, long>(long*, float const*, float*, int, long, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 43.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACARUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_fp16_32x128_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 40.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAREA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__parallel_for::ParallelForAgent<thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long>, thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long>(thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 38.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAQ0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::PartitionAgent<thrust::device_ptr<long>, long, ThrustLTOp<long, false> >, bool, thrust::device_ptr<long>, long*, long, unsigned long, long*, ThrustLTOp<long, false>, long, int>(bool, thrust::device_ptr<long>, long*, long, unsigned long, long*, ThrustLTOp<long, false>, long, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 37.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAACAQkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_fp16_128x32_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 34.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAQUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_fp16_sgemm_fp16_128x64_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 34.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAQUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, float, bool, unsigned int, 1, 2>(OffsetInfo<float, unsigned int, 1>, OffsetInfo<bool, unsigned int, 2>, unsigned int, TensorMaskedFillOp<float, bool>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 21.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAANUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_forward<c10::Half, float, float, 9, true>(float*, c10::Half const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 16.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, c10::Half, float, 9, true>(c10::Half*, float const*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 14.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAALEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void splitKreduce_kernel<float, __half, float>(cublasSplitKParams<float>, float const*, __half const*, __half*, float const*, float const*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 11.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAJkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cunn_ClassNLLCriterion_updateOutput_kernel<float, float>(float*, float*, float*, long*, float*, int, int, int, int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAJEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAJEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cunn_ClassNLLCriterion_updateGradInput_kernel<float>(float*, float*, long*, float*, float*, int, int, int, int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 8.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAIEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::clamp_kernel_cuda(at::TensorIterator&, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(long)#1}, at::detail::Array<char*, 2> >(int, at::native::clamp_kernel_cuda(at::TensorIterator&, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(long)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 6.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAGEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::CatArrayBatchedCopy<c10::Half, unsigned int, 3, 128, 1>(c10::Half*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<c10::Half, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::CompareEqFunctor<long> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::CompareEqFunctor<long> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2> >(int, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#1}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::reciprocal_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAEEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAAEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::CompareLTFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::CompareLTFunctor<float> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAAEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "at::native::amp_update_scale_cuda_kernel(int*, float*, float*, float*, double, double, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2456
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAAEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     ]

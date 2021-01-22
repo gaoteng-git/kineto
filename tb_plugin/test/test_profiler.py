@@ -1,8 +1,7 @@
 import os
 import unittest
-
 import jsonpickle
-import jsonpickle.ext.pandas as jsonpickle_pd
+
 import tensorboard_plugin_torch_profiler.consts as consts
 from tensorboard_plugin_torch_profiler.profiler.loader import RunLoader
 
@@ -57,5 +56,4 @@ class TestProfiler(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    jsonpickle_pd.register_handlers()
     unittest.main()

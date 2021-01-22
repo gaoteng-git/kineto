@@ -1,4 +1,5 @@
 import unittest
+import math
 
 from tensorboard_plugin_torch_profiler.profiler.overall_parser import (
     merge_ranges, subtract_ranges_lists, intersection_ranges_lists, get_ranges_sum
