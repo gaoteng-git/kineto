@@ -16,7 +16,7 @@ def save_run():
         run = run_loader.load()
         profile_path = os.path.join(PLUGIN_PROFILE_DIR, "{}.{}".format(run_dir, PLUGIN_PROFILE_POSTFIX))
         with open(profile_path, "w") as file:
-            file.write(jsonpickle.encode(run))
+            file.write(jsonpickle.encode(run, indent=2))
 
 
 class TestProfiler(unittest.TestCase):
