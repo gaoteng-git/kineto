@@ -16126,513 +16126,1304 @@
                       [
                         "void cudnn::detail::dgrad_engine<float, 512, 6, 5, 3, 3, 3, false>(int, int, int, float const*, int, float const*, int, float*, kernel_grad_params, unsigned long long, int, unsigned long long, int, float, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 56309.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/reduce": [
+                                    {
+                                      "py/type": "numpy.dtype"
+                                    },
+                                    {
+                                      "py/tuple": [
+                                        "f8",
+                                        false,
+                                        true
+                                      ]
+                                    },
+                                    {
+                                      "py/tuple": [
+                                        3,
+                                        "<",
+                                        null,
+                                        null,
+                                        null,
+                                        -1,
+                                        -1,
+                                        0
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "py/b64": "AAAAAKB+60A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::bn_bw_1C11_kernel_new<float, float, float2, 512, true, 1>(float, float, float, float, cudnnTensorStruct, float const*, cudnnTensorStruct, float const*, cudnnTensorStruct, float*, float const*, float*, float*, float const*, float const*, float)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 36390.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAMDE4UA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::cnn::wgrad_alg0_engine<float, 128, 6, 7, 3, 3, 5, false, 512>(int, int, int, float const*, int, float*, float const*, kernel_grad_params, unsigned long long, int, float, int, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 30959.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAMA73kA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::threshold_kernel_impl<float>(at::TensorIterator&, float, float)::{lambda(float, float)#1}, at::detail::Array<char*, 3> >(int, at::native::threshold_kernel_impl<float>(at::TensorIterator&, float, float)::{lambda(float, float)#1}, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 29311.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAMCf3EA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 27675.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAMAG20A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void implicit_convolve_sgemm<float, float, 128, 6, 7, 3, 3, 5, 1, false, true, true>(int, int, int, float const*, int, float*, float const*, kernel_conv_params, unsigned long long, int, float, float, int, float const*, float const*, bool, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18860.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABr0kA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_stridedB_splitK_medium_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 18465.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAEAI0kA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::bn_fw_tr_1C11_kernel_NCHW<float, float, 512, true, 1>(cudnnTensorStruct, float const*, cudnnTensorStruct, float*, float const*, float const*, float, float, float*, float*, float*, float*, float, float)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 17461.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAEAN0UA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void implicit_convolve_sgemm<float, float, 1024, 6, 7, 3, 3, 5, 1, false, true, true>(int, int, int, float const*, int, float*, float const*, kernel_conv_params, unsigned long long, int, float, float, int, float const*, float const*, bool, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 17425.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAEAE0UA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_128x64_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 15212.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAC2zUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_stridedB_splitK_small_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 14526.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABfzEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::cnn::wgrad_alg0_engine<float, 512, 6, 5, 3, 3, 3, false, 512>(int, int, int, float const*, int, float*, float const*, kernel_grad_params, unsigned long long, int, float, int, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 10708.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADqxEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 8806.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAzwUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_128x64_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 7623.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADHvUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_relu_interior_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 7233.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABBvEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_stridedB_interior_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 6557.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACduUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_stridedB_splitK_xregs_large_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 5380.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAEtUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::cnn::wgrad_alg0_engine<float, 128, 5, 5, 3, 3, 3, false, 512>(int, int, int, float const*, int, float*, float const*, kernel_grad_params, unsigned long long, int, float, int, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4804.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADEskA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::bn_fw_tr_1C11_singleread<float, 512, true, 1, 2, 0>(cudnnTensorStruct, float const*, cudnnTensorStruct, float*, float const*, float const*, float, float, float*, float*, float*, float*, float, float, cudnn::reduced_divisor, int, cudnn::reduced_divisor, cudnn::bnFwPersistentState*, int, float, float, float, int, float, float, cudnnStatus_t*, bool)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4732.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAB8skA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_relu_medium_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 4414.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAA+sUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void implicit_convolve_sgemm<float, float, 128, 5, 5, 3, 3, 3, 1, false, true, true>(int, int, int, float const*, int, float*, float const*, kernel_conv_params, unsigned long long, int, float, float, int, float const*, float const*, bool, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3570.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADkq0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::ops::scalePackedTensor_kernel<float, float>(cudnnTensor4dStruct, float*, float)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3441.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADiqkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd_nonfused::winogradForwardOutput4x4<float, float>(cudnn::winograd_nonfused::WinogradOutputParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3357.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAA6qkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_stridedB_interior_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3274.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACUqUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void explicit_convolve_sgemm<float, int, 1024, 5, 5, 3, 3, 3, 0, false>(int, int, int, float const*, int, float const*, int, float*, kernel_conv_params, unsigned long long, int, unsigned long long, int, float, float, int, float const*, float const*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3261.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAB6qUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd_nonfused::winogradForwardData4x4<float, float>(cudnn::winograd_nonfused::WinogradDataParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3065.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADyp0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::cnn::wgrad_alg0_engine<float, 128, 6, 8, 3, 3, 5, false, 512>(int, int, int, float const*, int, float*, float const*, kernel_grad_params, unsigned long long, int, float, int, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 3038.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAC8p0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::max_pool_backward_nchw<float, float>(int, float const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2734.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABcpUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void implicit_convolve_sgemm<float, float, 512, 6, 8, 3, 3, 5, 1, false, true, true>(int, int, int, float const*, int, float*, float const*, kernel_conv_params, unsigned long long, int, float, float, int, float const*, float const*, bool, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2673.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADipEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_relu_medium_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2563.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAGpEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_stridedB_medium_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2471.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABOo0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_relu_xregs_large_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2392.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACwokA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void explicit_convolve_sgemm<float, int, 128, 6, 7, 3, 3, 5, 0, false>(int, int, int, float const*, int, float const*, int, float*, kernel_conv_params, unsigned long long, int, unsigned long long, int, float, float, int, float const*, float const*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2305.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAACokA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_relu_small_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2256.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACgoUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_relu_interior_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2213.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABKoUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x128_stridedB_small_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 2112.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACAoEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd_nonfused::winogradForwardFilter4x4<float, float>(cudnn::winograd_nonfused::WinogradFilterParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1773.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAC0m0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd_nonfused::winogradWgradData4x4<float, float>(cudnn::winograd_nonfused::WinogradDataParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1641.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACkmUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, at::detail::Array<char*, 1> >(int, at::native::FillFunctor<float>, at::detail::Array<char*, 1>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1601.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAEmUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1556.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABQmEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::bn_bw_1C11_singleread<float, 512, true, 1, 2, 0>(float, float, float, float, cudnnTensorStruct, float const*, cudnnTensorStruct, float const*, cudnnTensorStruct, float*, float const*, float*, float*, float const*, float const*, float, cudnn::reduced_divisor, int, cudnn::reduced_divisor, cudnn::bnBwPersistentState*, int, float, float, float, int, float, cudnnStatus_t*, bool)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1524.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADQl0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd_nonfused::winogradWgradDelta4x4<float, float>(cudnn::winograd_nonfused::WinogradDeltaParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1516.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACwl0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::cnn::im2col4d_kernel<float, long>(cudnn::cnn::im2col4d_params, cudnnConvolutionStruct, cudnnTensor4dStruct, float const*, float*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 1126.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACYkUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::(anonymous namespace)::max_pool_forward_nchw<float, float>(int, float const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, float*, long*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 893.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADoi0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd_nonfused::winogradWgradOutput4x4<float, float>(cudnn::winograd_nonfused::WinogradWgradOutputParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 860.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADgikA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_scudnn_128x64_stridedB_small_nn_v1",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 375.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABwd0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "cask_cudnn::computeOffsetsKernel(cask_cudnn::ComputeOffsetsParams)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 274.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAgcUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::AddFunctor<long> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::AddFunctor<long> >, at::detail::Array<char*, 2>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 216.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAa0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MeanOps<float, float>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::MeanOps<float, float>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 172.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACAZUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "cask_cudnn::computeWgradBOffsetsKernel(cask_cudnn::ComputeWgradBOffsetsParams)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 114.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACAXEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_64x32_sliced1x4_nn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 109.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABAW0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 108.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAW0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "cask_cudnn::computeWgradSplitKOffsetsKernel(cask_cudnn::ComputeSplitKOffsetsParams)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 105.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABAWkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_64x32_sliced1x4_tn",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 99.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAADAWEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "volta_sgemm_128x32_nt",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 77.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABAU0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cudnn::winograd::generateWinogradTilesKernel<0, float, float>(cudnn::winograd::GenerateWinogradTilesParams<float, float>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 73.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAABAUkA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "cask_cudnn::computeBOffsetsKernel(cask_cudnn::ComputeBOffsetsParams)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 51.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACASUA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, float, float, 10, true>(float*, float const*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 41.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACAREA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_forward<float, float, float, 10, true>(float*, float const*, int, int, int)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 40.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAREA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 33.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAACAQEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void splitKreduce_kernel<float, float, float>(cublasSplitKParams<float>, float const*, float const*, float*, float const*, float const*)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 23.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAN0A="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 20.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAANEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cunn_ClassNLLCriterion_updateOutput_kernel<float, float>(float*, float*, float*, long*, float*, int, int, int, int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 16.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAMEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       [
                         "void cunn_ClassNLLCriterion_updateGradInput_kernel<float>(float*, float*, long*, float*, float*, int, int, int, int, long)",
                         {
-                          "py/object": "numpy.float64",
-                          "dtype": "float64",
-                          "value": 8.0
+                          "py/reduce": [
+                            {
+                              "py/function": "numpy.core.multiarray.scalar"
+                            },
+                            {
+                              "py/tuple": [
+                                {
+                                  "py/id": 2995
+                                },
+                                {
+                                  "py/b64": "AAAAAAAAIEA="
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     ]

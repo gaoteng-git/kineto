@@ -1,5 +1,5 @@
 import jsonpickle
-import jsonpickle.ext.pandas as jsonpickle_pd
+#import jsonpickle.ext.pandas as jsonpickle_pd
 import unittest
 import os
 
@@ -29,7 +29,8 @@ class TestProfiler(unittest.TestCase):
                 run_expected = jsonpickle.decode(file.read())
             self.assertEqual(run, run_expected)
 
+
 if __name__ == '__main__':
-    jsonpickle_pd.register_handlers()
+    #jsonpickle_pd.register_handlers()
     save_run()
     unittest.main()
