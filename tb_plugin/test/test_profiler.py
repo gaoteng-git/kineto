@@ -1,10 +1,10 @@
+import os
+import unittest
+
 import jsonpickle
 import jsonpickle.ext.pandas as jsonpickle_pd
-import unittest
-import os
-
-from tensorboard_plugin_torch_profiler.profiler.loader import RunLoader
 import tensorboard_plugin_torch_profiler.consts as consts
+from tensorboard_plugin_torch_profiler.profiler.loader import RunLoader
 
 TRACING_DIR = "./data/tracing"
 PLUGIN_PROFILE_DIR = "./data/plugin_profile"
@@ -54,6 +54,7 @@ class TestProfiler(unittest.TestCase):
             with open(profile_path, "r") as file:
                 run_expected = jsonpickle.decode(file.read())
                 compare_runs(run, run_expected)
+
 
 if __name__ == '__main__':
     jsonpickle_pd.register_handlers()
