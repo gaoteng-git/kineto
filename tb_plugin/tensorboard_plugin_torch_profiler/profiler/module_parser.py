@@ -55,6 +55,7 @@ class RuntimeNode(HostNode):
         super(RuntimeNode, self).__init__()
         # One runtime could trigger more than one kernel, such as cudaLaunchCooperativeKernelMultiDevice.
         self.device_nodes = None
+        self.tid = None
 
     def fill_stats(self):
         if self.device_nodes is None:
@@ -196,7 +197,7 @@ class ModuleParser:
 
     def parse_events(self, events):
 
-        def parse_event(event, corrid_to_device, corrid_to_runtime, externalid_to_runtime, tid2list, tid2rt_list):
+        def parse_event(event, corrid_to_device, corrid_to_runtime, externalid_to_runtime, tid2list):
 
             def build_node(node, event):
                 node.name = event.name
@@ -232,6 +233,7 @@ class ModuleParser:
             elif event.type == EventTypes.RUNTIME:
                 rt_node = RuntimeNode()
                 build_node(rt_node, event)
+                rt_node.tid = tid
                 corrid_to_runtime[corrid] = rt_node
                 if corrid in corrid_to_device:
                     rt_node.device_nodes = []
@@ -245,12 +247,6 @@ class ModuleParser:
                     externalid_to_runtime[rt_node.external_id].append(rt_node)
                 else:
                     externalid_to_runtime[rt_node.external_id] = [rt_node]
-                # Some runtimes has external_id 0, which will not be correlated to any operator.
-                # So get them and attach them to root node.
-                if rt_node.external_id == 0:
-                    if tid not in tid2rt_list:
-                        tid2rt_list[tid] = []
-                    tid2rt_list[tid].append(rt_node)
             elif event.type in [EventTypes.PYTHON, EventTypes.OPERATOR, EventTypes.PROFILER_STEP]:
                 if event.type == EventTypes.PROFILER_STEP:
                     op_node = ProfilerStepNode()
@@ -319,12 +315,16 @@ class ModuleParser:
         corrid_to_runtime = {}  # value is a RuntimeNode
         externalid_to_runtime = {}  # value is a list of RuntimeNode
         for event in events:
-            parse_event(event, corrid_to_device, corrid_to_runtime, externalid_to_runtime, tid2list, tid2rt_list)
+            parse_event(event, corrid_to_device, corrid_to_runtime, externalid_to_runtime, tid2list)
         # associate CUDA Runtimes with CPU events
         for _, op_list in tid2list.items():
             for op in op_list:
                 if op.external_id in externalid_to_runtime:
                     op.runtimes.extend(externalid_to_runtime[op.external_id])
+                    del externalid_to_runtime[op.external_id]
+        tid2rt_list = {}
+        for tid, rt_list in externalid_to_runtime.items():
+            tid2rt_list[tid] = rt_list
         for tid, op_list in tid2list.items():
             rt_list = tid2rt_list[tid] if tid in tid2rt_list else []
             op_list.sort(key=lambda x: (x.start_time, -x.end_time))
