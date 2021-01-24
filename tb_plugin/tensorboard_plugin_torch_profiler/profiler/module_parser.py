@@ -323,8 +323,12 @@ class ModuleParser:
                     op.runtimes.extend(externalid_to_runtime[op.external_id])
                     del externalid_to_runtime[op.external_id]
         tid2rt_list = {}
-        for tid, rt_list in externalid_to_runtime.items():
-            tid2rt_list[tid] = rt_list
+        for ext_id, rt_list in externalid_to_runtime.items():
+            print("eid={}, count={}".format(ext_id, len(rt_list)))
+            for rt in rt_list:
+                if not rt.tid in tid2rt_list:
+                    tid2rt_list[rt.tid] = []
+                tid2rt_list[rt.tid].append(rt)
         for tid, op_list in tid2list.items():
             rt_list = tid2rt_list[tid] if tid in tid2rt_list else []
             op_list.sort(key=lambda x: (x.start_time, -x.end_time))
