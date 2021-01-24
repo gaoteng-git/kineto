@@ -153,6 +153,7 @@ class ModuleParser:
                 child = node.children[0]
                 if node.name == child.name and node.type == EventTypes.OPERATOR and child.type == EventTypes.OPERATOR:
                     node.children = child.children
+                    node.runtimes = child.runtimes  # Keep consistent with autograd profiler.
                     remove_dup_nodes(node)  # This node may have to merge with child's child.
             for child in node.children:
                 remove_dup_nodes(child)
@@ -164,6 +165,9 @@ class ModuleParser:
                     fill_stats(child)
                 for rt in node.runtimes:
                     fill_stats(rt)
+                    if rt.device_nodes is not None:
+                        for device_node in rt.device_nodes:
+                            device_node.op_node = node
 
             if node.name == "CallTreeRoot":
                 node.start_time = node.end_time = None
@@ -175,10 +179,7 @@ class ModuleParser:
                     if node.children[i].end_time is not None:
                         node.end_time = node.children[i].end_time
                         break
-            if node.type == EventTypes.RUNTIME:
-                if node.device_nodes is not None:
-                    for device_node in node.device_nodes:
-                        device_node.op_node = node
+
             node.fill_stats()
             if type(node) is OperatorNode and node.type == EventTypes.OPERATOR \
                     and not (node.name.startswith("enumerate(DataLoader)#") and node.name.endswith(".__next__")) \
