@@ -13259,15 +13259,6 @@
                         6
                       ],
                       [
-                        "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
-                        "CallTreeRoot",
-                        2,
-                        18,
-                        9.0,
-                        9,
-                        9
-                      ],
-                      [
                         "void at::native::(anonymous namespace)::krn_partial_segment_offset<long>(long*, long const*, long const*, long const*, long)",
                         "aten::embedding_dense_backward",
                         4,
@@ -13275,6 +13266,15 @@
                         4.5,
                         4,
                         5
+                      ],
+                      [
+                        "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
+                        "CallTreeRoot",
+                        2,
+                        18,
+                        9.0,
+                        9,
+                        9
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, c10::Half, float, 9, true>(c10::Half*, float const*, float const*, int, int, int)",
