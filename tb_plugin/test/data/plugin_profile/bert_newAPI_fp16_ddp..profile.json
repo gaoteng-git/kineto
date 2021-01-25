@@ -13141,15 +13141,6 @@
                         7
                       ],
                       [
-                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
-                        "CallTreeRoot",
-                        2,
-                        184,
-                        92.0,
-                        92,
-                        92
-                      ],
-                      [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::BlockSortAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, long, ThrustLTOp<long, false>, thrust::detail::integral_constant<bool, true>, thrust::detail::integral_constant<bool, false> >, bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false> >(bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>)",
                         "aten::embedding_dense_backward",
                         4,
@@ -13184,6 +13175,24 @@
                         26.75,
                         24,
                         30
+                      ],
+                      [
+                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
+                        "ProfilerStep#3",
+                        1,
+                        92,
+                        92.0,
+                        92,
+                        92
+                      ],
+                      [
+                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
+                        "ProfilerStep#4",
+                        1,
+                        92,
+                        92.0,
+                        92,
+                        92
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)",
@@ -13339,15 +13348,6 @@
                         5
                       ],
                       [
-                        "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
-                        "CallTreeRoot",
-                        2,
-                        16,
-                        8.0,
-                        8,
-                        8
-                      ],
-                      [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__unique_by_key::InitAgent<thrust::cuda_cub::cub::ScanTileState<int, true>, int*, int>, thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long, int*>(thrust::cuda_cub::cub::ScanTileState<int, true>, unsigned long, int*)",
                         "aten::embedding_dense_backward",
                         4,
@@ -13355,6 +13355,15 @@
                         4.0,
                         3,
                         5
+                      ],
+                      [
+                        "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
+                        "CallTreeRoot",
+                        2,
+                        16,
+                        8.0,
+                        8,
+                        8
                       ],
                       [
                         "void (anonymous namespace)::softmax_warp_backward<float, c10::Half, float, 9, true>(c10::Half*, float const*, float const*, int, int, int)",
@@ -13587,7 +13596,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAKzEA="
@@ -13607,7 +13616,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAATyEA="
@@ -13627,7 +13636,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAB0xUA="
@@ -13647,7 +13656,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAEw0A="
@@ -13667,7 +13676,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAICywkA="
@@ -13687,7 +13696,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD3t0A="
@@ -13707,7 +13716,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD6tkA="
@@ -13727,7 +13736,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACTtkA="
@@ -13747,7 +13756,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABstUA="
@@ -13767,7 +13776,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACjs0A="
@@ -13787,7 +13796,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABvs0A="
@@ -13807,7 +13816,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAjs0A="
@@ -13827,7 +13836,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAgs0A="
@@ -13847,7 +13856,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAs0A="
@@ -13867,7 +13876,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAOskA="
@@ -13887,7 +13896,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD3sEA="
@@ -13907,7 +13916,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAC9sEA="
@@ -13927,7 +13936,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAB8sEA="
@@ -13947,7 +13956,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACgr0A="
@@ -13967,7 +13976,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADYrUA="
@@ -13987,7 +13996,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABUq0A="
@@ -14007,7 +14016,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABMq0A="
@@ -14027,7 +14036,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACQqkA="
@@ -14047,7 +14056,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACEqUA="
@@ -14067,7 +14076,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAep0A="
@@ -14087,7 +14096,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD2pkA="
@@ -14107,7 +14116,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD8pUA="
@@ -14127,7 +14136,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADYo0A="
@@ -14147,7 +14156,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABaokA="
@@ -14167,7 +14176,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAB6oUA="
@@ -14187,7 +14196,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABWoUA="
@@ -14207,7 +14216,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADonUA="
@@ -14227,7 +14236,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACcnEA="
@@ -14247,7 +14256,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACQm0A="
@@ -14267,7 +14276,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAA8mkA="
@@ -14287,7 +14296,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABQmEA="
@@ -14307,7 +14316,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABwlEA="
@@ -14327,7 +14336,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABYkkA="
@@ -14347,7 +14356,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACckUA="
@@ -14367,7 +14376,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACUkUA="
@@ -14387,7 +14396,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADojEA="
@@ -14407,7 +14416,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACQi0A="
@@ -14427,7 +14436,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAiUA="
@@ -14447,7 +14456,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAohkA="
@@ -14467,7 +14476,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABAbEA="
@@ -14487,7 +14496,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAZ0A="
@@ -14507,7 +14516,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAgYUA="
@@ -14527,7 +14536,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADAYEA="
@@ -14547,7 +14556,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADAXEA="
@@ -14567,7 +14576,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADAWkA="
@@ -14587,7 +14596,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAUkA="
@@ -14607,7 +14616,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAUEA="
@@ -14627,7 +14636,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAASEA="
@@ -14647,7 +14656,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACARUA="
@@ -14667,7 +14676,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAREA="
@@ -14687,7 +14696,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACAQ0A="
@@ -14707,7 +14716,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACAQUA="
@@ -14727,7 +14736,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAQUA="
@@ -14747,7 +14756,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAQUA="
@@ -14767,7 +14776,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAPEA="
@@ -14787,7 +14796,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAOkA="
@@ -14807,7 +14816,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAOUA="
@@ -14827,7 +14836,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAANEA="
@@ -14847,7 +14856,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAM0A="
@@ -14867,7 +14876,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAM0A="
@@ -14887,7 +14896,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAMEA="
@@ -14907,7 +14916,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAMEA="
@@ -14927,7 +14936,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAMEA="
@@ -14947,7 +14956,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAALEA="
@@ -14967,7 +14976,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAKkA="
@@ -14987,7 +14996,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJkA="
@@ -15007,7 +15016,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJEA="
@@ -15027,7 +15036,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJEA="
@@ -15047,7 +15056,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -15067,7 +15076,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAGEA="
@@ -15087,7 +15096,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAGEA="
@@ -15107,7 +15116,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAFEA="
@@ -15127,7 +15136,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15147,7 +15156,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15167,7 +15176,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15187,7 +15196,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
@@ -15207,7 +15216,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
@@ -15227,7 +15236,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
@@ -29015,15 +29024,6 @@
                         7
                       ],
                       [
-                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
-                        "CallTreeRoot",
-                        2,
-                        210,
-                        105.0,
-                        104,
-                        106
-                      ],
-                      [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__merge_sort::BlockSortAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, long, ThrustLTOp<long, false>, thrust::detail::integral_constant<bool, true>, thrust::detail::integral_constant<bool, false> >, bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false> >(bool, thrust::device_ptr<long>, thrust::device_ptr<long>, long, long*, long*, ThrustLTOp<long, false>)",
                         "aten::embedding_dense_backward",
                         4,
@@ -29058,6 +29058,24 @@
                         27.25,
                         24,
                         31
+                      ],
+                      [
+                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
+                        "ProfilerStep#3",
+                        1,
+                        106,
+                        106.0,
+                        106,
+                        106
+                      ],
+                      [
+                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
+                        "ProfilerStep#4",
+                        1,
+                        104,
+                        104.0,
+                        104,
+                        104
                       ],
                       [
                         "void at::native::(anonymous namespace)::sum_and_scatter<float, long>(long*, float*, long, long*, long, at::AccumulateType<float, true>::type const*, long const*, long, long, long)",
@@ -29418,7 +29436,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAMqZOUE="
@@ -29438,7 +29456,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAID1y0A="
@@ -29458,7 +29476,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAxyEA="
@@ -29478,7 +29496,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAIBlxUA="
@@ -29498,7 +29516,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAKw0A="
@@ -29518,7 +29536,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADwwkA="
@@ -29538,7 +29556,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAALuEA="
@@ -29558,7 +29576,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAA5t0A="
@@ -29578,7 +29596,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAQt0A="
@@ -29598,7 +29616,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACOtUA="
@@ -29618,7 +29636,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACxs0A="
@@ -29638,7 +29656,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABys0A="
@@ -29658,7 +29676,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAis0A="
@@ -29678,7 +29696,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAes0A="
@@ -29698,7 +29716,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADqskA="
@@ -29718,7 +29736,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAkskA="
@@ -29738,7 +29756,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADZsEA="
@@ -29758,7 +29776,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAC7sEA="
@@ -29778,7 +29796,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACAsEA="
@@ -29798,7 +29816,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAC6r0A="
@@ -29818,7 +29836,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADSrUA="
@@ -29838,7 +29856,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABwq0A="
@@ -29858,7 +29876,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABGq0A="
@@ -29878,7 +29896,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACKqkA="
@@ -29898,7 +29916,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACKqUA="
@@ -29918,7 +29936,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABCp0A="
@@ -29938,7 +29956,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADWpkA="
@@ -29958,7 +29976,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAApkA="
@@ -29978,7 +29996,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD2o0A="
@@ -29998,7 +30016,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABeokA="
@@ -30018,7 +30036,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAB4oUA="
@@ -30038,7 +30056,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABqoUA="
@@ -30058,7 +30076,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAD8nEA="
@@ -30078,7 +30096,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADcnEA="
@@ -30098,7 +30116,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADcm0A="
@@ -30118,7 +30136,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADYmUA="
@@ -30138,7 +30156,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABImEA="
@@ -30158,7 +30176,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABUlEA="
@@ -30178,7 +30196,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABUkkA="
@@ -30198,7 +30216,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACgkUA="
@@ -30218,7 +30236,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACEkUA="
@@ -30238,7 +30256,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACAjUA="
@@ -30258,7 +30276,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABYiUA="
@@ -30278,7 +30296,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAC4hkA="
@@ -30298,7 +30316,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAB4hkA="
@@ -30318,7 +30336,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABgbUA="
@@ -30338,7 +30356,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABAakA="
@@ -30358,7 +30376,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACgYUA="
@@ -30378,7 +30396,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACgYEA="
@@ -30398,7 +30416,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADAXEA="
@@ -30418,7 +30436,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAABAW0A="
@@ -30438,7 +30456,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAADAU0A="
@@ -30458,7 +30476,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAUEA="
@@ -30478,7 +30496,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACASEA="
@@ -30498,7 +30516,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAASEA="
@@ -30518,7 +30536,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACARUA="
@@ -30538,7 +30556,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAREA="
@@ -30558,7 +30576,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAQUA="
@@ -30578,7 +30596,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAQUA="
@@ -30598,7 +30616,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAACAQEA="
@@ -30618,7 +30636,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAP0A="
@@ -30638,7 +30656,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAPEA="
@@ -30658,7 +30676,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAPEA="
@@ -30678,7 +30696,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAANUA="
@@ -30698,7 +30716,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAMkA="
@@ -30718,7 +30736,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAMkA="
@@ -30738,7 +30756,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAMEA="
@@ -30758,7 +30776,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAALkA="
@@ -30778,7 +30796,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAALEA="
@@ -30798,7 +30816,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAALEA="
@@ -30818,7 +30836,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAKkA="
@@ -30838,7 +30856,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAKEA="
@@ -30858,7 +30876,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJEA="
@@ -30878,7 +30896,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJEA="
@@ -30898,7 +30916,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -30918,7 +30936,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAGEA="
@@ -30938,7 +30956,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -30958,7 +30976,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -30978,7 +30996,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -30998,7 +31016,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -31018,7 +31036,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -31038,7 +31056,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
@@ -31058,7 +31076,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
@@ -31078,7 +31096,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2459
+                                  "py/id": 2460
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="

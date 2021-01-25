@@ -13127,33 +13127,6 @@
                         133543
                       ],
                       [
-                        "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
-                        "CallTreeRoot",
-                        728,
-                        33904,
-                        46.57142857142857,
-                        4,
-                        171
-                      ],
-                      [
-                        "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_tn",
-                        "CallTreeRoot",
-                        240,
-                        33184,
-                        138.26666666666668,
-                        96,
-                        299
-                      ],
-                      [
-                        "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast)",
-                        "CallTreeRoot",
-                        340,
-                        32006,
-                        94.13529411764706,
-                        5,
-                        283
-                      ],
-                      [
                         "volta_fp16_s884gemm_fp16_128x128_ldg8_f2f_nn",
                         "aten::mm",
                         240,
@@ -13217,15 +13190,6 @@
                         145
                       ],
                       [
-                        "volta_fp16_s884gemm_fp16_128x256_ldg8_f2f_tn",
-                        "CallTreeRoot",
-                        48,
-                        13689,
-                        285.1875,
-                        283,
-                        287
-                      ],
-                      [
                         "volta_fp16_s884gemm_fp16_256x128_ldg8_f2f_nn",
                         "aten::mm",
                         48,
@@ -13233,15 +13197,6 @@
                         277.3541666666667,
                         276,
                         279
-                      ],
-                      [
-                        "void at::native::(anonymous namespace)::fused_dropout_kernel_vec<float, float, unsigned int, 1, 4>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<unsigned char, unsigned int>, unsigned int, float, std::pair<unsigned long, unsigned long>)",
-                        "CallTreeRoot",
-                        52,
-                        12087,
-                        232.44230769230768,
-                        44,
-                        250
                       ],
                       [
                         "volta_fp16_s884gemm_fp16_128x256_ldg8_f2f_nt",
@@ -13262,21 +13217,21 @@
                         231
                       ],
                       [
-                        "void (anonymous namespace)::softmax_warp_forward<float, float, float, 9, false>(float*, float const*, int, int, int)",
+                        "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         "CallTreeRoot",
-                        48,
-                        10266,
-                        213.875,
-                        212,
-                        216
+                        144,
+                        11127,
+                        77.27083333333333,
+                        29,
+                        171
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)",
                         "CallTreeRoot",
-                        200,
-                        10194,
-                        50.97,
-                        1,
+                        192,
+                        9984,
+                        52.0,
+                        51,
                         53
                       ],
                       [
@@ -13298,15 +13253,6 @@
                         117
                       ],
                       [
-                        "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_nn",
-                        "CallTreeRoot",
-                        96,
-                        9573,
-                        99.71875,
-                        84,
-                        117
-                      ],
-                      [
                         "volta_fp16_s884gemm_fp16_64x64_ldg8_f2f_nt",
                         "aten::bmm",
                         96,
@@ -13325,24 +13271,6 @@
                         67
                       ],
                       [
-                        "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithoutCast, at::detail::Array<char*, 2>::StoreWithoutCast)",
-                        "CallTreeRoot",
-                        200,
-                        7841,
-                        39.205,
-                        2,
-                        65
-                      ],
-                      [
-                        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::GeluCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::(anonymous namespace)::GeluCUDAKernelImpl(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
-                        "CallTreeRoot",
-                        48,
-                        6899,
-                        143.72916666666666,
-                        143,
-                        145
-                      ],
-                      [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)",
                         "aten::add_",
                         798,
@@ -13350,15 +13278,6 @@
                         8.340852130325814,
                         1,
                         332
-                      ],
-                      [
-                        "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
-                        "CallTreeRoot",
-                        344,
-                        6584,
-                        19.13953488372093,
-                        2,
-                        121
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
@@ -13372,15 +13291,6 @@
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2>)",
                         "aten::div",
-                        48,
-                        6288,
-                        131.0,
-                        131,
-                        131
-                      ],
-                      [
-                        "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<c10::Half, float>, at::detail::Array<char*, 2>)",
-                        "CallTreeRoot",
                         48,
                         6288,
                         131.0,
@@ -13415,15 +13325,6 @@
                         51
                       ],
                       [
-                        "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<2>, at::native::memory::StoreWithCast)",
-                        "CallTreeRoot",
-                        96,
-                        4904,
-                        51.083333333333336,
-                        49,
-                        53
-                      ],
-                      [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)",
                         "aten::mul_",
                         796,
@@ -13451,33 +13352,6 @@
                         451
                       ],
                       [
-                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
-                        "CallTreeRoot",
-                        4,
-                        3716,
-                        929.0,
-                        110,
-                        1768
-                      ],
-                      [
-                        "void at::native::(anonymous namespace)::RowwiseMomentsCUDAKernel<float>(long, float, float const*, float*, float*)",
-                        "CallTreeRoot",
-                        100,
-                        3612,
-                        36.12,
-                        36,
-                        37
-                      ],
-                      [
-                        "void at::native::(anonymous namespace)::LayerNormForwardCUDAKernel<float>(long, float const*, float const*, float const*, float const*, float const*, float*)",
-                        "CallTreeRoot",
-                        100,
-                        3423,
-                        34.23,
-                        34,
-                        35
-                      ],
-                      [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)",
                         "aten::addcmul",
                         398,
@@ -13503,15 +13377,6 @@
                         6.355,
                         2,
                         119
-                      ],
-                      [
-                        "void at::native::(anonymous namespace)::fused_dropout_kernel_vec<c10::Half, float, unsigned int, 1, 4>(at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<c10::Half, unsigned int>, at::cuda::detail::TensorInfo<unsigned char, unsigned int>, unsigned int, float, std::pair<unsigned long, unsigned long>)",
-                        "CallTreeRoot",
-                        96,
-                        2525,
-                        26.302083333333332,
-                        26,
-                        28
                       ],
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)",
@@ -13559,6 +13424,24 @@
                         143
                       ],
                       [
+                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
+                        "ProfilerStep#3",
+                        2,
+                        1881,
+                        940.5,
+                        113,
+                        1768
+                      ],
+                      [
+                        "ncclBroadcastRingLLKernel_copy_i8(ncclColl)",
+                        "ProfilerStep#4",
+                        2,
+                        1835,
+                        917.5,
+                        110,
+                        1725
+                      ],
+                      [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
                         "CallTreeRoot",
                         48,
@@ -13568,22 +13451,13 @@
                         38
                       ],
                       [
-                        "void at::native::(anonymous namespace)::indexSelectLargeIndex<float, long, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<long, unsigned int>, int, int, unsigned int, unsigned int, long)",
+                        "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
                         "CallTreeRoot",
-                        12,
-                        379,
-                        31.583333333333332,
-                        7,
-                        47
-                      ],
-                      [
-                        "volta_sgemm_fp16_64x32_sliced1x4_tn",
-                        "CallTreeRoot",
-                        4,
-                        331,
-                        82.75,
-                        82,
-                        83
+                        292,
+                        827,
+                        2.8321917808219177,
+                        2,
+                        4
                       ],
                       [
                         "void at::native::(anonymous namespace)::compute_grad_weight<float, long>(long*, float*, long*, long, long, long*, long, at::AccumulateType<float, true>::type*, long)",
@@ -13620,15 +13494,6 @@
                         1.85,
                         1,
                         2
-                      ],
-                      [
-                        "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
-                        "CallTreeRoot",
-                        4,
-                        181,
-                        45.25,
-                        45,
-                        46
                       ],
                       [
                         "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
@@ -13676,15 +13541,6 @@
                         17
                       ],
                       [
-                        "void kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, float, bool, unsigned int, 1, 2>(OffsetInfo<float, unsigned int, 1>, OffsetInfo<bool, unsigned int, 2>, unsigned int, TensorMaskedFillOp<float, bool>)",
-                        "CallTreeRoot",
-                        4,
-                        64,
-                        16.0,
-                        16,
-                        16
-                      ],
-                      [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__scan::ScanAgent<thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, long, thrust::detail::integral_constant<bool, false> >, thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, thrust::cuda_cub::cub::ScanTileState<long, true>, thrust::cuda_cub::__scan::AddInitToExclusiveScan<long, thrust::plus<long> > >(thrust::device_ptr<long>, thrust::device_ptr<long>, thrust::plus<long>, int, thrust::cuda_cub::cub::ScanTileState<long, true>, thrust::cuda_cub::__scan::AddInitToExclusiveScan<long, thrust::plus<long> >)",
                         "aten::embedding_dense_backward",
                         8,
@@ -13710,15 +13566,6 @@
                         5.0,
                         5,
                         5
-                      ],
-                      [
-                        "void (anonymous namespace)::softmax_warp_forward<c10::Half, float, float, 9, true>(float*, c10::Half const*, int, int, int)",
-                        "CallTreeRoot",
-                        8,
-                        36,
-                        4.5,
-                        3,
-                        6
                       ],
                       [
                         "void at::native::reduce_kernel<256, 2, at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4> >(at::native::ReduceOp<c10::Half, at::native::func_wrapper_t<c10::Half, at::native::sum_functor<c10::Half, float, c10::Half>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, c10::Half, 4>)",
@@ -13748,24 +13595,6 @@
                         5
                       ],
                       [
-                        "void cunn_ClassNLLCriterion_updateOutput_kernel<float, float>(float*, float*, float*, long*, float*, int, int, int, int, long)",
-                        "CallTreeRoot",
-                        8,
-                        20,
-                        2.5,
-                        2,
-                        3
-                      ],
-                      [
-                        "void splitKreduce_kernel<float, __half, float>(cublasSplitKParams<float>, float const*, __half const*, __half*, float const*, float const*)",
-                        "CallTreeRoot",
-                        4,
-                        16,
-                        4.0,
-                        4,
-                        4
-                      ],
-                      [
                         "void cunn_ClassNLLCriterion_updateGradInput_kernel<float>(float*, float*, long*, float*, float*, int, int, int, int, long)",
                         "aten::nll_loss_backward",
                         8,
@@ -13775,26 +13604,8 @@
                         2
                       ],
                       [
-                        "void at::native::vectorized_elementwise_kernel<4, at::native::clamp_kernel_cuda(at::TensorIterator&, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(long)#1}, at::detail::Array<char*, 2> >(int, at::native::clamp_kernel_cuda(at::TensorIterator&, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda(long)#1}, at::detail::Array<char*, 2>)",
-                        "CallTreeRoot",
-                        8,
-                        12,
-                        1.5,
-                        1,
-                        2
-                      ],
-                      [
                         "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MeanOps<float, float>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::MeanOps<float, float>, unsigned int, float, 4>)",
                         "aten::mean",
-                        2,
-                        10,
-                        5.0,
-                        5,
-                        5
-                      ],
-                      [
-                        "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
-                        "CallTreeRoot",
                         2,
                         10,
                         5.0,
@@ -13811,6 +13622,15 @@
                         3
                       ],
                       [
+                        "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)",
+                        "CallTreeRoot",
+                        2,
+                        10,
+                        5.0,
+                        5,
+                        5
+                      ],
+                      [
                         "void at::native::(anonymous namespace)::CatArrayBatchedCopy<c10::Half, unsigned int, 3, 128, 1>(c10::Half*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<c10::Half, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
                         "aten::_cat",
                         4,
@@ -13818,15 +13638,6 @@
                         2.25,
                         2,
                         3
-                      ],
-                      [
-                        "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)",
-                        "CallTreeRoot",
-                        8,
-                        9,
-                        1.125,
-                        1,
-                        2
                       ],
                       [
                         "void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__parallel_for::ParallelForAgent<thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long>, thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long>(thrust::cuda_cub::__transform::unary_transform_f<thrust::counting_iterator<long, thrust::use_default, thrust::use_default, thrust::use_default>, thrust::device_ptr<long>, thrust::cuda_cub::__transform::no_stencil_tag, thrust::identity<long>, thrust::cuda_cub::__transform::always_true_predicate>, long)",
@@ -13863,15 +13674,6 @@
                         1.0,
                         1,
                         1
-                      ],
-                      [
-                        "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::CompareEqFunctor<long> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::CompareEqFunctor<long> >, at::detail::Array<char*, 2>)",
-                        "CallTreeRoot",
-                        4,
-                        8,
-                        2.0,
-                        2,
-                        2
                       ],
                       [
                         "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#3}::operator()() const::{lambda(double)#1}, at::detail::Array<char*, 2>, TrivialOffsetCalculator<1, unsigned int>, char*, at::native::memory::LoadWithCast<1>, at::detail::Array<char*, 2>::StoreWithCast)",
@@ -13912,15 +13714,6 @@
                       [
                         "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)",
                         "aten::div",
-                        4,
-                        4,
-                        1.0,
-                        1,
-                        1
-                      ],
-                      [
-                        "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>)",
-                        "CallTreeRoot",
                         4,
                         4,
                         1.0,
@@ -14032,7 +13825,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAgCV2RkE="
@@ -14052,7 +13845,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIAs40A="
@@ -14072,7 +13865,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAA04EA="
@@ -14092,7 +13885,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIBB30A="
@@ -14112,7 +13905,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAB73UA="
@@ -14132,7 +13925,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIC920A="
@@ -14152,7 +13945,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIB00EA="
@@ -14172,7 +13965,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIB7z0A="
@@ -14192,7 +13985,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAD8zkA="
@@ -14212,7 +14005,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAICtzEA="
@@ -14232,7 +14025,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAA6zEA="
@@ -14252,7 +14045,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIAuzEA="
@@ -14272,7 +14065,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIDHy0A="
@@ -14292,7 +14085,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIC8ykA="
@@ -14312,7 +14105,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAIAAykA="
@@ -14332,7 +14125,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACQyEA="
@@ -14352,7 +14145,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAICbx0A="
@@ -14372,7 +14165,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABjx0A="
@@ -14392,7 +14185,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADkxUA="
@@ -14412,7 +14205,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAANxEA="
@@ -14432,7 +14225,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABKw0A="
@@ -14452,7 +14245,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAlw0A="
@@ -14472,7 +14265,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAICywkA="
@@ -14492,7 +14285,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADOv0A="
@@ -14512,7 +14305,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADzukA="
@@ -14532,7 +14325,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAA7uUA="
@@ -14552,7 +14345,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAbuEA="
@@ -14572,7 +14365,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABss0A="
@@ -14592,7 +14385,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAvs0A="
@@ -14612,7 +14405,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAos0A="
@@ -14632,7 +14425,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAmskA="
@@ -14652,7 +14445,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABMsUA="
@@ -14672,7 +14465,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAA4rEA="
@@ -14692,7 +14485,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAC+qkA="
@@ -14712,7 +14505,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABSqEA="
@@ -14732,7 +14525,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAD6pUA="
@@ -14752,7 +14545,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADco0A="
@@ -14772,7 +14565,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAC6o0A="
@@ -14792,7 +14585,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABSokA="
@@ -14812,7 +14605,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADyoUA="
@@ -14832,7 +14625,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACWoUA="
@@ -14852,7 +14645,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAB4oUA="
@@ -14872,7 +14665,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADsoEA="
@@ -14892,7 +14685,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACsm0A="
@@ -14912,7 +14705,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACwd0A="
@@ -14932,7 +14725,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACwdEA="
@@ -14952,7 +14745,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABAcEA="
@@ -14972,7 +14765,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACAbkA="
@@ -14992,7 +14785,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAgaEA="
@@ -15012,7 +14805,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAgZ0A="
@@ -15032,7 +14825,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACgZkA="
@@ -15052,7 +14845,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAWkA="
@@ -15072,7 +14865,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABAWUA="
@@ -15092,7 +14885,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAWUA="
@@ -15112,7 +14905,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAABAUkA="
@@ -15132,7 +14925,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAADAUEA="
@@ -15152,7 +14945,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAUEA="
@@ -15172,7 +14965,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAACASEA="
@@ -15192,7 +14985,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAARUA="
@@ -15212,7 +15005,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAREA="
@@ -15232,7 +15025,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAQkA="
@@ -15252,7 +15045,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAQUA="
@@ -15272,7 +15065,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAP0A="
@@ -15292,7 +15085,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAPEA="
@@ -15312,7 +15105,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAOkA="
@@ -15332,7 +15125,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAANEA="
@@ -15352,7 +15145,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAALEA="
@@ -15372,7 +15165,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAKEA="
@@ -15392,7 +15185,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJEA="
@@ -15412,7 +15205,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAJEA="
@@ -15432,7 +15225,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIkA="
@@ -15452,7 +15245,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -15472,7 +15265,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -15492,7 +15285,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -15512,7 +15305,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -15532,7 +15325,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAIEA="
@@ -15552,7 +15345,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15572,7 +15365,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15592,7 +15385,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15612,7 +15405,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15632,7 +15425,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAEEA="
@@ -15652,7 +15445,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
@@ -15672,7 +15465,7 @@
                             {
                               "py/tuple": [
                                 {
-                                  "py/id": 2513
+                                  "py/id": 2490
                                 },
                                 {
                                   "py/b64": "AAAAAAAAAEA="
