@@ -6,7 +6,6 @@ import * as React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
-import Tooltip from '@material-ui/core/Tooltip'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import { TextListItem } from './TextListItem'
@@ -19,8 +18,8 @@ import {
 } from './transform'
 import { TableChart } from './charts/TableChart'
 import { PieChart } from './charts/PieChart'
-import HelpOutline from '@material-ui/icons/HelpOutline'
 import { StepTimeBreakDownTooltip } from './TooltipDescriptions'
+import { useTooltipCommonStyles, makeChartHeaderRenderer } from './helpers'
 
 const topGraphHeight = 230
 
@@ -49,17 +48,6 @@ const useStyles = makeStyles((theme) => ({
   },
   topGraph: {
     height: topGraphHeight + 40
-  },
-  tooltip: {
-    whiteSpace: 'pre-wrap',
-    maxWidth: '500px'
-  },
-  cardTitle: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  titleText: {
-    marginRight: '6px'
   }
 }))
 
@@ -105,21 +93,15 @@ export const Overview: React.FC<IProps> = (props) => {
   }, [run, worker, view])
 
   const classes = useStyles()
+  const tooltipCommonClasses = useTooltipCommonStyles()
+  const chartHeaderRenderer = React.useMemo(
+    () => makeChartHeaderRenderer(tooltipCommonClasses, false),
+    [tooltipCommonClasses]
+  )
 
   const stepTimeBreakDownTitle = React.useMemo(
-    () => (
-      <span className={classes.cardTitle}>
-        <span className={classes.titleText}>Step Time Breakdown</span>
-        <Tooltip
-          arrow
-          classes={{ tooltip: classes.tooltip }}
-          title={StepTimeBreakDownTooltip}
-        >
-          <HelpOutline />
-        </Tooltip>
-      </span>
-    ),
-    [classes.cardTitle, classes.tooltip]
+    () => chartHeaderRenderer('Step Time Breakdown', StepTimeBreakDownTooltip),
+    [tooltipCommonClasses, chartHeaderRenderer]
   )
 
   return (

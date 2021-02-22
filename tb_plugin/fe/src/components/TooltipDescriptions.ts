@@ -14,3 +14,5 @@ export const DeviceTotalTimeTooltip = `The accumulated time spent on GPU, includ
 export const HostSelfTimeTooltip = `The accumulated time spent on Host, not including this operator’s child operators.`
 
 export const HostTotalTimeTooltip = `The accumulated time spent on Host, including this operator’s child operators.`
+
+export const GPUKernelTotalTimeTooltip = `The accumulated time of all calls of this kernel.`
