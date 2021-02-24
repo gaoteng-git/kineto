@@ -57,7 +57,7 @@ class RunProfileData(object):
             raise FileNotFoundError(trace_path)
 
         with fopen(trace_path, 'r') as f:
-            trace_json = json.load(f)
+            trace_json = json.load(f, strict=False)  # Allow non-unicode character in json file.
 
         profile = RunProfileData(worker)
         profile.trace_file_path = trace_path
