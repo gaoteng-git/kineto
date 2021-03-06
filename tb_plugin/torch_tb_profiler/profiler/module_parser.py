@@ -351,3 +351,5 @@ class ModuleParser:
             self.tid2tree[tid] = root_node
         self.op_list_groupby_name, self.op_list_groupby_name_input = parse_ops(self.cpp_op_list)
         self.kernel_list_groupby_name_op = parse_kernels(self.kernel_list)
+
+        self.tid2list = tid2list
