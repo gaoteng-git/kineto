@@ -33,18 +33,24 @@ class OperatorNode(HostNode):
         self.input_shape = None
         self.self_host_duration = 0
         self.self_device_duration = 0
+        self.debug_device_nodes = 0
 
     def fill_stats(self):
         self.self_host_duration = self.end_time - self.start_time
         for child in self.children:
             self.device_duration += child.device_duration
             self.self_host_duration -= (child.end_time - child.start_time)
+            self.debug_device_nodes += child.debug_device_nodes
         for rt in self.runtimes:
             # From PyTorch 1.8 RC1, cpu_self_time does not include runtime's time.
             # So here we keep consistent with it.
             self.self_host_duration -= (rt.end_time - rt.start_time)
             self.device_duration += rt.device_duration
             self.self_device_duration += rt.device_duration
+            if rt.device_nodes is not None:
+                for node in rt.device_nodes:
+                    if node.type == EventTypes.KERNEL:
+                        self.debug_device_nodes += 1
 
 
 class ProfilerStepNode(OperatorNode):
@@ -351,5 +357,3 @@ class ModuleParser:
             self.tid2tree[tid] = root_node
         self.op_list_groupby_name, self.op_list_groupby_name_input = parse_ops(self.cpp_op_list)
         self.kernel_list_groupby_name_op = parse_kernels(self.kernel_list)
-
-        self.tid2list = tid2list
