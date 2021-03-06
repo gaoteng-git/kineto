@@ -52,6 +52,15 @@ class RunLoader(object):
                 logger.warning("Failed to parse profile data for Run %s on %s. Exception=%s",
                                self.run.name, worker, ex, exc_info=True)
 
+    def _process(self):
+        for data in self.run.profiles.values():
+            logger.debug("Processing profile data")
+            data.process()
+            logger.debug("Processing profile data finish")
+        self._compare_worker()
+
+    def _compare_worker(self):
+        workers = self.run.profiles.keys()
         worker2threads = []
         for worker in sorted(workers):
             tid2list_array = []
@@ -60,6 +69,7 @@ class RunLoader(object):
                 tid2list_array.append(temp)
             tid2list_array = tid2list_array.sorted(key = lambda x: x[1].host_duration, reverse = True)
             worker2threads.append(tid2list_array)
+
         def compare_tree(tree1, tree2):
             if tree1 is None and tree2 is None:
                 return True
@@ -90,14 +100,6 @@ class RunLoader(object):
             else:
                 for t in len(threads0):
                     compare_tree(threads0[t], threads1[t])
-        
-
-
-    def _process(self):
-        for data in self.run.profiles.values():
-            logger.debug("Processing profile data")
-            data.process()
-            logger.debug("Processing profile data finish")
 
     def _analyze(self):
         for data in self.run.profiles.values():
