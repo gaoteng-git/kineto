@@ -45,6 +45,7 @@ class RunProfileData(object):
         self.kernel_list_groupby_name_op = None
         self.kernel_stat = None
         self.recommendations = []
+        self.module_parser = None
 
     @staticmethod
     def parse(run_dir, worker):
@@ -105,6 +106,7 @@ class RunProfileData(object):
         logger.debug("ModuleParser")
         module_parser = ModuleParser()
         module_parser.parse_events(self.events)
+        self.module_parser = module_parser
         self.op_list_groupby_name = module_parser.op_list_groupby_name
         self.op_list_groupby_name_input = module_parser.op_list_groupby_name_input
         self.kernel_list_groupby_name_op = module_parser.kernel_list_groupby_name_op
