@@ -95,6 +95,27 @@ class RunLoader(object):
                 logger.warning("Not equal debug_device_nodes! ({},{}, {}) ({},{}, {})".format(
                     tree1.name, tree1.start_time, tree1.debug_device_nodes,
                     tree2.name, tree2.start_time, tree2.debug_device_nodes))
+                if len(tree1.runtimes) != len(tree2.runtimes):
+                    logger.warning("Not equal runtime number! ({},{}, {}) ({},{}, {})".format(
+                        tree1.name, tree1.start_time, len(tree1.children),
+                        tree2.name, tree2.start_time, len(tree2.children)))
+                else:
+                    for i in range(len(tree1.runtimes)):
+                        if (tree1.runtimes[i].device_nodes is None) and (tree2.runtimes[i].device_nodes is not None):
+                            logger.warning("rt1 is None, rt2 is not None! ({},{}) ({},{})".format(
+                                tree1.runtimes[i].name, tree1.runtimes[i].start_time,
+                                tree2.runtimes[i].name, tree2.runtimes[i].start_time))
+                        elif (tree1.runtimes[i].device_nodes is not None) and (tree2.runtimes[i].device_nodes is None):
+                            logger.warning("rt1 is not None, rt2 is None! ({},{}) ({},{})".format(
+                                tree1.runtimes[i].name, tree1.runtimes[i].start_time,
+                                tree2.runtimes[i].name, tree2.runtimes[i].start_time))
+                        elif (tree1.runtimes[i].device_nodes is None) and (tree2.runtimes[i].device_nodes is None):
+                            is_Equal = True
+                        elif len(tree1.runtimes[i].device_nodes) != len(tree2.runtimes[i].device_nodes):
+                            logger.warning("Not equal runtime debug_device_nodes! ({},{}, {}) ({},{}, {})".format(
+                                tree1.runtimes[i].name, tree1.runtimes[i].start_time, len(tree1.runtimes[i].device_nodes),
+                                tree2.runtimes[i].name, tree2.runtimes[i].start_time, len(tree2.runtimes[i].device_nodes)))
+
             op1 = "{}###{}".format(tree1.name, tree1.debug_device_nodes)
             op2 = "{}###{}".format(tree2.name, tree2.debug_device_nodes)
             if not self.op2count_0.__contains__(op1):
