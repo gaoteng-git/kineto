@@ -111,6 +111,7 @@ class ModuleParser:
         self.op_list_groupby_name = []  # For Operator-view.
         self.op_list_groupby_name_input = []  # For Operator-view.
         self.kernel_list_groupby_name_op = {}  # For Kernel-view.
+        self.debug_op_name2callstack = {}
 
     # host_node_list: list of OperatorNode and ProfilerStepNode.
     # zero_rt_list: list of RuntimeNode with external_id=0.
@@ -263,6 +264,18 @@ class ModuleParser:
                     tid2list[tid] = []
                 tid2list[tid].append(op_node)
 
+                if event.type != EventTypes.PROFILER_STEP:
+                    if "Call stack" in event.args:
+                        name = op_node.name
+                        cs = event.args["Call stack"]
+                        if name not in self.debug_op_name2callstack:
+                            self.debug_op_name2callstack[name] = {}
+                        callstack2count = self.debug_op_name2callstack[name]
+                        if cs not in callstack2count:
+                            callstack2count[cs] = 0
+                        callstack2count[cs] += 1
+
+
         def parse_ops(cpp_op_list):
             def aggregate(key_to_agg, key, op):
                 if key not in key_to_agg:
@@ -329,6 +342,11 @@ class ModuleParser:
         externalid_to_runtime = {}  # value is a list of RuntimeNode
         for event in events:
             parse_event(event, corrid_to_device, corrid_to_runtime, externalid_to_runtime, tid2list, tid2zero_rt_list)
+
+        print("==================")
+        for name, cs_dict in self.debug_op_name2callstack.items():
+            print("{}\t{}".format(name, len(cs_dict)))
+        print("==================")
         # Kernel that not owned by any operator should also be shown in kernel view
         # when group by "Kernel Name + Op Name".
         for _, device_nodes in corrid_to_device.items():
