@@ -345,7 +345,8 @@ class ModuleParser:
 
         print("==================")
         for name, cs_dict in self.debug_op_name2callstack.items():
-            print("{}\t{}".format(name, len(cs_dict)))
+            print("{}".format(len(cs_dict)))
+            #print("{}\t{}".format(name, len(cs_dict)))
         print("==================")
         # Kernel that not owned by any operator should also be shown in kernel view
         # when group by "Kernel Name + Op Name".
