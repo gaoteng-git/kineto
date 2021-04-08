@@ -289,6 +289,8 @@ class OverallParser(object):
         for i in range(len(self.role_ranges)):
             self.role_ranges[i] = merge_ranges(self.role_ranges[i])
 
+        self.calculate_gpu_utilization()
+
         logger.debug("Overall, statistics")
         global_stats = OverallParser.Statistics.create_statistics(self.steps, self.role_ranges)
 
@@ -330,3 +332,33 @@ class OverallParser(object):
                 self.min_ts = ts
             if ts + dur > self.max_ts:
                 self.max_ts = ts + dur
+
+    def calculate_gpu_utilization(self):
+        time_buckets = [
+            [1617863252797000, 1617863253797000],  # 83%
+            [1617863253797000, 1617863254797000],  # 92%
+            [1617863254797000, 1617863255797000],  # 84%
+            [1617863255797000, 1617863256811000],  # 89%
+            [1617863256811000, 1617863257811000],  # 67%
+            [1617863257811000, 1617863258812000],  # 92%
+            [1617863258812000, 1617863259813000],  # 92%
+            [1617863259813000, 1617863260813000],  # 85%
+            ]
+
+        for period in range(10):
+            time_period = (period + 1) / 10
+            logger.info("\n")
+            logger.info("=================time_period:{}=================".format(time_period))
+            for bucket in time_buckets:
+                bucket = [bucket[1] - (bucket[1] - bucket[0]) * time_period, bucket[1]]
+                count = 0
+                for r in self.role_ranges[ProfileRole.Kernel]:
+                    if r[1] <= bucket[0] or r[0] >= bucket[1]:
+                        continue
+                    else:
+                        left_bound = max(bucket[0], r[0])
+                        right_bound = min(bucket[1], r[1])
+                        count += (right_bound - left_bound)
+                utilization = count / (bucket[1] - bucket[0])
+                logger.info("_________________GPU utilization:{}________________________".format(utilization))
+
