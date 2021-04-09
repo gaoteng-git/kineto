@@ -3,6 +3,7 @@
 # --------------------------------------------------------------------------
 import sys
 from enum import IntEnum
+import json
 
 from .. import utils
 from .trace import EventTypes
@@ -26,6 +27,48 @@ def merge_ranges(src_ranges, is_sorted=False):
                 else:
                     merged_ranges.append(
                         (src_ranges[src_id][0], src_ranges[src_id][1]))
+    return merged_ranges
+
+
+EndpointTypes = IntEnum('EndpointTypes', ['START', 'END'], start=0)
+
+
+class EndPoint(object):
+    def __init__(self):
+        self.time = 0
+        self.pt_type = None
+        self.value = 0.0
+
+    def __init__(self, ep_time, ep_pt_type, ep_value):
+        self.time = ep_time
+        self.pt_type = ep_pt_type
+        self.value = ep_value
+
+
+# src_ranges: item of ((start_time, end_time), value)
+def merge_ranges_with_value(src_ranges):
+    merged_ranges = []
+    if len(src_ranges) > 0:
+        # Build tuple of (time, type, value)
+        endpoints = []
+        for r in src_ranges:
+            endpoints.append(EndPoint(r[0][0], EndpointTypes.START, r[1]))
+            endpoints.append(EndPoint(r[0][1], EndpointTypes.END, r[1]))
+        endpoints.sort(key=lambda x: [x.time, int(x.pt_type)])  # Make START in front of END if equal on time.
+
+        last_endpoint_time = endpoints[0].time
+        last_value = endpoints[0].value
+        for i in range(1, len(endpoints)):
+            ep = endpoints[i]
+            if ep.time > last_endpoint_time and last_value > 0.0:
+                approximated_sm_efficiency = min(last_value, 1.0)
+                merged_ranges.append(((last_endpoint_time, ep.time), approximated_sm_efficiency))
+            last_endpoint_time = ep.time
+            if ep.pt_type == EndpointTypes.START:
+                last_value += ep.value
+            else:
+                last_value -= ep.value
+
     return merged_ranges
 
 
@@ -174,6 +217,21 @@ class OverallParser(object):
         self.steps = []
         self.steps_names = []
 
+        self.device_to_index = {}
+        # For calculating GPU utilization.
+        self.kernel_ranges_per_device = []
+        self.gpu_utilization = []
+        self.gpu_util_timeline_unit_size = 0
+        self.gpu_util_timeline_unit_name = ""
+        self.gpu_util_json = None
+        # For calculating approximated SM efficiency.
+        self.blocks_per_sm_per_device = []
+        self.avg_approximated_sm_efficency_per_device = []
+        self.gpu_sm_efficiency_json = None
+        # For calculating averaged occupancy.
+        self.occupancy_per_device = []
+        self.avg_occupancy_per_device = []
+
         self.min_ts = sys.maxsize
         self.max_ts = -sys.maxsize - 1
         self.steps_costs = []
@@ -274,6 +332,139 @@ class OverallParser(object):
                     self.steps = self.steps[:keep_steps]
                     self.steps_names = self.steps_names[:keep_steps]
 
+    def calculate_gpu_utilization(self):
+        def get_bucket_info(range_micro_seconds):
+            max_buckets = 100
+            bucket_size = 1
+            while range_micro_seconds / bucket_size > max_buckets:
+                bucket_size *= 10
+            buckets = int(range_micro_seconds / bucket_size)
+            unit = bucket_size
+            unit_str = "us"
+            if unit >= 1000:
+                unit /= 1000
+                unit_str = "ms"
+                if unit >= 1000:
+                    unit /= 1000
+                    unit_str = "s"
+            return int(bucket_size), int(buckets), int(unit), unit_str
+
+        def build_trace_counter(gpu_id, start_time, counter_value):
+            util_json = {}
+            util_json["ph"] = "C"
+            util_json["name"] = "GPU {} Utilization".format(gpu_id)
+            util_json["pid"] = gpu_id
+            util_json["ts"] = start_time
+            util_json["args"] = {"GPU Utilization": counter_value}
+            return util_json
+
+        counter_json = []
+        all_steps_range = (self.steps[0][0], self.steps[-1][1])
+        gpu_utilization_timeline = []
+        for device_id, i in self.device_to_index.items():
+            self.kernel_ranges_per_device[i] = merge_ranges(self.kernel_ranges_per_device[i])
+            self.kernel_ranges_per_device[i] = intersection_ranges_lists(
+                self.kernel_ranges_per_device[i], [all_steps_range])
+            ranges_sum = get_ranges_sum(self.kernel_ranges_per_device[i])
+            self.gpu_utilization.append(ranges_sum / (all_steps_range[1] - all_steps_range[0]))
+
+            bucket_size, buckets, self.gpu_util_timeline_unit_size, self.gpu_util_timeline_unit_name = \
+                get_bucket_info(all_steps_range[1] - all_steps_range[0])
+            gpu_utilization_timeline.append([0] * buckets)
+            if len(self.kernel_ranges_per_device[i]) > 0:
+                current_range_index = 0
+                current_range = self.kernel_ranges_per_device[i][current_range_index]
+                current_bucket_index = 0
+                current_bucket = (all_steps_range[0], all_steps_range[0] + bucket_size)
+                while current_range_index < len(self.kernel_ranges_per_device[i]) and current_bucket_index < buckets:
+                    if current_bucket[1] <= current_range[0]:
+                        current_bucket_index += 1
+                        current_bucket = (all_steps_range[0] + current_bucket_index * bucket_size,
+                                          all_steps_range[0] + (current_bucket_index + 1) * bucket_size)
+                    elif current_bucket[0] >= current_range[1]:
+                        current_range_index += 1
+                        if current_range_index < len(self.kernel_ranges_per_device[i]):
+                            current_range = self.kernel_ranges_per_device[i][current_range_index]
+                    else:
+                        left_bound = max(current_range[0], current_bucket[0])
+                        right_bound = min(current_range[1], current_bucket[1])
+                        gpu_utilization_timeline[-1][current_bucket_index] += (right_bound - left_bound)
+                        if current_bucket[1] < current_range[1]:
+                            current_bucket_index += 1
+                            current_bucket = (all_steps_range[0] + current_bucket_index * bucket_size,
+                                              all_steps_range[0] + (current_bucket_index + 1) * bucket_size)
+                        else:
+                            current_range_index += 1
+                            if current_range_index < len(self.kernel_ranges_per_device[i]):
+                                current_range = self.kernel_ranges_per_device[i][current_range_index]
+                for i_bucket in range(buckets):
+                    gpu_utilization_timeline[-1][i_bucket] /= bucket_size
+
+                for i_bucket in range(buckets):
+                    start_time = self.steps[0][0] + i_bucket * bucket_size
+                    util_json = build_trace_counter(device_id, start_time, gpu_utilization_timeline[-1][i_bucket])
+                    counter_json.append(util_json)
+                start_time = self.steps[0][0] + buckets * bucket_size
+                util_json = build_trace_counter(device_id, start_time, 0)
+                counter_json.append(util_json)
+
+        self.kernel_ranges_per_device = None  # Release memory.
+
+        return counter_json
+
+
+    def calculate_approximated_sm_efficency(self):
+        def calculate_avg(approximated_sm_efficency_ranges, total_dur):
+            total_weighted_sm_efficiency = 0.0
+            for r in approximated_sm_efficency_ranges:
+                dur = r[0][1] - r[0][0]
+                total_weighted_sm_efficiency += r[1] * dur
+            avg_approximated_sm_efficency = total_weighted_sm_efficiency / total_dur
+            return avg_approximated_sm_efficency
+
+        def build_trace_counter(gpu_id, start_time, counter_value):
+            util_json = {}
+            util_json["ph"] = "C"
+            util_json["name"] = "GPU {} Est. SM Efficiency".format(gpu_id)
+            util_json["pid"] = 0
+            util_json["ts"] = start_time
+            util_json["args"] = {"Est. SM Efficiency": counter_value}
+            return util_json
+
+        counter_json = []
+        total_dur = self.steps[-1][1] - self.steps[0][0]
+        approximated_sm_efficency_ranges_per_device = []
+        for device_id, i in self.device_to_index.items():
+            blocks_per_sm_ranges = self.blocks_per_sm_per_device[i]
+            approximated_sm_efficency_ranges = merge_ranges_with_value(blocks_per_sm_ranges)
+            approximated_sm_efficency_ranges_per_device.append(approximated_sm_efficency_ranges)
+            avg_approximated_sm_efficency = calculate_avg(approximated_sm_efficency_ranges, total_dur)
+            self.avg_approximated_sm_efficency_per_device.append(avg_approximated_sm_efficency)
+
+            if avg_approximated_sm_efficency > 0.0:
+                for r in approximated_sm_efficency_ranges:
+                    efficiency_json_start = build_trace_counter(device_id, r[0][0], r[1])
+                    efficiency_json_finish = build_trace_counter(device_id, r[0][1], 0)
+                    counter_json.append(efficiency_json_start)
+                    counter_json.append(efficiency_json_finish)
+
+        self.blocks_per_sm_per_device = None  # Release memory.
+
+        return counter_json
+
+
+    # Weighted average. Weighted by kernel's time duration.
+    def calculate_occupancy(self):
+        for i in range(len(self.occupancy_per_device)):
+            total_time = 0
+            total_occupancy = 0.0
+            for r in self.occupancy_per_device[i]:
+                dur = r[0][1] - r[0][0]
+                total_occupancy += r[1] * dur
+                total_time += dur
+            avg_occupancy = total_occupancy / total_time
+            self.avg_occupancy_per_device.append(avg_occupancy)
+
 
     def parse_events(self, events, runtime_node_list, device_node_list):
         logger.debug("Overall, parse events")
@@ -284,6 +475,10 @@ class OverallParser(object):
             self.steps.append((self.min_ts, self.max_ts))
             self.steps_names.append("0")
         self.update_steps_consider_device_side(runtime_node_list, device_node_list)
+
+        self.gpu_util_json = self.calculate_gpu_utilization()
+        self.gpu_sm_efficiency_json = self.calculate_approximated_sm_efficency()
+        self.calculate_occupancy()
 
         for i in range(len(self.role_ranges)):
             self.role_ranges[i] = merge_ranges(self.role_ranges[i])
@@ -302,12 +497,26 @@ class OverallParser(object):
         for i in range(len(self.avg_costs.costs)):
             self.avg_costs.costs[i] /= valid_steps
 
+        return
+
     def parse_event(self, event):
         ts = event.ts
         dur = event.duration
         evt_type = event.type
         if evt_type == EventTypes.KERNEL:
             self.role_ranges[ProfileRole.Kernel].append((ts, ts + dur))
+            # For caculating GPU utilization, and approximated SM efficiency.
+            device_id = event.args.get("device", None)
+            if device_id not in self.device_to_index:
+                index = len(self.kernel_ranges_per_device)
+                self.device_to_index[device_id] = index
+                self.kernel_ranges_per_device.append([])
+                self.blocks_per_sm_per_device.append([])
+                self.occupancy_per_device.append([])
+            index = self.device_to_index[device_id]
+            self.kernel_ranges_per_device[index].append((ts, ts + dur))
+            self.blocks_per_sm_per_device[index].append(((ts, ts + dur), event.args.get("blocks per SM", 0.0)))
+            self.occupancy_per_device[index].append(((ts, ts + dur), event.args.get("theoretical occupancy %", 0.0)))
         elif evt_type == EventTypes.MEMCPY:
             self.role_ranges[ProfileRole.Memcpy].append((ts, ts + dur))
         elif evt_type == EventTypes.MEMSET:

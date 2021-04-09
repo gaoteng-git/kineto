@@ -30,12 +30,17 @@ class RunProfileData(object):
         self.data_schema_version = None
         self.events = None
         self.trace_file_path = None
+        self.trace_json = None
         self.has_runtime = False
         self.has_kernel = False
         self.has_memcpy_or_memset = False
         self.steps_costs = None
         self.steps_names = None
         self.avg_costs = None
+        self.device_to_index = None
+        self.gpu_utilization = None
+        self.sm_efficency = None
+        self.occupancy = None
         self.op_list_groupby_name = None
         self.op_list_groupby_name_input = None
         self.stack_lists_group_by_name = None
@@ -48,10 +53,11 @@ class RunProfileData(object):
     def parse(run_dir, worker, path, caches):
         logger.debug("Parse trace, run_dir=%s, worker=%s", run_dir, path)
 
-        trace_path, trace_json= RunProfileData._preprocess_file(caches, io.join(run_dir, path))
+        trace_path, trace_json = RunProfileData._preprocess_file(caches, io.join(run_dir, path))
 
         profile = RunProfileData(worker)
         profile.trace_file_path = trace_path
+        profile.trace_json = trace_json
         if type(trace_json) is dict:
             metadata = trace_json.get("profilerMetadata", None)
             version = metadata.get("DataSchemaVersion") if metadata else None
@@ -118,6 +124,18 @@ class RunProfileData(object):
         self.steps_costs = overall_parser.steps_costs
         self.steps_names = overall_parser.steps_names
         self.avg_costs = overall_parser.avg_costs
+        self.device_to_index = overall_parser.device_to_index
+        self.gpu_utilization = overall_parser.gpu_utilization
+        self.sm_efficency = overall_parser.avg_approximated_sm_efficency_per_device
+        self.occupancy = overall_parser.avg_occupancy_per_device
+        self.trace_json["traceEvents"].extend(overall_parser.gpu_util_json)
+        self.trace_json["traceEvents"].extend(overall_parser.gpu_sm_efficiency_json)
+        fp = tempfile.NamedTemporaryFile('w+t', suffix='.json.gz', delete=False)
+        fp.close()
+        with gzip.open(fp.name, mode='wt') as fzip:
+            fzip.write(json.dumps(self.trace_json))
+        self.trace_file_path = fp.name
+        self.trace_json = None  # Trace view loads from file, so release this to save memory usage.
 
         if self.has_kernel:
             logger.debug("KernelParser")
