@@ -175,6 +175,12 @@ class OverallParser(object):
         self.steps = []
         self.steps_names = []
 
+        # For caculating GPU utilization.
+        self.device_to_index = {}
+        self.kernel_ranges_per_device = []
+        self.gpu_utilization = []
+        self.gpu_utilization_timeline = []
+
         self.min_ts = sys.maxsize
         self.max_ts = -sys.maxsize - 1
         self.steps_costs = []
@@ -276,6 +282,75 @@ class OverallParser(object):
                     self.steps_names = self.steps_names[:keep_steps]
 
 
+    def calculate_gpu_utilization(self):
+        def get_bucket_info(range_micro_seconds):
+            max_buckets = 100
+            bucket_size = 1
+            while range_micro_seconds / bucket_size > max_buckets:
+                bucket_size *= 10
+            buckets = int(range_micro_seconds / bucket_size)
+            unit = bucket_size
+            unit_str = "us"
+            if unit >= 1000:
+                unit /= 1000
+                unit_str = "ms"
+                if unit >= 1000:
+                    unit /= 1000
+                    unit_str = "s"
+            return int(bucket_size), int(buckets), int(unit), unit_str
+
+
+        all_steps_range = (self.steps[0][0], self.steps[-1][1])
+        for i in range(len(self.kernel_ranges_per_device)):
+            self.kernel_ranges_per_device[i] = merge_ranges(self.kernel_ranges_per_device[i])
+            self.kernel_ranges_per_device[i] = intersection_ranges_lists(
+                self.kernel_ranges_per_device[i], [all_steps_range])
+            ranges_sum = get_ranges_sum(self.kernel_ranges_per_device[i])
+            self.gpu_utilization.append(ranges_sum / (all_steps_range[1] - all_steps_range[0]))
+
+            bucket_size, buckets, unit, unit_str = get_bucket_info(all_steps_range[1] - all_steps_range[0])
+            self.gpu_utilization_timeline.append([0] * buckets)
+            if len(self.kernel_ranges_per_device[i]) > 0:
+                current_range_index = 0
+                current_range = self.kernel_ranges_per_device[i][current_range_index]
+                current_bucket_index = 0
+                current_bucket = (all_steps_range[0], all_steps_range[0] + bucket_size)
+                while current_range_index < len(self.kernel_ranges_per_device[i]) and current_bucket_index < buckets:
+                    if current_bucket[1] <= current_range[0]:
+                        current_bucket_index += 1
+                        current_bucket = (all_steps_range[0] + current_bucket_index * bucket_size,
+                                          all_steps_range[0] + (current_bucket_index + 1) * bucket_size)
+                    elif current_bucket[0] >= current_range[1]:
+                        current_range_index += 1
+                        if current_range_index < len(self.kernel_ranges_per_device[i]):
+                            current_range = self.kernel_ranges_per_device[i][current_range_index]
+                    else:
+                        left_bound = max(current_range[0], current_bucket[0])
+                        right_bound = min(current_range[1], current_bucket[1])
+                        self.gpu_utilization_timeline[-1][current_bucket_index] += (right_bound - left_bound)
+                        if current_bucket[1] < current_range[1]:
+                            current_bucket_index += 1
+                            current_bucket = (all_steps_range[0] + current_bucket_index * bucket_size,
+                                              all_steps_range[0] + (current_bucket_index + 1) * bucket_size)
+                        else:
+                            current_range_index += 1
+                            if current_range_index < len(self.kernel_ranges_per_device[i]):
+                                current_range = self.kernel_ranges_per_device[i][current_range_index]
+                for i_bucket in range(buckets):
+                    self.gpu_utilization_timeline[-1][i_bucket] /= bucket_size
+
+        logger.info("bucket_size={}; buckets={}; unit={}; unit_str={}".format(bucket_size, buckets, unit, unit_str))
+        for device_id, index in self.device_to_index.items():
+            logger.info("GPU {}: {}".format(device_id, self.gpu_utilization[index]))
+            sum = 0
+            for i_bucket in range(buckets):
+                print(self.gpu_utilization_timeline[index][i_bucket])
+                #logger.info("GPU {}: bucket{}: {}".format(device_id, i_bucket,
+                #                                          self.gpu_utilization_timeline[index][i_bucket]))
+                sum += self.gpu_utilization_timeline[index][i_bucket]
+            logger.info("GPU {}: avg={}".format(device_id, sum / buckets))
+
+
     def parse_events(self, events, runtime_node_list, device_node_list):
         logger.debug("Overall, parse events")
         for event in events:
@@ -285,6 +360,8 @@ class OverallParser(object):
             self.steps.append((self.min_ts, self.max_ts))
             self.steps_names.append("0")
         self.update_steps_consider_device_side(runtime_node_list, device_node_list)
+
+        self.calculate_gpu_utilization()
 
         for i in range(len(self.role_ranges)):
             self.role_ranges[i] = merge_ranges(self.role_ranges[i])
@@ -309,6 +386,14 @@ class OverallParser(object):
         evt_type = event.type
         if evt_type == EventTypes.KERNEL:
             self.role_ranges[ProfileRole.Kernel].append((ts, ts + dur))
+            # For caculating GPU utilization.
+            device_id = event.args.get("device", None)
+            if device_id not in self.device_to_index:
+                index = len(self.kernel_ranges_per_device)
+                self.device_to_index[device_id] = index
+                self.kernel_ranges_per_device.append([])
+            index = self.device_to_index[device_id]
+            self.kernel_ranges_per_device[index].append((ts, ts + dur))
         elif evt_type == EventTypes.MEMCPY:
             self.role_ranges[ProfileRole.Memcpy].append((ts, ts + dur))
         elif evt_type == EventTypes.MEMSET:
