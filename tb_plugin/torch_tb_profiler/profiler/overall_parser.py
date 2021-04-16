@@ -333,22 +333,83 @@ class OverallParser(object):
             if ts + dur > self.max_ts:
                 self.max_ts = ts + dur
 
+    def parse_clock_time(self, clock_time_str):
+        parts = clock_time_str.split(':')
+        seconds = float(parts[2]) + int(parts[1]) * 60 + int(parts[0]) * 60 * 60
+        return seconds
+
+    def init_clock_time_to_timestamp(self):
+        '''
+        clock_time_start = "14:27:32.028743"
+        self.timestamp_start = 1617863252028743
+        clock_time_end = "14:27:43.747865"
+        timestamp_end = 1617863263747865
+        gpu_utilization_points = """2021/04/08 14:27:33.797, 83 %
+2021/04/08 14:27:34.797, 92 %
+2021/04/08 14:27:35.797, 84 %
+2021/04/08 14:27:36.811, 89 %
+2021/04/08 14:27:37.811, 67 %
+2021/04/08 14:27:38.812, 92 %
+2021/04/08 14:27:39.813, 92 %
+2021/04/08 14:27:40.813, 85 %
+2021/04/08 14:27:41.813, 92 %
+2021/04/08 14:27:42.814, 86 %"""
+        '''
+
+        clock_time_start = "17:50:23.862309"
+        self.timestamp_start = 1618566623862309
+        clock_time_end = "17:50:37.255425"
+        timestamp_end = 1618566637255425
+        gpu_utilization_points = """2021/04/16 17:50:25.235, 81 %
+2021/04/16 17:50:26.236, 91 %
+2021/04/16 17:50:27.236, 72 %
+2021/04/16 17:50:28.237, 80 %
+2021/04/16 17:50:29.237, 72 %
+2021/04/16 17:50:30.237, 79 %
+2021/04/16 17:50:31.238, 79 %
+2021/04/16 17:50:32.238, 71 %
+2021/04/16 17:50:33.238, 81 %
+2021/04/16 17:50:34.239, 79 %
+2021/04/16 17:50:35.239, 65 %
+2021/04/16 17:50:36.239, 81 %"""
+
+
+        self.clock_time_start_seconds = self.parse_clock_time(clock_time_start)
+        clock_time_end_seconds = self.parse_clock_time(clock_time_end)
+        self.timestamp_per_second = (timestamp_end - self.timestamp_start) / (clock_time_end_seconds - self.clock_time_start_seconds)
+
+        points = gpu_utilization_points.split('\n')
+        buckets = []
+        gpu_utilizations = []
+        for point in points:
+            start_pos = point.find(' ') + 1
+            end_pos = point.find(',')
+            clock_time_str = point[start_pos:end_pos]
+            timestamp_end = self.clock_time_to_timestamp(clock_time_str)
+            timestamp_start = timestamp_end - self.timestamp_per_second
+            buckets.append((timestamp_start, timestamp_end))
+            logger.info("[{}]: ({}, {})".format(len(buckets) - 1, timestamp_start, timestamp_end))
+            gpu_utilizations.append(float(point[end_pos + 2:point.find('%') - 1]) / 100)
+
+        print("gpu utilizations:")
+        for gpu_util in gpu_utilizations:
+            print(gpu_util)
+        print("\n")
+
+        return buckets
+
+    def clock_time_to_timestamp(self, clock_time_str):
+        clock_time_seconds = self.parse_clock_time(clock_time_str)
+        ts = (clock_time_seconds - self.clock_time_start_seconds) * self.timestamp_per_second + self.timestamp_start
+        return ts
+
     def calculate_gpu_utilization(self):
-        time_buckets = [
-            [1617863252797000, 1617863253797000],  # 83%
-            [1617863253797000, 1617863254797000],  # 92%
-            [1617863254797000, 1617863255797000],  # 84%
-            [1617863255797000, 1617863256811000],  # 89%
-            [1617863256811000, 1617863257811000],  # 67%
-            [1617863257811000, 1617863258812000],  # 92%
-            [1617863258812000, 1617863259813000],  # 92%
-            [1617863259813000, 1617863260813000],  # 85%
-            ]
+        time_buckets = self.init_clock_time_to_timestamp()
 
         for period in range(10):
             time_period = (period + 1) / 10
-            logger.info("\n")
-            logger.info("=================time_period:{}=================".format(time_period))
+            print("\n")
+            print("=================time_period:{}=================".format(time_period))
             for bucket in time_buckets:
                 bucket = [bucket[1] - (bucket[1] - bucket[0]) * time_period, bucket[1]]
                 count = 0
@@ -360,5 +421,5 @@ class OverallParser(object):
                         right_bound = min(bucket[1], r[1])
                         count += (right_bound - left_bound)
                 utilization = count / (bucket[1] - bucket[0])
-                logger.info("_________________GPU utilization:{}________________________".format(utilization))
+                print("{}".format(utilization))
 
