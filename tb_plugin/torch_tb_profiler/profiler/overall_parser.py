@@ -356,6 +356,7 @@ class OverallParser(object):
 2021/04/08 14:27:42.814, 86 %"""
         '''
 
+        '''
         clock_time_start = "17:50:23.862309"
         self.timestamp_start = 1618566623862309
         clock_time_end = "17:50:37.255425"
@@ -372,7 +373,22 @@ class OverallParser(object):
 2021/04/16 17:50:34.239, 79 %
 2021/04/16 17:50:35.239, 65 %
 2021/04/16 17:50:36.239, 81 %"""
+        '''
 
+        clock_time_start = "23:39:44.173422"
+        self.timestamp_start = 1618587584173411
+        clock_time_end = "23:39:55.274891"
+        timestamp_end = 1618587595274870
+        gpu_utilization_points = """2021/04/16 23:39:45.957, 0 %
+2021/04/16 23:39:46.957, 45 %
+2021/04/16 23:39:47.958, 86 %
+2021/04/16 23:39:48.958, 77 %
+2021/04/16 23:39:49.958, 81 %
+2021/04/16 23:39:50.959, 40 %
+2021/04/16 23:39:51.959, 0 %
+2021/04/16 23:39:52.959, 0 %
+2021/04/16 23:39:53.960, 0 %
+2021/04/16 23:39:54.960, 7 %"""
 
         self.clock_time_start_seconds = self.parse_clock_time(clock_time_start)
         clock_time_end_seconds = self.parse_clock_time(clock_time_end)
