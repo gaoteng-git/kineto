@@ -333,6 +333,13 @@ void ChromeTraceLogger::handleGpuActivity(
     occupancy /= occProps_[kernel->deviceId].maxThreadsPerMultiprocessor;
   }
 
+  // Calculate SM efficiency(not real, just estimated).
+  int gridSize = kernel->gridX * kernel->gridY * kernel->gridZ;
+  double sm_efficiency = 1.0;
+  if (gridSize < occProps_[kernel->deviceId].numSms) {
+    sm_efficiency = gridSize / occProps_[kernel->deviceId].numSms;
+  }
+
   // clang-format off
   traceOf_ << fmt::format(R"JSON(
   {{
@@ -345,7 +352,7 @@ void ChromeTraceLogger::handleGpuActivity(
       "warps per SM": {},
       "grid": [{}, {}, {}],
       "block": [{}, {}, {}],
-      "occupancy": {}
+      "occupancy": {}, "sm_efficiency": {}
     }}
   }},)JSON",
       traceActivityJson(activity, "stream "),
@@ -357,7 +364,7 @@ void ChromeTraceLogger::handleGpuActivity(
       warps_per_sm,
       kernel->gridX, kernel->gridY, kernel->gridZ,
       kernel->blockX, kernel->blockY, kernel->blockZ,
-      occupancy);
+      occupancy, sm_efficiency);
   // clang-format on
 
   handleLinkEnd(activity);
