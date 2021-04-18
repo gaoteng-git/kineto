@@ -10,6 +10,7 @@ class KernelParser:
         self.kernel_stat = None
 
     def parse_events(self, events):
+        self.dump_occupancy_sm_efficiency(events)
         events_dict = []
         for event in events:
             events_dict.append(vars(event))
@@ -19,7 +20,6 @@ class KernelParser:
         kernels = events[events["category"] == "Kernel"]
         self.kernel_stat = kernels.groupby("name")["duration"].agg(["count", "sum", "mean", "max", "min"]) \
             .sort_values("sum", ascending=False)
-        self.dump_occupancy_sm_efficiency(events)
 
 
     def dump_occupancy_sm_efficiency(self, events):
