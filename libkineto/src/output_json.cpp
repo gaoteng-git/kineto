@@ -337,7 +337,7 @@ void ChromeTraceLogger::handleGpuActivity(
   int gridSize = kernel->gridX * kernel->gridY * kernel->gridZ;
   double sm_efficiency = 1.0;
   if (gridSize < occProps_[kernel->deviceId].numSms) {
-    sm_efficiency = gridSize / occProps_[kernel->deviceId].numSms;
+    sm_efficiency = (double)gridSize / (double)occProps_[kernel->deviceId].numSms;
   }
 
   // clang-format off
