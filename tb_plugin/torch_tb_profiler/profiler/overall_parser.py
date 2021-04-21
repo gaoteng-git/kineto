@@ -366,53 +366,26 @@ class OverallParser(object):
 
     def init_clock_time_to_timestamp(self):
         '''
-        clock_time_start = "14:27:32.028743"
-        self.timestamp_start = 1617863252028743
-        clock_time_end = "14:27:43.747865"
-        timestamp_end = 1617863263747865
-        gpu_utilization_points = """2021/04/08 14:27:33.797, 83 %
-2021/04/08 14:27:34.797, 92 %
-2021/04/08 14:27:35.797, 84 %
-2021/04/08 14:27:36.811, 89 %
-2021/04/08 14:27:37.811, 67 %
-2021/04/08 14:27:38.812, 92 %
-2021/04/08 14:27:39.813, 92 %
-2021/04/08 14:27:40.813, 85 %
-2021/04/08 14:27:41.813, 92 %
-2021/04/08 14:27:42.814, 86 %"""
-        '''
-
-        '''
-        clock_time_start = "17:50:23.862309"
-        self.timestamp_start = 1618566623862309
-        clock_time_end = "17:50:37.255425"
-        timestamp_end = 1618566637255425
-        gpu_utilization_points = """2021/04/16 17:50:25.235, 81 %
-2021/04/16 17:50:26.236, 91 %
-2021/04/16 17:50:27.236, 72 %
-2021/04/16 17:50:28.237, 80 %
-2021/04/16 17:50:29.237, 72 %
-2021/04/16 17:50:30.237, 79 %
-2021/04/16 17:50:31.238, 79 %
-2021/04/16 17:50:32.238, 71 %
-2021/04/16 17:50:33.238, 81 %
-2021/04/16 17:50:34.239, 79 %
-2021/04/16 17:50:35.239, 65 %
-2021/04/16 17:50:36.239, 81 %"""
-        '''
-
         clock_time_start = "17:22:37.490296"
         self.timestamp_start = 1618996957490296
         clock_time_end = "17:23:07.178007"
         timestamp_end = 1618996987178007
         sample_period = 0.16666667
+        gpu_util_file_path = "D:\\tmp\\gpu_utilization_lms1_mid.txt"
+        '''
+        clock_time_start = "19:35:40.064649"
+        self.timestamp_start = 1619004940064649
+        clock_time_end = "19:36:39.934758"
+        timestamp_end = 1619004999934758
+        sample_period = 0.16666667
+        gpu_util_file_path = "D:\\tmp\\gpu_utilization\\log_l1_gpu_utilization.txt"
 
         self.clock_time_start_seconds = self.parse_clock_time(clock_time_start)
         clock_time_end_seconds = self.parse_clock_time(clock_time_end)
         self.timestamp_per_second = (timestamp_end - self.timestamp_start) / (clock_time_end_seconds - self.clock_time_start_seconds)
         self.timestamp_per_period = self.timestamp_per_second * sample_period
 
-        buckets, gpu_utilizations = self.parse_lms1_file("D:\\tmp\\gpu_utilization_lms1_mid.txt")
+        buckets, gpu_utilizations = self.parse_lms1_file(gpu_util_file_path)
 
         print("gpu utilizations:")
         for gpu_util in gpu_utilizations:
