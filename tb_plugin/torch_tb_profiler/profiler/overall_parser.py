@@ -338,6 +338,32 @@ class OverallParser(object):
         seconds = float(parts[2]) + int(parts[1]) * 60 + int(parts[0]) * 60 * 60
         return seconds
 
+    def parse_lms1_file(self, file_path):
+        with open(file_path) as file:
+            lines = file.readlines()
+
+            buckets = []
+            gpu_utilizations = []
+            prev_gpu_util_str = ""
+            for index in range(len(lines)):
+                point = lines[index]
+                start_pos = point.find(' ') + 1
+                end_pos = point.find(',')
+
+                gpu_util_str = point[end_pos + 2:point.find('%') - 1]
+                if gpu_util_str == prev_gpu_util_str:
+                    continue
+                prev_gpu_util_str = gpu_util_str
+
+                clock_time_str = point[start_pos:end_pos]
+                timestamp_end = self.clock_time_to_timestamp(clock_time_str)
+                timestamp_start = timestamp_end - self.timestamp_per_period
+                buckets.append((timestamp_start, timestamp_end))
+                logger.info("[{}]: ({}, {})".format(len(buckets) - 1, timestamp_start, timestamp_end))
+                gpu_utilizations.append(float(gpu_util_str) / 100)
+            return buckets, gpu_utilizations
+
+
     def init_clock_time_to_timestamp(self):
         '''
         clock_time_start = "14:27:32.028743"
@@ -375,44 +401,25 @@ class OverallParser(object):
 2021/04/16 17:50:36.239, 81 %"""
         '''
 
-        clock_time_start = "23:39:44.173422"
-        self.timestamp_start = 1618587584173411
-        clock_time_end = "23:39:55.274891"
-        timestamp_end = 1618587595274870
-        gpu_utilization_points = """2021/04/16 23:39:45.957, 0 %
-2021/04/16 23:39:46.957, 45 %
-2021/04/16 23:39:47.958, 86 %
-2021/04/16 23:39:48.958, 77 %
-2021/04/16 23:39:49.958, 81 %
-2021/04/16 23:39:50.959, 40 %
-2021/04/16 23:39:51.959, 0 %
-2021/04/16 23:39:52.959, 0 %
-2021/04/16 23:39:53.960, 0 %
-2021/04/16 23:39:54.960, 7 %"""
+        clock_time_start = "17:22:37.490296"
+        self.timestamp_start = 1618996957490296
+        clock_time_end = "17:23:07.178007"
+        timestamp_end = 1618996987178007
+        sample_period = 0.16666667
 
         self.clock_time_start_seconds = self.parse_clock_time(clock_time_start)
         clock_time_end_seconds = self.parse_clock_time(clock_time_end)
         self.timestamp_per_second = (timestamp_end - self.timestamp_start) / (clock_time_end_seconds - self.clock_time_start_seconds)
+        self.timestamp_per_period = self.timestamp_per_second * sample_period
 
-        points = gpu_utilization_points.split('\n')
-        buckets = []
-        gpu_utilizations = []
-        for point in points:
-            start_pos = point.find(' ') + 1
-            end_pos = point.find(',')
-            clock_time_str = point[start_pos:end_pos]
-            timestamp_end = self.clock_time_to_timestamp(clock_time_str)
-            timestamp_start = timestamp_end - self.timestamp_per_second
-            buckets.append((timestamp_start, timestamp_end))
-            logger.info("[{}]: ({}, {})".format(len(buckets) - 1, timestamp_start, timestamp_end))
-            gpu_utilizations.append(float(point[end_pos + 2:point.find('%') - 1]) / 100)
+        buckets, gpu_utilizations = self.parse_lms1_file("D:\\tmp\\gpu_utilization_lms1_mid.txt")
 
         print("gpu utilizations:")
         for gpu_util in gpu_utilizations:
             print(gpu_util)
         print("\n")
 
-        return buckets
+        return buckets, gpu_utilizations
 
     def clock_time_to_timestamp(self, clock_time_str):
         clock_time_seconds = self.parse_clock_time(clock_time_str)
@@ -420,22 +427,40 @@ class OverallParser(object):
         return ts
 
     def calculate_gpu_utilization(self):
-        time_buckets = self.init_clock_time_to_timestamp()
+        time_buckets, gpu_utilizations = self.init_clock_time_to_timestamp()
 
-        for period in range(10):
-            time_period = (period + 1) / 10
-            print("\n")
-            print("=================time_period:{}=================".format(time_period))
-            for bucket in time_buckets:
-                bucket = [bucket[1] - (bucket[1] - bucket[0]) * time_period, bucket[1]]
-                count = 0
-                for r in self.role_ranges[ProfileRole.Kernel]:
-                    if r[1] <= bucket[0] or r[0] >= bucket[1]:
-                        continue
-                    else:
-                        left_bound = max(bucket[0], r[0])
-                        right_bound = min(bucket[1], r[1])
-                        count += (right_bound - left_bound)
-                utilization = count / (bucket[1] - bucket[0])
-                print("{}".format(utilization))
+        min_square_error = 9999999.0
+        best_latency = 0
+        best_period = 0
+        for latency in range(1):
+            #time_latency = latency / 20
+            time_latency = 0
+            for period in range(1):
+                #time_period = (period + 1) / 50
+                time_period = 1.0
+                print("\n")
+                print("=================time_period:{}, latency:{}=================".format(time_period, time_latency))
+                square_error = 0.0
+                for bucket_id in range(len(time_buckets)):
+                    bucket = time_buckets[bucket_id]
+                    bucket = [bucket[1] - (bucket[1] - bucket[0]) * time_period - time_latency * (bucket[1] - bucket[0]),
+                              bucket[1] - time_latency * (bucket[1] - bucket[0])]
+                    count = 0
+                    for r in self.role_ranges[ProfileRole.Kernel]:
+                        if r[1] <= bucket[0] or r[0] >= bucket[1]:
+                            continue
+                        else:
+                            left_bound = max(bucket[0], r[0])
+                            right_bound = min(bucket[1], r[1])
+                            count += (right_bound - left_bound)
+                    utilization = count / (bucket[1] - bucket[0])
+                    print("{}".format(utilization))
+                    square_error += (gpu_utilizations[bucket_id] - utilization)**2
+                print("square error = {}".format(square_error))
+                if square_error < min_square_error:
+                    min_square_error = square_error
+                    best_latency = time_latency
+                    best_period = time_period
+        print("best_latency={}; best_period={}; min_square_error={}".format(
+            best_latency, best_period, min_square_error))
 
