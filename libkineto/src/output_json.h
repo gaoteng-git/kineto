@@ -18,7 +18,7 @@
 #endif
 #include "ClientTraceActivity.h"
 #include "output_base.h"
-#include "../third_party/cuda_occupancy.h"
+#include <cuda_occupancy.h>
 
 namespace libkineto {
   class TraceSpan;
