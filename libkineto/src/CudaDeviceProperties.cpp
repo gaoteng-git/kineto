@@ -6,6 +6,7 @@
  */
 
 #include "CudaDeviceProperties.h"
+#include <cuda_runtime.h>
 
 namespace KINETO_NAMESPACE {
 

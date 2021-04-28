@@ -56,6 +56,7 @@ ChromeTraceLogger::ChromeTraceLogger(const std::string& traceFileName, int smCou
   openTraceFile(fileName_, traceOf_);
 #ifdef HAS_CUPTI
   smCount_ = CuptiActivityInterface::singleton().smCount();
+  initOccDeviceProps();
 #endif
 }
 

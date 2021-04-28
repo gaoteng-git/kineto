@@ -8,6 +8,7 @@
 #pragma once
 
 #include <cuda_occupancy.h>
+#include <stdint.h>
 #include <vector>
 
 namespace KINETO_NAMESPACE {
