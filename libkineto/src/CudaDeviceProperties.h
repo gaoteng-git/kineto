@@ -7,16 +7,17 @@
 
 #pragma once
 
+#include <cuda_occupancy.h>
 #include <vector>
 
 namespace KINETO_NAMESPACE {
 
-#ifdef HAS_CUPTI
 std::vector<cudaOccDeviceProp> getOccDeviceProp();
 
 void initOccDeviceProps();
-#endif
 
-float getKernelOccupancy(CUpti_ActivityKernel4* kernel);
+float getKernelOccupancy(uint32_t deviceId, uint16_t registersPerThread, 
+                         int32_t staticSharedMemory, int32_t dynamicSharedMemory,
+                         int32_t blockX, int32_t blockY, int32_t blockZ);
 
 } // namespace KINETO_NAMESPACE

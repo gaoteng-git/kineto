@@ -5,14 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#include <cuda_occupancy.h>
 #include "CudaDeviceProperties.h"
 
 namespace KINETO_NAMESPACE {
 
 std::vector<cudaOccDeviceProp> occProps_;
-
-#ifdef HAS_CUPTI
 
 std::vector<cudaOccDeviceProp> getOccDeviceProp() {
   std::vector<cudaOccDeviceProp> occProps;
@@ -40,29 +37,29 @@ void initOccDeviceProps() {
   occProps_ = getOccDeviceProp();
 }
 
-#endif
-
-float getKernelOccupancy(CUpti_ActivityKernel4* kernel) {
+float getKernelOccupancy(uint32_t deviceId, uint16_t registersPerThread, 
+                         int32_t staticSharedMemory, int32_t dynamicSharedMemory,
+                         int32_t blockX, int32_t blockY, int32_t blockZ) {
   // Calculate occupancy
   float occupancy = -1.0;
-  if (kernel->deviceId < occProps_.size()) {
+  if (deviceId < occProps_.size()) {
     cudaOccFuncAttributes occFuncAttr;
     occFuncAttr.maxThreadsPerBlock = INT_MAX;
-    occFuncAttr.numRegs = kernel->registersPerThread;
-    occFuncAttr.sharedSizeBytes = kernel->staticSharedMemory;
+    occFuncAttr.numRegs = registersPerThread;
+    occFuncAttr.sharedSizeBytes = staticSharedMemory;
     occFuncAttr.partitionedGCConfig = PARTITIONED_GC_OFF;
     occFuncAttr.shmemLimitConfig = FUNC_SHMEM_LIMIT_DEFAULT;
     occFuncAttr.maxDynamicSharedSizeBytes = 0;
     const cudaOccDeviceState occDeviceState = {};
-    int blockSize = kernel->blockX * kernel->blockY * kernel->blockZ;
-    size_t dynamicSmemSize = kernel->dynamicSharedMemory;
+    int blockSize = blockX * blockY * blockZ;
+    size_t dynamicSmemSize = dynamicSharedMemory;
     cudaOccResult occ_result;
     cudaOccError status = cudaOccMaxActiveBlocksPerMultiprocessor(
-          &occ_result, &occProps_[kernel->deviceId], &occFuncAttr, &occDeviceState,
+          &occ_result, &occProps_[deviceId], &occFuncAttr, &occDeviceState,
           blockSize, dynamicSmemSize);
     if (status == CUDA_OCC_SUCCESS) {
       occupancy = occ_result.activeBlocksPerMultiprocessor * blockSize /
-          (float) occProps_[kernel->deviceId].maxThreadsPerMultiprocessor;
+          (float) occProps_[deviceId].maxThreadsPerMultiprocessor;
     }
   }
   return occupancy;

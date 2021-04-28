@@ -18,6 +18,7 @@
 #include "CuptiActivity.h"
 #include "CuptiActivity.tpp"
 #include "CuptiActivityInterface.h"
+#include "CudaDeviceProperties.h"
 #endif // HAS_CUPTI
 #include "Demangle.h"
 #include "TraceSpan.h"
@@ -298,7 +299,9 @@ void ChromeTraceLogger::handleGpuActivity(
   }
 
   // Calculate occupancy
-  occupancy = getKernelOccupancy(kernel);
+  float occupancy = KINETO_NAMESPACE::getKernelOccupancy(kernel->deviceId, kernel->registersPerThread,
+                                       kernel->staticSharedMemory, kernel->dynamicSharedMemory,
+                                       kernel->blockX, kernel->blockY, kernel->blockZ);
 
   // clang-format off
   traceOf_ << fmt::format(R"JSON(
