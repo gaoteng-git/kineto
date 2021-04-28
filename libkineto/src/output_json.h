@@ -15,7 +15,6 @@
 
 #ifdef HAS_CUPTI
 #include <cupti.h>
-#include <cuda_occupancy.h>
 #endif
 #include "ClientTraceActivity.h"
 #include "output_base.h"
@@ -83,7 +82,6 @@ class ChromeTraceLogger : public libkineto::ActivityLogger {
 #ifdef HAS_CUPTI
   // Number of SMs on current device
   int smCount_{0};
-  std::vector<cudaOccDeviceProp> occProps_;
 #endif
 };
 
