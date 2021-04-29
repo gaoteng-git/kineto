@@ -6,36 +6,35 @@
  */
 
 #include "CudaDeviceProperties.h"
+
+#include <vector>
+
 #include <cuda_runtime.h>
+#include <cuda_occupancy.h>
 
 namespace KINETO_NAMESPACE {
 
-std::vector<cudaOccDeviceProp> occProps_;
+std::vector<cudaOccDeviceProp> occProps;
 
-std::vector<cudaOccDeviceProp> getOccDeviceProp() {
-  std::vector<cudaOccDeviceProp> occProps;
+void initOccDeviceProp() {
+  occProps.clear();
   int device_count;
   cudaError_t error_id = cudaGetDeviceCount(&device_count);
   // Return empty vector if error.
   if (error_id != cudaSuccess) {
-    return std::vector<cudaOccDeviceProp>();
+    return;
   }
   for (int i = 0; i < device_count; ++i) {
     cudaDeviceProp prop;
     error_id = cudaGetDeviceProperties(&prop, i);
     // Return empty vector if any device property fail to get.
     if (error_id != cudaSuccess) {
-      return std::vector<cudaOccDeviceProp>();
+      return;
     }
     cudaOccDeviceProp occProp;
     occProp = prop;
     occProps.push_back(occProp);
   }
-  return occProps;
-}
-
-void initOccDeviceProps() {
-  occProps_ = getOccDeviceProp();
 }
 
 float getKernelOccupancy(uint32_t deviceId, uint16_t registersPerThread, 
@@ -43,7 +42,7 @@ float getKernelOccupancy(uint32_t deviceId, uint16_t registersPerThread,
                          int32_t blockX, int32_t blockY, int32_t blockZ) {
   // Calculate occupancy
   float occupancy = -1.0;
-  if (deviceId < occProps_.size()) {
+  if (deviceId < occProps.size()) {
     cudaOccFuncAttributes occFuncAttr;
     occFuncAttr.maxThreadsPerBlock = INT_MAX;
     occFuncAttr.numRegs = registersPerThread;
@@ -56,11 +55,11 @@ float getKernelOccupancy(uint32_t deviceId, uint16_t registersPerThread,
     size_t dynamicSmemSize = dynamicSharedMemory;
     cudaOccResult occ_result;
     cudaOccError status = cudaOccMaxActiveBlocksPerMultiprocessor(
-          &occ_result, &occProps_[deviceId], &occFuncAttr, &occDeviceState,
+          &occ_result, &occProps[deviceId], &occFuncAttr, &occDeviceState,
           blockSize, dynamicSmemSize);
     if (status == CUDA_OCC_SUCCESS) {
       occupancy = occ_result.activeBlocksPerMultiprocessor * blockSize /
-          (float) occProps_[deviceId].maxThreadsPerMultiprocessor;
+          (float) occProps[deviceId].maxThreadsPerMultiprocessor;
     }
   }
   return occupancy;
