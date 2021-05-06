@@ -498,7 +498,7 @@ class OverallParser(object):
             index = self.device_to_index[device_id]
             self.kernel_ranges_per_device[index].append((ts, ts + dur))
             self.blocks_per_sm_per_device[index].append(((ts, ts + dur), event.args.get("blocks per SM", 0.0)))
-            self.occupancy_per_device[index].append(((ts, ts + dur), event.args.get("occupancy", 0.0)))
+            self.occupancy_per_device[index].append(((ts, ts + dur), event.args.get("theoretical occupancy %", 0.0)))
         elif evt_type == EventTypes.MEMCPY:
             self.role_ranges[ProfileRole.Memcpy].append((ts, ts + dur))
         elif evt_type == EventTypes.MEMSET:
