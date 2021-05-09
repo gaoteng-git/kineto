@@ -217,11 +217,10 @@ class OverallParser(object):
         self.steps = []
         self.steps_names = []
 
-        # For calculating GPU utilization.
         self.device_to_index = {}
+        # For calculating GPU utilization.
         self.kernel_ranges_per_device = []
         self.gpu_utilization = []
-        self.gpu_utilization_timeline = []
         self.gpu_util_timeline_unit_size = 0
         self.gpu_util_timeline_unit_name = ""
         # For calculating approximated SM efficiency.
@@ -356,6 +355,7 @@ class OverallParser(object):
 
         counter_json = []
         all_steps_range = (self.steps[0][0], self.steps[-1][1])
+        gpu_utilization_timeline = []
         for device_id, i in self.device_to_index.items():
             self.kernel_ranges_per_device[i] = merge_ranges(self.kernel_ranges_per_device[i])
             self.kernel_ranges_per_device[i] = intersection_ranges_lists(
@@ -365,7 +365,7 @@ class OverallParser(object):
 
             bucket_size, buckets, self.gpu_util_timeline_unit_size, self.gpu_util_timeline_unit_name = \
                 get_bucket_info(all_steps_range[1] - all_steps_range[0])
-            self.gpu_utilization_timeline.append([0] * buckets)
+            gpu_utilization_timeline.append([0] * buckets)
             if len(self.kernel_ranges_per_device[i]) > 0:
                 current_range_index = 0
                 current_range = self.kernel_ranges_per_device[i][current_range_index]
@@ -383,7 +383,7 @@ class OverallParser(object):
                     else:
                         left_bound = max(current_range[0], current_bucket[0])
                         right_bound = min(current_range[1], current_bucket[1])
-                        self.gpu_utilization_timeline[-1][current_bucket_index] += (right_bound - left_bound)
+                        gpu_utilization_timeline[-1][current_bucket_index] += (right_bound - left_bound)
                         if current_bucket[1] < current_range[1]:
                             current_bucket_index += 1
                             current_bucket = (all_steps_range[0] + current_bucket_index * bucket_size,
@@ -393,11 +393,11 @@ class OverallParser(object):
                             if current_range_index < len(self.kernel_ranges_per_device[i]):
                                 current_range = self.kernel_ranges_per_device[i][current_range_index]
                 for i_bucket in range(buckets):
-                    self.gpu_utilization_timeline[-1][i_bucket] /= bucket_size
+                    gpu_utilization_timeline[-1][i_bucket] /= bucket_size
 
                 for i_bucket in range(buckets):
                     start_time = self.steps[0][0] + i_bucket * bucket_size
-                    util_json = build_trace_counter(device_id, start_time, self.gpu_utilization_timeline[-1][i_bucket])
+                    util_json = build_trace_counter(device_id, start_time, gpu_utilization_timeline[-1][i_bucket])
                     counter_json.append(util_json)
                 start_time = self.steps[0][0] + buckets * bucket_size
                 util_json = build_trace_counter(device_id, start_time, 0)
@@ -409,9 +409,6 @@ class OverallParser(object):
 
 
     def output_gpu_utilization(self):
-        buckets = len(self.gpu_utilization_timeline[0])
-        logger.info("buckets={}; unit={}; unit_str={}".format(
-            buckets, self.gpu_util_timeline_unit_size, self.gpu_util_timeline_unit_name))
         for device_id, index in self.device_to_index.items():
             logger.info("gpu_utilization, GPU {}: {}".format(device_id, self.gpu_utilization[index]))
 

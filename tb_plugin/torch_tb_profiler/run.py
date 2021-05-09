@@ -55,3 +55,6 @@ class RunProfile(object):
         self.kernel_pie = None
         self.kernel_table = None
         self.trace_file_path = None
+        self.device_to_index = None
+        self.gpu_utilization = None
+        self.sm_efficency = None
