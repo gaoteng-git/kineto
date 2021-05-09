@@ -30,6 +30,7 @@ class RunProfileData(object):
         self.data_schema_version = None
         self.events = None
         self.trace_file_path = None
+        self.trace_json = None
         self.has_runtime = False
         self.has_kernel = False
         self.has_memcpy_or_memset = False
@@ -52,6 +53,7 @@ class RunProfileData(object):
 
         profile = RunProfileData(worker)
         profile.trace_file_path = trace_path
+        profile.trace_json = trace_json
         if type(trace_json) is dict:
             metadata = trace_json.get("profilerMetadata", None)
             version = metadata.get("DataSchemaVersion") if metadata else None
@@ -111,13 +113,23 @@ class RunProfileData(object):
 
         logger.debug("OverallParser")
         overall_parser = OverallParser()
-        overall_parser.parse_events(self.events, module_parser.runtime_node_list, module_parser.device_node_list)
+        gpu_util_json, gpu_sm_efficiency_json = overall_parser.parse_events(self.events,
+                                                                            module_parser.runtime_node_list,
+                                                                            module_parser.device_node_list)
         self.has_runtime = bool(overall_parser.role_ranges[ProfileRole.Runtime])
         self.has_kernel = bool(overall_parser.role_ranges[ProfileRole.Kernel])
         self.has_memcpy_or_memset = bool(overall_parser.role_ranges[ProfileRole.Memcpy] or overall_parser.role_ranges[ProfileRole.Memset])
         self.steps_costs = overall_parser.steps_costs
         self.steps_names = overall_parser.steps_names
         self.avg_costs = overall_parser.avg_costs
+        self.trace_json["traceEvents"].extend(gpu_util_json)
+        self.trace_json["traceEvents"].extend(gpu_sm_efficiency_json)
+        fp = tempfile.NamedTemporaryFile('w+t', suffix='.json.gz', delete=False)
+        fp.close()
+        with gzip.open(fp.name, mode='wt') as fzip:
+            fzip.write(json.dumps(self.trace_json))
+        self.trace_file_path = fp.name
+        self.trace_json = None  # Trace view loads from file, so release this to save memory usage.
 
         if self.has_kernel:
             logger.debug("KernelParser")

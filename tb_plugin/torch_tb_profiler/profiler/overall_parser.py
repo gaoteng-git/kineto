@@ -3,6 +3,7 @@
 # --------------------------------------------------------------------------
 import sys
 from enum import IntEnum
+import json
 
 from .. import utils
 from .trace import EventTypes
@@ -225,11 +226,7 @@ class OverallParser(object):
         self.gpu_util_timeline_unit_name = ""
         # For calculating approximated SM efficiency.
         self.blocks_per_sm_per_device = []
-        self.approximated_sm_efficency_ranges_per_device = []
         self.avg_approximated_sm_efficency_per_device = []
-        # For calculating averaged occupancy.
-        self.occupancy_per_device = []
-        self.avg_occupancy_per_device = []
 
         self.min_ts = sys.maxsize
         self.max_ts = -sys.maxsize - 1
@@ -348,8 +345,18 @@ class OverallParser(object):
                     unit_str = "s"
             return int(bucket_size), int(buckets), int(unit), unit_str
 
+        def build_trace_counter(gpu_id, start_time, counter_value):
+            util_json = {}
+            util_json["ph"] = "C"
+            util_json["name"] = "GPU {} Utilization".format(gpu_id)
+            util_json["pid"] = 0
+            util_json["ts"] = start_time
+            util_json["args"] = {"GPU Utilization": counter_value}
+            return util_json
+
+        counter_json = []
         all_steps_range = (self.steps[0][0], self.steps[-1][1])
-        for i in range(len(self.kernel_ranges_per_device)):
+        for device_id, i in self.device_to_index.items():
             self.kernel_ranges_per_device[i] = merge_ranges(self.kernel_ranges_per_device[i])
             self.kernel_ranges_per_device[i] = intersection_ranges_lists(
                 self.kernel_ranges_per_device[i], [all_steps_range])
@@ -388,19 +395,26 @@ class OverallParser(object):
                 for i_bucket in range(buckets):
                     self.gpu_utilization_timeline[-1][i_bucket] /= bucket_size
 
+                for i_bucket in range(buckets):
+                    start_time = self.steps[0][0] + i_bucket * bucket_size
+                    util_json = build_trace_counter(device_id, start_time, self.gpu_utilization_timeline[-1][i_bucket])
+                    counter_json.append(util_json)
+                start_time = self.steps[0][0] + buckets * bucket_size
+                util_json = build_trace_counter(device_id, start_time, 0)
+                counter_json.append(util_json)
+
+                self.kernel_ranges_per_device = None  # Release memory.
+
+        return counter_json
+
+
     def output_gpu_utilization(self):
         buckets = len(self.gpu_utilization_timeline[0])
         logger.info("buckets={}; unit={}; unit_str={}".format(
             buckets, self.gpu_util_timeline_unit_size, self.gpu_util_timeline_unit_name))
         for device_id, index in self.device_to_index.items():
             logger.info("gpu_utilization, GPU {}: {}".format(device_id, self.gpu_utilization[index]))
-            sum = 0
-            for i_bucket in range(buckets):
-                print(self.gpu_utilization_timeline[index][i_bucket])
-                #logger.info("GPU {}: bucket{}: {}".format(device_id, i_bucket,
-                #                                          self.gpu_utilization_timeline[index][i_bucket]))
-                sum += self.gpu_utilization_timeline[index][i_bucket]
-            logger.info("gpu_utilization, GPU {}: avg={}".format(device_id, sum / buckets))
+
 
     def calculate_approximated_sm_efficency(self):
         def calculate_avg(approximated_sm_efficency_ranges, total_dur):
@@ -411,13 +425,35 @@ class OverallParser(object):
             avg_approximated_sm_efficency = total_weighted_sm_efficiency / total_dur
             return avg_approximated_sm_efficency
 
+        def build_trace_counter(gpu_id, start_time, counter_value):
+            util_json = {}
+            util_json["ph"] = "C"
+            util_json["name"] = "GPU {} Est. SM Efficiency".format(gpu_id)
+            util_json["pid"] = 0
+            util_json["ts"] = start_time
+            util_json["args"] = {"Est. SM Efficiency": counter_value}
+            return util_json
+
+        counter_json = []
         total_dur = self.steps[-1][1] - self.steps[0][0]
-        for i in range(len(self.blocks_per_sm_per_device)):
+        approximated_sm_efficency_ranges_per_device = []
+        for device_id, i in self.device_to_index.items():
             blocks_per_sm_ranges = self.blocks_per_sm_per_device[i]
             approximated_sm_efficency_ranges = merge_ranges_with_value(blocks_per_sm_ranges)
-            self.approximated_sm_efficency_ranges_per_device.append(approximated_sm_efficency_ranges)
+            approximated_sm_efficency_ranges_per_device.append(approximated_sm_efficency_ranges)
             avg_approximated_sm_efficency = calculate_avg(approximated_sm_efficency_ranges, total_dur)
             self.avg_approximated_sm_efficency_per_device.append(avg_approximated_sm_efficency)
+
+            for r in approximated_sm_efficency_ranges:
+                efficiency_json_start = build_trace_counter(device_id, r[0][0], r[1])
+                efficiency_json_finish = build_trace_counter(device_id, r[0][1], 0)
+                counter_json.append(efficiency_json_start)
+                counter_json.append(efficiency_json_finish)
+
+        self.blocks_per_sm_per_device = None  # Release memory.
+
+        return counter_json
+
 
     def output_approximated_sm_efficency(self):
         for device_id, index in self.device_to_index.items():
@@ -429,22 +465,6 @@ class OverallParser(object):
             for r in self.approximated_sm_efficency_ranges_per_device[index]:
                 print("{}\t : {}".format(r[0][1] - r[0][0], r[1]))
 
-    def calculate_occupancy(self):
-        for i in range(len(self.occupancy_per_device)):
-            total_time = 0
-            total_occupancy = 0.0
-            for r in self.occupancy_per_device[i]:
-                dur = r[0][1] - r[0][0]
-                total_occupancy += r[1] * dur
-                total_time += dur
-                print("{},{}".format(dur, r[1]))
-            avg_occupancy = total_occupancy / total_time
-            self.avg_occupancy_per_device.append(avg_occupancy)
-
-    def output_occupancy(self):
-        for device_id, index in self.device_to_index.items():
-            print("occupancy, GPU {}: {}".format(
-                device_id, self.avg_occupancy_per_device[index]))
 
     def parse_events(self, events, runtime_node_list, device_node_list):
         logger.debug("Overall, parse events")
@@ -456,12 +476,10 @@ class OverallParser(object):
             self.steps_names.append("0")
         self.update_steps_consider_device_side(runtime_node_list, device_node_list)
 
-        self.calculate_gpu_utilization()
-        self.output_gpu_utilization()
-        self.calculate_approximated_sm_efficency()
-        self.output_approximated_sm_efficency()
-        self.calculate_occupancy()
-        self.output_occupancy()
+        gpu_util_json = self.calculate_gpu_utilization()
+        #self.output_gpu_utilization()
+        gpu_sm_efficiency_json = self.calculate_approximated_sm_efficency()
+        #self.output_approximated_sm_efficency()
 
         for i in range(len(self.role_ranges)):
             self.role_ranges[i] = merge_ranges(self.role_ranges[i])
@@ -480,6 +498,8 @@ class OverallParser(object):
         for i in range(len(self.avg_costs.costs)):
             self.avg_costs.costs[i] /= valid_steps
 
+        return gpu_util_json, gpu_sm_efficiency_json
+
     def parse_event(self, event):
         ts = event.ts
         dur = event.duration
@@ -493,11 +513,9 @@ class OverallParser(object):
                 self.device_to_index[device_id] = index
                 self.kernel_ranges_per_device.append([])
                 self.blocks_per_sm_per_device.append([])
-                self.occupancy_per_device.append([])
             index = self.device_to_index[device_id]
             self.kernel_ranges_per_device[index].append((ts, ts + dur))
             self.blocks_per_sm_per_device[index].append(((ts, ts + dur), event.args.get("blocks per SM", 0.0)))
-            self.occupancy_per_device[index].append(((ts, ts + dur), event.args.get("theoretical occupancy %", 0.0)))
         elif evt_type == EventTypes.MEMCPY:
             self.role_ranges[ProfileRole.Memcpy].append((ts, ts + dur))
         elif evt_type == EventTypes.MEMSET:
