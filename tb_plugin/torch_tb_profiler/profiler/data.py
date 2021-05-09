@@ -40,6 +40,7 @@ class RunProfileData(object):
         self.device_to_index = None
         self.gpu_utilization = None
         self.sm_efficency = None
+        self.occupancy = None
         self.op_list_groupby_name = None
         self.op_list_groupby_name_input = None
         self.stack_lists_group_by_name = None
@@ -128,6 +129,7 @@ class RunProfileData(object):
         self.device_to_index = overall_parser.device_to_index
         self.gpu_utilization = overall_parser.gpu_utilization
         self.sm_efficency = overall_parser.avg_approximated_sm_efficency_per_device
+        self.occupancy = overall_parser.avg_occupancy_per_device
         self.trace_json["traceEvents"].extend(gpu_util_json)
         self.trace_json["traceEvents"].extend(gpu_sm_efficiency_json)
         fp = tempfile.NamedTemporaryFile('w+t', suffix='.json.gz', delete=False)

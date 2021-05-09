@@ -144,6 +144,8 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
                                          "value": "{} %".format(round(profile.gpu_utilization[i] * 100, 2))})
             data["environments"].append({"title": "Est. SM Efficiency of GPU{}".format(device_id),
                                          "value": "{} %".format(round(profile.sm_efficency[i] * 100, 2))})
+            data["environments"].append({"title": "Est. Achieved Occupancy of GPU{}".format(device_id),
+                                         "value": "{} %".format(round(profile.occupancy[i], 2))})
         return self.respond_as_json(data)
 
     @wrappers.Request.application

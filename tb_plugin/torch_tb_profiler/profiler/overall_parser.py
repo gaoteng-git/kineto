@@ -226,6 +226,9 @@ class OverallParser(object):
         # For calculating approximated SM efficiency.
         self.blocks_per_sm_per_device = []
         self.avg_approximated_sm_efficency_per_device = []
+        # For calculating averaged occupancy.
+        self.occupancy_per_device = []
+        self.avg_occupancy_per_device = []
 
         self.min_ts = sys.maxsize
         self.max_ts = -sys.maxsize - 1
@@ -408,11 +411,6 @@ class OverallParser(object):
         return counter_json
 
 
-    def output_gpu_utilization(self):
-        for device_id, index in self.device_to_index.items():
-            logger.info("gpu_utilization, GPU {}: {}".format(device_id, self.gpu_utilization[index]))
-
-
     def calculate_approximated_sm_efficency(self):
         def calculate_avg(approximated_sm_efficency_ranges, total_dur):
             total_weighted_sm_efficiency = 0.0
@@ -452,15 +450,17 @@ class OverallParser(object):
         return counter_json
 
 
-    def output_approximated_sm_efficency(self):
-        for device_id, index in self.device_to_index.items():
-            logger.info("approximated_sm_efficency, GPU {}: {}".format(
-                device_id, self.avg_approximated_sm_efficency_per_device[index]))
-            for r in self.approximated_sm_efficency_ranges_per_device[index]:
-                print("({},{}): {}".format(r[0][0], r[0][1], r[1]))
-            self.approximated_sm_efficency_ranges_per_device[index].sort(key=lambda x : (x[0][1] - x[0][0]))
-            for r in self.approximated_sm_efficency_ranges_per_device[index]:
-                print("{}\t : {}".format(r[0][1] - r[0][0], r[1]))
+    # Weighted average. Weighted by kernel's time duration.
+    def calculate_occupancy(self):
+        for i in range(len(self.occupancy_per_device)):
+            total_time = 0
+            total_occupancy = 0.0
+            for r in self.occupancy_per_device[i]:
+                dur = r[0][1] - r[0][0]
+                total_occupancy += r[1] * dur
+                total_time += dur
+            avg_occupancy = total_occupancy / total_time
+            self.avg_occupancy_per_device.append(avg_occupancy)
 
 
     def parse_events(self, events, runtime_node_list, device_node_list):
@@ -477,6 +477,7 @@ class OverallParser(object):
         #self.output_gpu_utilization()
         gpu_sm_efficiency_json = self.calculate_approximated_sm_efficency()
         #self.output_approximated_sm_efficency()
+        self.calculate_occupancy()
 
         for i in range(len(self.role_ranges)):
             self.role_ranges[i] = merge_ranges(self.role_ranges[i])
@@ -510,9 +511,11 @@ class OverallParser(object):
                 self.device_to_index[device_id] = index
                 self.kernel_ranges_per_device.append([])
                 self.blocks_per_sm_per_device.append([])
+                self.occupancy_per_device.append([])
             index = self.device_to_index[device_id]
             self.kernel_ranges_per_device[index].append((ts, ts + dur))
             self.blocks_per_sm_per_device[index].append(((ts, ts + dur), event.args.get("blocks per SM", 0.0)))
+            self.occupancy_per_device[index].append(((ts, ts + dur), event.args.get("theoretical occupancy %", 0.0)))
         elif evt_type == EventTypes.MEMCPY:
             self.role_ranges[ProfileRole.Memcpy].append((ts, ts + dur))
         elif evt_type == EventTypes.MEMSET:

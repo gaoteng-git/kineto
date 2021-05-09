@@ -39,6 +39,7 @@ class RunGenerator(object):
         profile_run.device_to_index = self.profile_data.device_to_index
         profile_run.gpu_utilization = self.profile_data.gpu_utilization
         profile_run.sm_efficency = self.profile_data.sm_efficency
+        profile_run.occupancy = self.profile_data.occupancy
 
         return profile_run
 

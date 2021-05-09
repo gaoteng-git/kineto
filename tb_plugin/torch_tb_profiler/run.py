@@ -58,3 +58,4 @@ class RunProfile(object):
         self.device_to_index = None
         self.gpu_utilization = None
         self.sm_efficency = None
+        self.occupancy = None
