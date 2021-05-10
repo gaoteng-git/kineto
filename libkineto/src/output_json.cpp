@@ -34,6 +34,7 @@ static constexpr int kSchemaVersion = 1;
 void ChromeTraceLogger::handleTraceStart(
     const std::unordered_map<std::string, std::string>& metadata) {
   std::string cudaOccDeviceProps = "";
+#ifdef HAS_CUPTI
   const std::vector<cudaOccDeviceProp>& occProps = KINETO_NAMESPACE::occDeviceProps();
   if (occProps.size() > 0) {
     std::ostringstream oss;
@@ -62,6 +63,7 @@ void ChromeTraceLogger::handleTraceStart(
     oss << "]";
     cudaOccDeviceProps = oss.str();
   }
+#endif // HAS_CUPTI
 
   traceOf_ << fmt::format(R"JSON(
 {{
