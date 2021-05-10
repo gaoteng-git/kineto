@@ -33,7 +33,7 @@ static constexpr int kSchemaVersion = 1;
 
 void ChromeTraceLogger::handleTraceStart(
     const std::unordered_map<std::string, std::string>& metadata) {
-  std::string occDeviceProp = "";
+  std::string cudaOccDeviceProps = "";
   const std::vector<cudaOccDeviceProp>& occProps = KINETO_NAMESPACE::occDeviceProps();
   if (occProps.size() > 0) {
     std::ostringstream oss;
@@ -45,22 +45,22 @@ void ChromeTraceLogger::handleTraceStart(
         oss << ", ";
       }
       oss << "{";
-      oss << "\\\"computeMajor\\\": " << occProp.computeMajor << ", ";
-      oss << "\\\"computeMinor\\\": " << occProp.computeMinor << ", ";
-      oss << "\\\"maxThreadsPerBlock\\\": " << occProp.maxThreadsPerBlock << ", ";
-      oss << "\\\"maxThreadsPerMultiprocessor\\\": " << occProp.maxThreadsPerMultiprocessor << ", ";
-      oss << "\\\"regsPerBlock\\\": " << occProp.regsPerBlock << ", ";
-      oss << "\\\"regsPerMultiprocessor\\\": " << occProp.regsPerMultiprocessor << ", ";
-      oss << "\\\"warpSize\\\": " << occProp.warpSize << ", ";
-      oss << "\\\"sharedMemPerBlock\\\": " << occProp.sharedMemPerBlock << ", ";
-      oss << "\\\"sharedMemPerMultiprocessor\\\": " << occProp.sharedMemPerMultiprocessor << ", ";
-      oss << "\\\"numSms\\\": " << occProp.numSms << ", ";
-      oss << "\\\"sharedMemPerBlockOptin\\\": " << occProp.sharedMemPerBlockOptin;
+      oss << "\"computeMajor\": " << occProp.computeMajor << ", ";
+      oss << "\"computeMinor\": " << occProp.computeMinor << ", ";
+      oss << "\"maxThreadsPerBlock\": " << occProp.maxThreadsPerBlock << ", ";
+      oss << "\"maxThreadsPerMultiprocessor\": " << occProp.maxThreadsPerMultiprocessor << ", ";
+      oss << "\"regsPerBlock\": " << occProp.regsPerBlock << ", ";
+      oss << "\"regsPerMultiprocessor\": " << occProp.regsPerMultiprocessor << ", ";
+      oss << "\"warpSize\": " << occProp.warpSize << ", ";
+      oss << "\"sharedMemPerBlock\": " << occProp.sharedMemPerBlock << ", ";
+      oss << "\"sharedMemPerMultiprocessor\": " << occProp.sharedMemPerMultiprocessor << ", ";
+      oss << "\"numSms\": " << occProp.numSms << ", ";
+      oss << "\"sharedMemPerBlockOptin\": " << occProp.sharedMemPerBlockOptin;
       oss << "}";
       first = false;
     }
     oss << "]";
-    occDeviceProp = oss.str();
+    cudaOccDeviceProps = oss.str();
   }
 
   traceOf_ << fmt::format(R"JSON(
@@ -68,7 +68,7 @@ void ChromeTraceLogger::handleTraceStart(
   "schemaVersion": {},
   )JSON", kSchemaVersion);
 
-  if (!metadata.empty() || !occDeviceProp.empty()) {
+  if (!metadata.empty() || !cudaOccDeviceProps.empty()) {
     traceOf_ << R"JSON(
   "metadata": {
   )JSON";
@@ -80,12 +80,13 @@ void ChromeTraceLogger::handleTraceStart(
       traceOf_ << fmt::format(R"(    "{}": "{}")", kv.first, kv.second);
       first = false;
     }
-
-    if (!first) {
-        traceOf_ << ",\n";
+    if (!cudaOccDeviceProps.empty()) {
+      if (!first) {
+          traceOf_ << ",\n";
+      }
+      traceOf_ << fmt::format(R"(    "{}": {})", "cudaOccDeviceProps", cudaOccDeviceProps);
+      first = false;
     }
-    traceOf_ << fmt::format(R"(    "{}": "{}")", "occDeviceProp", occDeviceProp);
-    first = false;
 
     traceOf_ << R"JSON(
   },
