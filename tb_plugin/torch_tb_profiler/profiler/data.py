@@ -117,9 +117,7 @@ class RunProfileData(object):
 
         logger.debug("OverallParser")
         overall_parser = OverallParser()
-        overall_parser.parse_events(self.events,
-                                                                            module_parser.runtime_node_list,
-                                                                            module_parser.device_node_list)
+        overall_parser.parse_events(self.events, module_parser.runtime_node_list, module_parser.device_node_list)
         self.has_runtime = bool(overall_parser.role_ranges[ProfileRole.Runtime])
         self.has_kernel = bool(overall_parser.role_ranges[ProfileRole.Kernel])
         self.has_memcpy_or_memset = bool(overall_parser.role_ranges[ProfileRole.Memcpy] or overall_parser.role_ranges[ProfileRole.Memset])
