@@ -353,7 +353,7 @@ class OverallParser(object):
             util_json = {}
             util_json["ph"] = "C"
             util_json["name"] = "GPU {} Utilization".format(gpu_id)
-            util_json["pid"] = 0
+            util_json["pid"] = gpu_id
             util_json["ts"] = start_time
             util_json["args"] = {"GPU Utilization": counter_value}
             return util_json
@@ -408,7 +408,7 @@ class OverallParser(object):
                 util_json = build_trace_counter(device_id, start_time, 0)
                 counter_json.append(util_json)
 
-                self.kernel_ranges_per_device = None  # Release memory.
+        self.kernel_ranges_per_device = None  # Release memory.
 
         return counter_json
 
