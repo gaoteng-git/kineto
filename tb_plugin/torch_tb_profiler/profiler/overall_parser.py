@@ -441,11 +441,12 @@ class OverallParser(object):
             avg_approximated_sm_efficency = calculate_avg(approximated_sm_efficency_ranges, total_dur)
             self.avg_approximated_sm_efficency_per_device.append(avg_approximated_sm_efficency)
 
-            for r in approximated_sm_efficency_ranges:
-                efficiency_json_start = build_trace_counter(device_id, r[0][0], r[1])
-                efficiency_json_finish = build_trace_counter(device_id, r[0][1], 0)
-                counter_json.append(efficiency_json_start)
-                counter_json.append(efficiency_json_finish)
+            if avg_approximated_sm_efficency > 0.0:
+                for r in approximated_sm_efficency_ranges:
+                    efficiency_json_start = build_trace_counter(device_id, r[0][0], r[1])
+                    efficiency_json_finish = build_trace_counter(device_id, r[0][1], 0)
+                    counter_json.append(efficiency_json_start)
+                    counter_json.append(efficiency_json_finish)
 
         self.blocks_per_sm_per_device = None  # Release memory.
 
