@@ -223,9 +223,11 @@ class OverallParser(object):
         self.gpu_utilization = []
         self.gpu_util_timeline_unit_size = 0
         self.gpu_util_timeline_unit_name = ""
+        self.gpu_util_json = None
         # For calculating approximated SM efficiency.
         self.blocks_per_sm_per_device = []
         self.avg_approximated_sm_efficency_per_device = []
+        self.gpu_sm_efficiency_json = None
         # For calculating averaged occupancy.
         self.occupancy_per_device = []
         self.avg_occupancy_per_device = []
@@ -473,10 +475,8 @@ class OverallParser(object):
             self.steps_names.append("0")
         self.update_steps_consider_device_side(runtime_node_list, device_node_list)
 
-        gpu_util_json = self.calculate_gpu_utilization()
-        #self.output_gpu_utilization()
-        gpu_sm_efficiency_json = self.calculate_approximated_sm_efficency()
-        #self.output_approximated_sm_efficency()
+        self.gpu_util_json = self.calculate_gpu_utilization()
+        self.gpu_sm_efficiency_json = self.calculate_approximated_sm_efficency()
         self.calculate_occupancy()
 
         for i in range(len(self.role_ranges)):
@@ -496,7 +496,7 @@ class OverallParser(object):
         for i in range(len(self.avg_costs.costs)):
             self.avg_costs.costs[i] /= valid_steps
 
-        return gpu_util_json, gpu_sm_efficiency_json
+        return
 
     def parse_event(self, event):
         ts = event.ts

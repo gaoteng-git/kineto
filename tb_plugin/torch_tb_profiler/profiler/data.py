@@ -117,7 +117,7 @@ class RunProfileData(object):
 
         logger.debug("OverallParser")
         overall_parser = OverallParser()
-        gpu_util_json, gpu_sm_efficiency_json = overall_parser.parse_events(self.events,
+        overall_parser.parse_events(self.events,
                                                                             module_parser.runtime_node_list,
                                                                             module_parser.device_node_list)
         self.has_runtime = bool(overall_parser.role_ranges[ProfileRole.Runtime])
@@ -130,8 +130,8 @@ class RunProfileData(object):
         self.gpu_utilization = overall_parser.gpu_utilization
         self.sm_efficency = overall_parser.avg_approximated_sm_efficency_per_device
         self.occupancy = overall_parser.avg_occupancy_per_device
-        self.trace_json["traceEvents"].extend(gpu_util_json)
-        self.trace_json["traceEvents"].extend(gpu_sm_efficiency_json)
+        self.trace_json["traceEvents"].extend(overall_parser.gpu_util_json)
+        self.trace_json["traceEvents"].extend(overall_parser.gpu_sm_efficiency_json)
         fp = tempfile.NamedTemporaryFile('w+t', suffix='.json.gz', delete=False)
         fp.close()
         with gzip.open(fp.name, mode='wt') as fzip:
