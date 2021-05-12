@@ -53,7 +53,7 @@ class RunProfileData(object):
     def parse(run_dir, worker, path, caches):
         logger.debug("Parse trace, run_dir=%s, worker=%s", run_dir, path)
 
-        trace_path, trace_json= RunProfileData._preprocess_file(caches, io.join(run_dir, path))
+        trace_path, trace_json = RunProfileData._preprocess_file(caches, io.join(run_dir, path))
 
         profile = RunProfileData(worker)
         profile.trace_file_path = trace_path
