@@ -139,15 +139,15 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
         is_gpu_used = profile.has_runtime or profile.has_kernel or profile.has_memcpy_or_memset
         data["environments"] = [{"title": "Number of Worker(s)", "value": str(len(run.workers))},
                                 {"title": "Device Type", "value": "GPU" if is_gpu_used else "CPU"}]
-        for device_id, i in profile.device_to_index.items():
-            data["environments"].append({"title": "GPU Utilization of GPU{}".format(device_id),
-                                         "value": "{} %".format(round(profile.gpu_utilization[i] * 100, 2))})
-            if profile.sm_efficency[i] > 0.0:
-                data["environments"].append({"title": "Est. SM Efficiency of GPU{}".format(device_id),
-                                             "value": "{} %".format(round(profile.sm_efficency[i] * 100, 2))})
-            if profile.occupancy[i] > 0.0:
-                data["environments"].append({"title": "Est. Achieved Occupancy of GPU{}".format(device_id),
-                                             "value": "{} %".format(round(profile.occupancy[i], 2))})
+        for gpu_id in profile.gpu_ids:
+            data["environments"].append({"title": "GPU Utilization of GPU{}".format(gpu_id),
+                                         "value": "{} %".format(round(profile.gpu_utilization[gpu_id] * 100, 2))})
+            if profile.sm_efficency[gpu_id] > 0.0:
+                data["environments"].append({"title": "Est. SM Efficiency of GPU{}".format(gpu_id),
+                                             "value": "{} %".format(round(profile.sm_efficency[gpu_id] * 100, 2))})
+            if profile.occupancy[gpu_id] > 0.0:
+                data["environments"].append({"title": "Est. Achieved Occupancy of GPU{}".format(gpu_id),
+                                             "value": "{} %".format(round(profile.occupancy[gpu_id], 2))})
         return self.respond_as_json(data)
 
     @wrappers.Request.application

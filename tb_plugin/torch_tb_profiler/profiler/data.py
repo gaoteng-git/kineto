@@ -9,6 +9,7 @@ import tempfile
 from collections import OrderedDict
 
 from . import trace
+from .gpu_metrics_parser import GPUMetricsParser
 from .kernel_parser import KernelParser
 from .module_parser import ModuleParser
 from .overall_parser import OverallParser, ProfileRole
@@ -39,7 +40,7 @@ class RunProfileData(object):
         self.steps_names = None
         self.avg_costs = None
         self.runtime_node_list = None
-        self.device_to_index = None
+        self.gpu_ids = None
         self.gpu_utilization = None
         self.sm_efficency = None
         self.occupancy = None
@@ -127,12 +128,16 @@ class RunProfileData(object):
         self.steps_names = overall_parser.steps_names
         self.avg_costs = overall_parser.avg_costs
         self.runtime_node_list = module_parser.runtime_node_list
-        self.device_to_index = overall_parser.device_to_index
-        self.gpu_utilization = overall_parser.gpu_utilization
-        self.sm_efficency = overall_parser.avg_approximated_sm_efficency_per_device
-        self.occupancy = overall_parser.avg_occupancy_per_device
-        self.trace_json["traceEvents"].extend(overall_parser.gpu_util_json)
-        self.trace_json["traceEvents"].extend(overall_parser.gpu_sm_efficiency_json)
+
+        logger.debug("GPUMetricsParser")
+        gpu_metrics_parser = GPUMetricsParser()
+        gpu_metrics_parser.parse_events(self.events, overall_parser.steps[0][0], overall_parser.steps[-1][1])
+        self.gpu_ids = gpu_metrics_parser.gpu_ids
+        self.gpu_utilization = gpu_metrics_parser.gpu_utilization
+        self.sm_efficency = gpu_metrics_parser.avg_approximated_sm_efficency_per_device
+        self.occupancy = gpu_metrics_parser.avg_occupancy_per_device
+        self.trace_json["traceEvents"].extend(gpu_metrics_parser.gpu_util_json)
+        self.trace_json["traceEvents"].extend(gpu_metrics_parser.gpu_sm_efficiency_json)
         fp = tempfile.NamedTemporaryFile('w+t', suffix='.json.gz', delete=False)
         fp.close()
         with gzip.open(fp.name, mode='wt') as fzip:
@@ -172,9 +177,9 @@ class RunProfileData(object):
             self.recommendations.append(text)
 
         low_util_gpus = []
-        for device_id, index in self.device_to_index.items():
-            if self.gpu_utilization[index] < 0.5:
-                low_util_gpus.append(device_id)
+        for gpu_id in self.gpu_ids:
+            if self.gpu_utilization[gpu_id] < 0.5:
+                low_util_gpus.append(gpu_id)
         if len(low_util_gpus) > 0:
             gpu_list_str, has_str = get_gpus_str(low_util_gpus)
             text = "GPU {} {} low utilization. You could try to " \
@@ -184,14 +189,20 @@ class RunProfileData(object):
                    "increase batch-size by <a href =\"{}\" target=\"_blank\">checkpointing intermediate buffers</a>, " \
                    "<a href =\"{}\" target=\"_blank\">avoid unnecessary CPU-GPU synchronization</a>, " \
                    "<a href =\"{}\" target=\"_blank\">create tensors directly on the target device</a>, " \
-                   "and so on".format(
+                   "and so on.".format(
                 gpu_list_str, has_str,
-                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#enable-async-data-loading-and-augmentation",
-                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#use-parameter-grad-none-instead-of-model-zero-grad-or-optimizer-zero-grad",
-                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#fuse-pointwise-operations",
-                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#checkpoint-intermediate-buffers",
-                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#avoid-unnecessary-cpu-gpu-synchronization",
-                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#create-tensors-directly-on-the-target-device"
+                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                "#enable-async-data-loading-and-augmentation",
+                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                "#use-parameter-grad-none-instead-of-model-zero-grad-or-optimizer-zero-grad",
+                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                "#fuse-pointwise-operations",
+                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                "#checkpoint-intermediate-buffers",
+                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                "#avoid-unnecessary-cpu-gpu-synchronization",
+                "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                "#create-tensors-directly-on-the-target-device"
             )
             self.recommendations.append(text)
 
@@ -210,34 +221,37 @@ class RunProfileData(object):
                        "You could try to <a href =\"{}\" target=\"_blank\">optimize zero_grad</a>, " \
                        "or <a href =\"{}\" target=\"_blank\">fuse pointwise operations</a>.".format(
                     short_kernels, total_kernels,
-                    "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#use-parameter-grad-none-instead-of-model-zero-grad-or-optimizer-zero-grad",
-                    "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html#fuse-pointwise-operations"
+                    "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                    "#use-parameter-grad-none-instead-of-model-zero-grad-or-optimizer-zero-grad",
+                    "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+                    "#fuse-pointwise-operations"
                 )
             self.recommendations.append(text)
 
         low_sm_efficiency_gpus = []
-        for device_id, index in self.device_to_index.items():
-            if self.sm_efficency[index] > 0 and self.sm_efficency[index] < 0.8 * self.gpu_utilization[index]:
-                low_sm_efficiency_gpus.append(device_id)
+        for gpu_id in self.gpu_ids:
+            if self.sm_efficency[gpu_id] > 0 and self.sm_efficency[gpu_id] < 0.8 * self.gpu_utilization[gpu_id]:
+                low_sm_efficiency_gpus.append(gpu_id)
         if len(low_sm_efficiency_gpus) > 0:
             gpu_list_str, has_str = get_gpus_str(low_sm_efficiency_gpus)
-            text = "GPU {} {} low estimated SM efficency. " \
-                   "Many kernels' blocks of these GPU are so small that they can't fully utilization all multiprocessors." \
+            text = "GPU {} {} low estimated SM efficiency. " \
+                   "Many kernels' launched blocks are too few that they can't fully utilize all multiprocessors." \
                    "You could try to increase the blocks number of these kernels.".format(
                 gpu_list_str, has_str)
             self.recommendations.append(text)
 
         low_occupancy_gpus = []
-        for device_id, index in self.device_to_index.items():
-            if self.occupancy[index] > 0 and self.occupancy[index] < 50:
-                low_occupancy_gpus.append(device_id)
+        for gpu_id in self.gpu_ids:
+            if self.occupancy[gpu_id] > 0 and self.occupancy[gpu_id] < 50:
+                low_occupancy_gpus.append(gpu_id)
         if len(low_occupancy_gpus) > 0:
             gpu_list_str, has_str = get_gpus_str(low_occupancy_gpus)
             text = "GPU {} {} low estimated achieved occupancy. " \
-                   "The kernels on these GPU may occupy too much resource such as registers or shared memory, " \
-                   "or their threads are not enough to fully utilize the multiprocessor." \
+                   "The kernels may occupy too much hardware resource such as registers or shared memory, " \
+                   "or their launched threads are not many enough to fully utilize the multiprocessor." \
                    "Reference: <a href =\"{}\" target=\"_blank\">Achieved Occupancy</a>".format(
                 gpu_list_str, has_str,
-                "https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm"
+                "https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/"
+                "report/cudaexperiments/kernellevel/achievedoccupancy.htm"
             )
             self.recommendations.append(text)
