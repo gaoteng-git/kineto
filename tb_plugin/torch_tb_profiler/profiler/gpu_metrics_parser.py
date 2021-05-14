@@ -131,7 +131,7 @@ class GPUMetricsParser(object):
             blocks_per_sm_ranges = self.blocks_per_sm_per_device[gpu_id]
             approximated_sm_efficency_ranges = merge_ranges_with_value(blocks_per_sm_ranges)
             avg_approximated_sm_efficency = calculate_avg(approximated_sm_efficency_ranges, total_dur)
-            self.avg_approximated_sm_efficency_per_device.append(avg_approximated_sm_efficency)
+            self.avg_approximated_sm_efficency_per_device[gpu_id] = avg_approximated_sm_efficency
 
             if avg_approximated_sm_efficency > 0.0:
                 for r in approximated_sm_efficency_ranges:
@@ -146,7 +146,8 @@ class GPUMetricsParser(object):
 
     # Weighted average. Weighted by kernel's time duration.
     def calculate_occupancy(self):
-        for occupancys_on_a_device in self.occupancy_per_device:
+        for gpu_id in self.gpu_ids:
+            occupancys_on_a_device = self.occupancy_per_device[gpu_id]
             total_time = 0
             total_occupancy = 0.0
             for r in occupancys_on_a_device:
@@ -154,7 +155,7 @@ class GPUMetricsParser(object):
                 total_occupancy += r[1] * dur
                 total_time += dur
             avg_occupancy = total_occupancy / total_time
-            self.avg_occupancy_per_device.append(avg_occupancy)
+            self.avg_occupancy_per_device[gpu_id] = avg_occupancy
 
     def parse_events(self, events, steps_start_time, steps_end_time):
         logger.debug("GPU Metrics, parse events")
@@ -176,6 +177,10 @@ class GPUMetricsParser(object):
                     self.kernel_ranges_per_device.extend([[] for _ in range(gpu_id + 1 - len(self.gpu_ids))])
                     self.blocks_per_sm_per_device.extend([[] for _ in range(gpu_id + 1 - len(self.gpu_ids))])
                     self.occupancy_per_device.extend([[] for _ in range(gpu_id + 1 - len(self.gpu_ids))])
+                    self.avg_approximated_sm_efficency_per_device.extend(
+                        [None] * (gpu_id + 1 - len(self.gpu_ids)))
+                    self.avg_occupancy_per_device.extend(
+                        [None] * (gpu_id + 1 - len(self.gpu_ids)))
                     self.gpu_ids.add(gpu_id)
                 self.kernel_ranges_per_device[gpu_id].append((ts, ts + dur))
                 self.blocks_per_sm_per_device[gpu_id].append(((ts, ts + dur), event.args.get("blocks per SM", 0.0)))
