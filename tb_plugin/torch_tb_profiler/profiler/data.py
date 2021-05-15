@@ -44,6 +44,8 @@ class RunProfileData(object):
         self.gpu_utilization = None
         self.sm_efficency = None
         self.occupancy = None
+        self.gpu_util_json = None  # Cached here. Will be inserted to trace when each trace view.
+        self.approximated_sm_efficency_ranges = None  # Cached here. Will be processed to json when each trace view.
         self.op_list_groupby_name = None
         self.op_list_groupby_name_input = None
         self.stack_lists_group_by_name = None
@@ -136,14 +138,8 @@ class RunProfileData(object):
         self.gpu_utilization = gpu_metrics_parser.gpu_utilization
         self.sm_efficency = gpu_metrics_parser.avg_approximated_sm_efficency_per_device
         self.occupancy = gpu_metrics_parser.avg_occupancy_per_device
-        self.trace_json["traceEvents"].extend(gpu_metrics_parser.gpu_util_json)
-        self.trace_json["traceEvents"].extend(gpu_metrics_parser.gpu_sm_efficiency_json)
-        fp = tempfile.NamedTemporaryFile('w+t', suffix='.json.gz', delete=False)
-        fp.close()
-        with gzip.open(fp.name, mode='wt') as fzip:
-            fzip.write(json.dumps(self.trace_json))
-        self.trace_file_path = fp.name
-        self.trace_json = None  # Trace view loads from file, so release this to save memory usage.
+        self.gpu_util_json = gpu_metrics_parser.gpu_util_json
+        self.approximated_sm_efficency_ranges = gpu_metrics_parser.approximated_sm_efficency_ranges
 
         if self.has_kernel:
             logger.debug("KernelParser")

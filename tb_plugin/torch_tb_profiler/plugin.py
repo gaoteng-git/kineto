@@ -216,6 +216,9 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
         run = self._get_run(name)
         profile = run.get_profile(worker)
         raw_data = self._cache.read(profile.trace_file_path)
+        util_bytes = profile.gpu_util_json
+        raw_data = b''.join([raw_data[:-2], util_bytes, b']}'])
+
         if not profile.trace_file_path.endswith('.gz'):
             import gzip
             raw_data = gzip.compress(raw_data, 1)

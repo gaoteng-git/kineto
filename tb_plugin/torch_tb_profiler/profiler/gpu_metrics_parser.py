@@ -1,6 +1,6 @@
-from .. import utils
 from .range_lib import *
 from .trace import EventTypes
+from .. import utils
 
 logger = utils.get_logger()
 
@@ -19,6 +19,7 @@ class GPUMetricsParser(object):
         # For calculating approximated SM efficiency.
         self.blocks_per_sm_per_device = []
         self.avg_approximated_sm_efficency_per_device = []
+        self.approximated_sm_efficency_ranges = []
         self.gpu_sm_efficiency_json = None
         # For calculating averaged occupancy.
         self.occupancy_per_device = []
@@ -45,15 +46,14 @@ class GPUMetricsParser(object):
             return int(bucket_size), int(buckets), int(unit), unit_str
 
         def build_trace_counter(gpu_id, start_time, counter_value):
-            util_json = {}
-            util_json["ph"] = "C"
-            util_json["name"] = "GPU {} Utilization".format(gpu_id)
-            util_json["pid"] = gpu_id
-            util_json["ts"] = start_time
-            util_json["args"] = {"GPU Utilization": counter_value}
+            util_json = ", {{\"ph\":\"C\", \"name\":\"GPU {} Utilization\", " \
+                        "\"pid\":{}, \"ts\":{}, " \
+                        "\"args\":{{\"GPU Utilization\":{}}}}}".format(
+                gpu_id, gpu_id, start_time, counter_value
+            )
             return util_json
 
-        counter_json = []
+        counter_json = ""
         all_steps_range = (steps_start_time, steps_end_time)
         gpu_utilization_timeline = []
         for gpu_id in self.gpu_ids:
@@ -98,13 +98,14 @@ class GPUMetricsParser(object):
                 for i_bucket in range(buckets):
                     start_time = steps_start_time + i_bucket * bucket_size
                     util_json = build_trace_counter(gpu_id, start_time, gpu_utilization_timeline[-1][i_bucket])
-                    counter_json.append(util_json)
+                    counter_json += util_json
                 start_time = steps_start_time + buckets * bucket_size
                 util_json = build_trace_counter(gpu_id, start_time, 0)
-                counter_json.append(util_json)
+                counter_json += util_json
 
         self.kernel_ranges_per_device = None  # Release memory.
 
+        counter_json = bytes(counter_json, 'utf-8')
         return counter_json
 
     def calculate_approximated_sm_efficency(self, steps_start_time, steps_end_time):
@@ -116,16 +117,6 @@ class GPUMetricsParser(object):
             avg_approximated_sm_efficency = total_weighted_sm_efficiency / total_dur
             return avg_approximated_sm_efficency
 
-        def build_trace_counter(gpu_id, start_time, counter_value):
-            util_json = {}
-            util_json["ph"] = "C"
-            util_json["name"] = "GPU {} Est. SM Efficiency".format(gpu_id)
-            util_json["pid"] = 0
-            util_json["ts"] = start_time
-            util_json["args"] = {"Est. SM Efficiency": counter_value}
-            return util_json
-
-        counter_json = []
         total_dur = steps_end_time - steps_start_time
         for gpu_id in self.gpu_ids:
             blocks_per_sm_ranges = self.blocks_per_sm_per_device[gpu_id]
@@ -134,15 +125,9 @@ class GPUMetricsParser(object):
             self.avg_approximated_sm_efficency_per_device[gpu_id] = avg_approximated_sm_efficency
 
             if avg_approximated_sm_efficency > 0.0:
-                for r in approximated_sm_efficency_ranges:
-                    efficiency_json_start = build_trace_counter(gpu_id, r[0][0], r[1])
-                    efficiency_json_finish = build_trace_counter(gpu_id, r[0][1], 0)
-                    counter_json.append(efficiency_json_start)
-                    counter_json.append(efficiency_json_finish)
+                self.approximated_sm_efficency_ranges[gpu_id] = approximated_sm_efficency_ranges
 
         self.blocks_per_sm_per_device = None  # Release memory.
-
-        return counter_json
 
     # Weighted average. Weighted by kernel's time duration.
     def calculate_occupancy(self):
@@ -181,6 +166,8 @@ class GPUMetricsParser(object):
                         [None] * (gpu_id + 1 - len(self.gpu_ids)))
                     self.avg_occupancy_per_device.extend(
                         [None] * (gpu_id + 1 - len(self.gpu_ids)))
+                    self.approximated_sm_efficency_ranges.extend(
+                        [[] for _ in range(gpu_id + 1 - len(self.gpu_ids))])
                     self.gpu_ids.add(gpu_id)
                 self.kernel_ranges_per_device[gpu_id].append((ts, ts + dur))
                 self.blocks_per_sm_per_device[gpu_id].append(((ts, ts + dur), event.args.get("blocks per SM", 0.0)))
