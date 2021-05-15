@@ -60,3 +60,4 @@ class RunProfile(object):
         self.sm_efficency = None
         self.occupancy = None
         self.gpu_util_json = None
+        self.approximated_sm_efficency_ranges = None

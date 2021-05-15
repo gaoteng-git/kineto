@@ -210,6 +210,13 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
 
     @wrappers.Request.application
     def trace_route(self, request):
+        def build_trace_counter(gpu_id, start_time, counter_value):
+            util_json = ", {{\"ph\":\"C\", \"name\":\"GPU {} Est. SM Efficiency\", " \
+                        "\"pid\":{}, \"ts\":{}, " \
+                        "\"args\":{{\"Est. SM Efficiency\":{}}}}}".format(
+                gpu_id, gpu_id, start_time, counter_value
+            )
+            return util_json
         name = request.args.get("run")
         worker = request.args.get("worker")
 
@@ -217,7 +224,17 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
         profile = run.get_profile(worker)
         raw_data = self._cache.read(profile.trace_file_path)
         util_bytes = profile.gpu_util_json
-        raw_data = b''.join([raw_data[:-2], util_bytes, b']}'])
+
+        counter_json_str = ""
+        for gpu_id in range(len(profile.approximated_sm_efficency_ranges)):
+            ranges = profile.approximated_sm_efficency_ranges[gpu_id]
+            for r in ranges:
+                efficiency_json_start = build_trace_counter(gpu_id, r[0][0], r[1])
+                efficiency_json_finish = build_trace_counter(gpu_id, r[0][1], 0)
+                counter_json_str += (efficiency_json_start + efficiency_json_finish)
+        counter_json_bytes = bytes(counter_json_str, 'utf-8')
+
+        raw_data = b''.join([raw_data[:-2], util_bytes, counter_json_bytes, b']}'])
 
         if not profile.trace_file_path.endswith('.gz'):
             import gzip
