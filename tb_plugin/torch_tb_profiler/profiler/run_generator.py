@@ -311,13 +311,17 @@ class RunGenerator(object):
     def _generate_kernel_pie(self):
         pie = {"columns": [{"type": "string", "name": "name"}, {"type": "number", "name": "value"}], "rows": []}
         for _id, (name, row) in enumerate(self.profile_data.kernel_stat.iterrows()):
-            pie["rows"].append([name, row["sum"]])
+            pie["rows"].append([name[0] + name[1] + name[2] + name[3] + name[4], row["sum"]])
         data = {"total": pie}
         return data
 
     def _generate_kernel_table(self):
         table = {}
-        table["columns"] = [{"type": "string", "name": "Name"}]
+        table["columns"] = [{"type": "string", "name": "Name"},
+                            {"type": "string", "name": "Grid"},
+                            {"type": "string", "name": "Block"},
+                            {"type": "number", "name": "Register Per Thread"},
+                            {"type": "number", "name": "Shared Memory"}]
         columns = ["count", "sum", "mean", "max", "min"]
         round_digits = [0, 0, 0, 0, 0]
         if sum(self.profile_data.blocks_per_sm_count) > 0:
@@ -335,7 +339,7 @@ class RunGenerator(object):
 
         table["rows"] = []
         for _id, (name, row) in enumerate(self.profile_data.kernel_stat.iterrows()):
-            kernel_row = [name]
+            kernel_row = [name, name[1], name[2], int(name[3]), int(name[4])]
             for i, column in enumerate(columns):
                 kernel_row.append(round(row[column]) if round_digits[i] == 0
                                   else round(row[column], round_digits[i]))
