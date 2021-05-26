@@ -42,6 +42,8 @@ class RunGenerator(object):
         profile_run.gpu_util_buckets = self.profile_data.gpu_util_buckets
         profile_run.approximated_sm_efficency_ranges = self.profile_data.approximated_sm_efficency_ranges
 
+        profile_run.views.append(consts.MEMORY_VIEW)
+
         profile_run.gpu_ids = self.profile_data.gpu_ids
         profile_run.gpu_utilization = self.profile_data.gpu_utilization
         profile_run.sm_efficency = self.profile_data.sm_efficency

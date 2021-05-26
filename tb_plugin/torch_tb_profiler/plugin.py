@@ -117,7 +117,8 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
             "/distributed/gpuinfo": self.dist_gpu_info_route,
             "/distributed/overlap": self.comm_overlap_route,
             "/distributed/waittime": self.comm_wait_route,
-            "/distributed/commops": self.comm_ops_route
+            "/distributed/commops": self.comm_ops_route,
+            "/memory": self.memory_route
         }
 
     def frontend_metadata(self):
@@ -302,6 +303,50 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
         profile = self._get_profile(name, 'All')
         self._check_distributed_profile(profile, name)
         return self.respond_as_json(profile.comm_ops)
+
+    @wrappers.Request.application
+    def memory_route(self, request):
+        name = request.args.get("run")
+        worker = request.args.get("worker")
+        self._validate(run=name, worker=worker)
+        profile = self._get_profile(name, worker)
+        self._check_normal_profile(profile, name, worker)
+
+        json = {
+            "metadata": {
+                "title": "Memory View",
+                 "default_device": "CPU",
+                 "search": "op1",
+                 "sort": "Self Size Increase (KB)"},
+            "data": {
+                "CPU": {
+                    "columns": [{"type": "string", "name": " Operator Name"},
+                                {"type": "number", "name": " Operator Calls"},
+                                {"type": "number", "name": "Size Increase (KB)"},
+                                {"type": "number", "name": "Self Size Increase (KB)"},
+                                {"type": "number", "name": " Allocation Count"},
+                                {"type": "number", "name": " Self Allocation Count "},
+                                {"type": "number", "name": "Allocation Size (KB)"},
+                                {"type": "number", "name": " Self Allocation Size (KB)"}],
+                    "rows": [["Op1", 12, 0, 1, 98, 2, 0, 0],
+                             ["Op2", 123, 10, 5, 8, 2, 4, 9]]
+                },
+                "GPU0": {
+                    "columns": [{"type": "string", "name": " Operator Name"},
+                                {"type": "number", "name": " Operator Calls"},
+                                {"type": "number", "name": "Size Increase (KB)"},
+                                {"type": "number", "name": "Self Size Increase (KB)"},
+                                {"type": "number", "name": " Allocation Count"},
+                                {"type": "number", "name": " Self Allocation Count "},
+                                {"type": "number", "name": "Allocation Size (KB)"},
+                                {"type": "number", "name": " Self Allocation Size (KB)"}],
+                    "rows": [["Op1", 2, 8, 21, 938, 2, 710, 9],
+                             ["Op2", 23, 150, 55, 9, 2, 24, 15]]
+                }
+            }
+        }
+
+        return self.respond_as_json(json)
 
     @wrappers.Request.application
     def static_file_route(self, request):
