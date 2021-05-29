@@ -16,8 +16,8 @@ class KernelParser:
         for event in events:
             if event.type == EventTypes.KERNEL:
                 events_dict.append(vars(event))
-                events_dict[-1]["grid"] = event.args.get("grid", "")
-                events_dict[-1]["block"] = event.args.get("block", "")
+                events_dict[-1]["grid"] = str(event.args.get("grid", "None"))
+                events_dict[-1]["block"] = str(event.args.get("block", "None"))
                 events_dict[-1]["regs_per_thread"] = str(event.args.get("registers per thread", 0))
                 events_dict[-1]["shared_memory"] = str(event.args.get("shared memory", 0))
                 events_dict[-1]["blocks_per_sm"] = event.args.get("blocks per SM", 0)
@@ -34,7 +34,7 @@ class KernelParser:
             except ZeroDivisionError:
                 return 0
 
-        self.kernel_stat = events.groupby("name", "grid", "block", "regs_per_thread", "shared_memory")["duration"].agg(
+        self.kernel_stat = events.groupby(["name", "grid", "block", "regs_per_thread", "shared_memory"]).agg(
             count=('duration', "count"),
             sum=('duration', "sum"),
             mean=('duration', "mean"),
