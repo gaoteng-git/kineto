@@ -2,7 +2,9 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # -------------------------------------------------------------------------
 from abc import ABC
+
 from .trace import EventTypes
+
 
 class BaseNode(ABC):
     def __init__(self, name, start_time, end_time, type, external_id):
@@ -122,11 +124,16 @@ class RuntimeNode(HostNode):
 
 class DeviceNode(BaseNode):
     def __init__(self, name, start_time, end_time, type, external_id=None,
-            op_node=None, blocks_per_sm=None, occupancy=None):
+                 op_node=None, blocks_per_sm=None, occupancy=None,
+                 grid=None, block=None, regs_per_thread=None, shared_memory=None):
         super().__init__(name, start_time, end_time, type, external_id)
         self.op_node = op_node  # The cpu operator that launched it.
         self.blocks_per_sm = blocks_per_sm
         self.occupancy = occupancy
+        self.grid = grid
+        self.block = block
+        self.regs_per_thread = regs_per_thread
+        self.shared_memory = shared_memory
 
     @classmethod
     def create(cls, event):
@@ -139,4 +146,8 @@ class DeviceNode(BaseNode):
         if event.type == EventTypes.KERNEL:
             kwargs["blocks_per_sm"] = event.args.get("blocks per SM", 0)
             kwargs["occupancy"] = event.args.get("est. achieved occupancy %", 0)
+            kwargs["grid"] = str(event.args.get("grid"))
+            kwargs["block"] = str(event.args.get("block"))
+            kwargs["regs_per_thread"] = str(event.args.get("registers per thread"))
+            kwargs["shared_memory"] = str(event.args.get("shared memory"))
         return kwargs

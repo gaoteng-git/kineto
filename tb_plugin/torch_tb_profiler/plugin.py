@@ -233,8 +233,10 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
 
         group_by = request.args.get("group_by")
         if group_by == "Kernel":
+            print("kernel_table rows = {}".format(len(profile.kernel_table["data"]["rows"])))
             return self.respond_as_json(profile.kernel_table)
         else:
+            print("kernel_op_table rows = {}".format(len(profile.kernel_op_table["data"]["rows"])))
             return self.respond_as_json(profile.kernel_op_table)
 
     @wrappers.Request.application

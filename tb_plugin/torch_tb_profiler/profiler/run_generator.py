@@ -285,7 +285,12 @@ class RunGenerator(object):
 
     def _generate_kernel_op_table(self):
         table = {}
-        table["columns"] = [{"type": "string", "name": "Name"}, {"type": "string", "name": "Operator"}]
+        table["columns"] = [{"type": "string", "name": "Name"},
+                            {"type": "string", "name": "Operator"},
+                            {"type": "string", "name": "Grid"},
+                            {"type": "string", "name": "Block"},
+                            {"type": "number", "name": "Register Per Thread"},
+                            {"type": "number", "name": "Shared Memory"}]
         col_names = ["Calls", "Total Duration (us)", "Mean Duration (us)", "Max Duration (us)", "Min Duration (us)"]
         for column in col_names:
             table["columns"].append({"type": "number", "name": column})
@@ -297,7 +302,10 @@ class RunGenerator(object):
         kernel_list = sorted(self.profile_data.kernel_list_groupby_name_op, key=lambda x: x.total_duration,
                              reverse=True)
         for agg_by_name_op in kernel_list:
-            kernel_op_row = [agg_by_name_op.name, agg_by_name_op.op_name, agg_by_name_op.calls,
+            kernel_op_row = [agg_by_name_op.name, agg_by_name_op.op_name,
+                             agg_by_name_op.grid, agg_by_name_op.block,
+                             agg_by_name_op.regs_per_thread, agg_by_name_op.shared_memory,
+                             agg_by_name_op.calls,
                              agg_by_name_op.total_duration, agg_by_name_op.avg_duration,
                              agg_by_name_op.min_duration, agg_by_name_op.max_duration]
             if sum(self.profile_data.blocks_per_sm_count) > 0:
@@ -339,7 +347,7 @@ class RunGenerator(object):
 
         table["rows"] = []
         for _id, (name, row) in enumerate(self.profile_data.kernel_stat.iterrows()):
-            kernel_row = [name, name[1], name[2], int(name[3]), int(name[4])]
+            kernel_row = [name[0], name[1], name[2], int(name[3]), int(name[4])]
             for i, column in enumerate(columns):
                 kernel_row.append(round(row[column]) if round_digits[i] == 0
                                   else round(row[column], round_digits[i]))
