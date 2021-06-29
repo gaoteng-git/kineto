@@ -7,6 +7,7 @@ from collections import defaultdict
 from .. import utils
 from .node import OperatorNode, is_operator_node
 from .trace import EventTypes
+import weakref
 
 logger = utils.get_logger()
 
@@ -85,7 +86,8 @@ class ModuleParser:
                     if node.start_time < tail_node.end_time:
                         if node.end_time <= tail_node.end_time:
                             tail_node.children.append(node)
-                            # node.parent_node = weakref.ref(tail_node)
+                            #node.parent_node = weakref.ref(tail_node)
+                            node.parent_node = tail_node
                             node_stack.append(node)
                         else:
                             logger.error("Error in input data: ranges on the same thread should not intersect!"
@@ -214,3 +216,56 @@ class ModuleParser:
             self.tid2tree[int(tid)] = root_node
         self.op_list_groupby_name, self.op_list_groupby_name_input, self.stack_lists_group_by_name, self.stack_lists_group_by_name_input = parse_ops(self.cpp_op_list)
         self.kernel_list_groupby_name_op = parse_kernels(self.kernel_list)
+
+        class TC_Whitelist:
+            whitelist = ['h884', 's884', 'h1688', 's1688', 'hmma', 'i8816', '16816',
+                         'dgrad_1x1_stride_2x2', 'first_layer_wgrad_kernel', 'conv1x1',
+                         'conv2d_c1_k1', 'direct_group', 'xmma_implicit_gemm',
+                         'xmma_sparse_conv', 'xmma_warp_specialized_implicit_gemm',
+                         'xmma_gemm', 'xmma_sparse_gemm', 'c1688']
+
+            def __contains__(self, item):
+                for pattern in self.whitelist:
+                    if pattern in item:
+                        return True
+                return False
+
+        class TC_OP_Whitelist:
+            whitelist = ["_convolution", "_convolution_nogroup", "conv1d", "conv2d", "conv3d", "conv_tbc",
+                         "conv_transpose1d", "conv_transpose2d", "conv_transpose3d", "convolution",
+                         "cudnn_convolution", "cudnn_convolution_transpose",
+                         "prelu", "addmm", "addmv", "addr", "matmul", "mm", "mv",
+                         "linear", "addbmm", "baddbmm", "bmm", "chain_matmul", "linalg_multi_dot",
+                         "_thnn_fused_lstm_cell", "_thnn_fused_gru_cell", "lstm_cell", "gru_cell",
+                         "rnn_tanh_cell", "rnn_relu_cell"]
+
+            def __contains__(self, item):
+                if not item.startswith("aten::"):
+                    return False
+                item = item[len("aten::"):]
+                return item in self.whitelist
+
+        def get_tensor_core_ops(kernel_list):
+            ops_set_in = set()
+            ops_set_out = set()
+            for k in kernel_list:
+                if k.name in TC_Whitelist():
+                    op = k.op_node
+                    while (op is not None) and (is_operator_node(op)):
+                        if op.name in TC_OP_Whitelist():
+                            ops_set_in.add(op.name)
+                        else:
+                            #if not ("backward" in op.name or "Backward" in op.name):
+                            ops_set_out.add(op.name)
+                        op = op.parent_node
+            print("In ops:")
+            for op in ops_set_in:
+                print(op)
+            print()
+            print("Out ops:")
+            for op in ops_set_out:
+                print(op)
+
+        get_tensor_core_ops(self.kernel_list)
+
+
