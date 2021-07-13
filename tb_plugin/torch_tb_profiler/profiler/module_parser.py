@@ -183,7 +183,7 @@ class ModuleParser:
                 op_name = "N/A" if kernel.op_node is None else kernel.op_node.name
                 key = "###".join((kernel.name, op_name,
                                   kernel.grid, kernel.block,
-                                  kernel.regs_per_thread, kernel.shared_memory))
+                                  str(kernel.regs_per_thread), str(kernel.shared_memory)))
                 if key not in name_op_to_agg:
                     name_op_to_agg[key] = KernelAggByNameOp()
                 agg = name_op_to_agg[key]
